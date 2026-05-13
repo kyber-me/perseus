@@ -17,7 +17,7 @@ from __future__ import annotations
 import pygame
 import numpy as np
 
-from perseus.automaton.hippocampal import HippocampalAutomaton
+from perseus.automaton.event_model_automaton import EventModelAutomaton, EventModelMode
 from perseus.automaton.grid import Automaton
 
 
@@ -49,7 +49,7 @@ class AutomatonVisualizer:
     CELL_SIZE = 44       # 16 * 44 = 704px height
 
     def __init__(self, width: int = 16, height: int = 16, density: float = 0.20) -> None:
-        self.ha = HippocampalAutomaton("default", width=width, height=height, density=density)
+        self.ha = EventModelAutomaton("default", width=width, height=height, density=density)
         self.automaton = self.ha.automaton
         self.cell_size = self.CELL_SIZE
         self.cols = width
@@ -110,7 +110,7 @@ class AutomatonVisualizer:
                 elif event.key == pygame.K_SPACE:
                     self.paused = not self.paused
                 elif event.key == pygame.K_r:
-                    self.ha = HippocampalAutomaton("default", width=self.cols, height=self.rows)
+                    self.ha = EventModelAutomaton("default", width=self.cols, height=self.rows)
                     self.automaton = self.ha.automaton
                     self.history = []
                     self.history_index = -1
@@ -185,6 +185,12 @@ class AutomatonVisualizer:
 
         status_col = (255, 100, 80) if self.paused else (100, 255, 140)
         label("PAUSED" if self.paused else "RUNNING", status_col)
+
+        mode = self.ha.mode
+        mode_text = "HIGH-RES" if mode == EventModelMode.HIGH_RES_ACTIVE else "PASSIVE"
+        mode_col  = (255, 200, 50) if mode == EventModelMode.HIGH_RES_ACTIVE else DIM_COLOR
+        small(mode_text, mode_col)
+
         small(f"Gen  {self.state.generation:>6}")
         small(f"FPS  {self.fps:>6}")
         small(f"Hist {self.history_index + 1}/{len(self.history)}", space=20)
