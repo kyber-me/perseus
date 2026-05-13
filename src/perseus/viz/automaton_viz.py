@@ -17,8 +17,9 @@ from __future__ import annotations
 import pygame
 import numpy as np
 
-from perseus.automaton.event_model_automaton import EventModelAutomaton, EventModelMode
+from perseus.automaton.event_model_automaton import EventModelMode
 from perseus.automaton.grid import Automaton
+from perseus.neocortex.neocortex import Neocortex
 
 
 # ── Palette ───────────────────────────────────────────────────────────────────
@@ -49,8 +50,10 @@ class AutomatonVisualizer:
     CELL_SIZE = 44       # 16 * 44 = 704px height
 
     def __init__(self, width: int = 16, height: int = 16, density: float = 0.20) -> None:
-        self.ha = EventModelAutomaton("default", width=width, height=height, density=density)
-        self.automaton = self.ha.automaton
+        self.neocortex = Neocortex()
+        self.schema    = self.neocortex.get_or_create("default")
+        self.ha        = self.schema.model          # EventModelAutomaton
+        self.automaton = self.ha.automaton           # Brian's Brain CA
         self.cell_size = self.CELL_SIZE
         self.cols = width
         self.rows = height
@@ -110,7 +113,9 @@ class AutomatonVisualizer:
                 elif event.key == pygame.K_SPACE:
                     self.paused = not self.paused
                 elif event.key == pygame.K_r:
-                    self.ha = EventModelAutomaton("default", width=self.cols, height=self.rows)
+                    self.neocortex = Neocortex()
+                    self.schema    = self.neocortex.get_or_create("default")
+                    self.ha        = self.schema.model
                     self.automaton = self.ha.automaton
                     self.history = []
                     self.history_index = -1
@@ -181,6 +186,7 @@ class AutomatonVisualizer:
             y += 22
 
         label("PERSEUS", TEXT_COLOR)
+        small(f"Schema: {self.schema.name}", DIM_COLOR, space=2)
         small("Automaton 16×16", DIM_COLOR, space=15)
 
         status_col = (255, 100, 80) if self.paused else (100, 255, 140)
