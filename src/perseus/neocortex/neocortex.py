@@ -11,17 +11,18 @@ Routing Algorithm (current — linear scan):
     3. If score(winner) >= τ(H)  → absorb into winner
        Else                      → spawn a new EventSchema
 
-Threshold τ(H)  —  Scarcity Semantics:
-  τ(H) = τ_min + (τ_max - τ_min) · (1 - H)^α
-  H    = system entropy (averaged across all schemas).
+Threshold τ(H)  —  Scarcity Semantics (sigmoid):
+  τ(H) = τ_min + (τ_max - τ_min) / (1 + exp(k · (H - center)))
+  H      = system entropy (averaged across all schemas).
+  center = inflection point of the curve (default 0.75).
+  k      = steepness (default 8 — fast rise around the center).
 
-  High H (virgin Neocortex, few schemas):
-    → τ ≈ τ_min  → permissive → weak correlations accepted as siblings.
-    Like a child who sees a balloon and thinks it can fly.
+  H=1.0  (virgin):  τ ≈ τ_min (0.45) — brief permissive phase
+  H=0.75 (growing): τ  =  0.60      — inflection, already rising
+  H=0.5  (semi):    τ ≈  0.75      — nearly strict
+  H=0.0  (mature):  τ ≈ τ_max (0.80) — fully strict
 
-  Low H (mature Neocortex, many schemas):
-    → τ ≈ τ_max  → strict → only strong trajectory matches are siblings.
-    Like an adult who discriminates finely between concepts.
+  The system learns quickly: permissiveness fades by H≈0.75.
 
 Future (search algorithm roadmap):
   - Ball Tree  : O(log N), works with custom metrics. Good entry point.
@@ -46,21 +47,25 @@ class Neocortex:
 
     Attributes
     ----------
-    tau_max : maximum similarity threshold (used when Neocortex is empty).
-    alpha   : controls how fast τ shrinks as entropy falls. Default 1.0 (linear).
+    tau_min        : permissive floor (when Neocortex is virgin).
+    tau_max        : strict ceiling (when Neocortex is fully mature).
+    sigmoid_center : entropy value where τ is exactly midway (default 0.75).
+    sigmoid_k      : steepness of the sigmoid — higher = faster rise (default 8).
     """
 
     def __init__(
         self,
         tau_min: float = 0.40,
         tau_max: float = 0.80,
-        alpha: float = 2.5,
+        sigmoid_center: float = 0.75,
+        sigmoid_k: float = 8.0,
     ) -> None:
         self._schemas: dict[str, EventSchema] = {}   # name → schema
         self._by_id:   dict[str, EventSchema] = {}   # schema_id → schema
-        self.tau_min = tau_min
-        self.tau_max = tau_max
-        self.alpha   = alpha
+        self.tau_min        = tau_min
+        self.tau_max        = tau_max
+        self.sigmoid_center = sigmoid_center
+        self.sigmoid_k      = sigmoid_k
 
     # ── Core routing ──────────────────────────────────────────────────────────
 
@@ -115,14 +120,18 @@ class Neocortex:
 
     @property
     def threshold(self) -> float:
-        """Current dynamic routing threshold τ(H) = tau_max · H^alpha."""
+        """Current dynamic routing threshold τ(H) via sigmoid."""
         return self._threshold()
 
     # ── Private helpers ───────────────────────────────────────────────────────
 
     def _threshold(self) -> float:
-        """τ(H) = τ_min + (τ_max - τ_min) · (1 - H)^α"""
-        return self.tau_min + (self.tau_max - self.tau_min) * ((1.0 - self.entropy) ** self.alpha)
+        """τ(H) = τ_min + (τ_max - τ_min) / (1 + exp(k · (H - center)))"""
+        import math
+        H = self.entropy
+        return self.tau_min + (self.tau_max - self.tau_min) / (
+            1.0 + math.exp(self.sigmoid_k * (H - self.sigmoid_center))
+        )
 
     def _find_best_schema(self, event: Event) -> tuple[EventSchema, float]:
         """
