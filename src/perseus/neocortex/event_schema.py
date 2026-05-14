@@ -1,59 +1,93 @@
 """
 Perseus — EventSchema
 
-A named region of the Neocortex that owns one EventModelAutomaton.
+A named region of the Neocortex that owns one EventModelAutomaton
+and accumulates Events to build an emergent conceptual description.
 
 In Event Segmentation Theory (EST), a Schema is the stable, long-term
-knowledge structure. This minimal implementation simply binds a name to
-its active Event Model, delegating all CA dynamics to it.
+knowledge structure. Here it is NOT pre-defined — it emerges bottom-up
+from the patterns of Events assigned to it.
 
-Seeds are accepted as opaque binary grids (16×16, ON/OFF) produced
-externally. The encoding pipeline (text → seed) is not implemented here.
+The schema's `concept` field starts empty and evolves over time as
+the LLM synthesises a description from the accumulated events.
 """
 
 from __future__ import annotations
 
+import uuid
+
 import numpy as np
 
 from perseus.automaton.event_model_automaton import EventModelAutomaton, EventModelMode
-from perseus.neocortex.point import Point
+from perseus.neocortex.event import Event
 
 
 class EventSchema:
     """
     A named Neocortex region bound to a single EventModelAutomaton.
-    Manages a catalogue of EventPoints.
+    Accumulates Events and maintains an emergent conceptual description.
 
     Attributes
     ----------
-    name   : semantic identifier for this schema region.
-    model  : the EventModelAutomaton that processes events for this schema.
-    points : list of EventPoint objects (long-term memory).
+    name     : semantic identifier (arbitrary, assigned at spawn time).
+    model    : the EventModelAutomaton — seeded by each incoming Event.
+    events   : ordered list of Events assigned to this schema.
+    concept  : evolving textual description, synthesised by the LLM.
+    centroid : mean of all event embeddings assigned so far.
+               Used for schema-level routing (Neocortex distance calculation).
     """
 
     def __init__(self, name: str, width: int = 16, height: int = 16) -> None:
-        self.name   = name
-        self.model  = EventModelAutomaton(schema=name, width=width, height=height)
-        self.points: list[Point] = []
+        self.schema_id: str       = str(uuid.uuid4())
+        self.name    = name
+        self.model   = EventModelAutomaton(schema=name, width=width, height=height)
+        self.events: list[Event] = []
+        self.concept: str        = ""
+        self.centroid: np.ndarray | None = None
 
-    # ── Delegation & Management ───────────────────────────────────────────────
+    # ── Core API ──────────────────────────────────────────────────────────────
 
-    def activate(self, text: str, embedding: np.ndarray) -> Point:
+    def absorb(self, event: Event) -> None:
         """
-        [PLACEHOLDER — will be replaced by Event-based activation in Subtarefa 3]
-        Creates a new Point and adds it to the catalogue.
+        Assign an Event to this schema.
+
+        - Tags the event with this schema's name.
+        - Seeds the automaton (High-Res Active mode).
+        - Updates the running centroid of event embeddings.
         """
-        point = Point(text=text, embedding=embedding)
-        self.points.append(point)
-        return point
+        event.schema_id   = self.schema_id
+        event.schema_name  = self.name
+        self.events.append(event)
+        self.model.activate(event.seed)
+        self._update_centroid(event.embedding)
 
     def rest(self) -> None:
-        """Return the model to PASSIVE_REFLEXIVE (resting) mode."""
+        """Return the automaton to PASSIVE_REFLEXIVE (resting) mode."""
         self.model.rest()
 
     def step(self):
         """Advance the automaton by one tick."""
         return self.model.step()
+
+    # ── Concept Evolution ─────────────────────────────────────────────────────
+
+    def update_concept(self, description: str) -> None:
+        """
+        Update the schema's concept description.
+        Called externally by the LLM pipeline after each new event is absorbed.
+        """
+        self.concept = description
+
+    # ── Centroid ──────────────────────────────────────────────────────────────
+
+    def _update_centroid(self, embedding: np.ndarray) -> None:
+        """Running mean of event embeddings (online update)."""
+        n = len(self.events)
+        if self.centroid is None:
+            self.centroid = embedding.copy().astype(np.float32)
+        else:
+            # Welford-style online mean
+            self.centroid += (embedding.astype(np.float32) - self.centroid) / n
 
     # ── Read-only pass-throughs ───────────────────────────────────────────────
 
@@ -70,9 +104,11 @@ class EventSchema:
         return self.model.occupancy
 
     def __repr__(self) -> str:
+        concept_preview = (self.concept[:40] + "…") if len(self.concept) > 40 else self.concept
         return (
-            f"EventSchema(name={self.name!r}, "
+            f"EventSchema(id={self.schema_id[:8]}…, "
+            f"name={self.name!r}, "
             f"mode={self.mode.name}, "
-            f"points={len(self.points)}, "
-            f"entropy={self.entropy:.3f})"
+            f"events={len(self.events)}, "
+            f"concept={concept_preview!r})"
         )

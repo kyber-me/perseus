@@ -48,6 +48,8 @@ class Event:
         seed: np.ndarray,
         neocortex_position: np.ndarray | None = None,
         schema_name: str | None = None,
+        resonance_threshold: float = 0.35,
+        time_window_ticks: int = 100,
     ) -> None:
         if not points:
             raise ValueError("An Event must have at least one constituent Point.")
@@ -59,8 +61,11 @@ class Event:
             np.asarray(neocortex_position, dtype=np.float32).copy()
             if neocortex_position is not None else None
         )
-        self.schema_name = schema_name
-        self.created_at  = time.time()
+        self.schema_id: str | None   = None   # set by EventSchema.absorb()
+        self.schema_name: str | None = schema_name
+        self.resonance_threshold     = resonance_threshold
+        self.time_window_ticks       = time_window_ticks
+        self.created_at = time.time()
 
         # Compute semantic trajectory from Point embeddings
         self.direction, self.magnitude = self._compute_trajectory()
@@ -129,9 +134,17 @@ class Event:
         return len(self.points)
 
     @property
+    def quorum(self) -> int:
+        """
+        Minimum number of constituent Points that must resonate
+        in PASSIVE_REFLEXIVE mode to surface this event as a memory.
+        """
+        return max(1, round(self.size * self.resonance_threshold))
+
+    @property
     def is_routed(self) -> bool:
         """True if this event has been assigned to a schema."""
-        return self.schema_name is not None
+        return self.schema_id is not None
 
     def __repr__(self) -> str:
         return (
