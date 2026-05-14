@@ -8,14 +8,20 @@ Routing Algorithm (current — linear scan):
   For each new Event E:
     1. Compute score(S_i) = max similarity(E, e_j) for all e_j in S_i.events
     2. winner = argmax score(S_i)
-    3. If score(winner) > τ(H)  → absorb into winner
-       Else                     → spawn a new EventSchema
+    3. If score(winner) >= τ(H)  → absorb into winner
+       Else                      → spawn a new EventSchema
 
-Threshold τ(H):
-  τ(H) = τ_max · H^α
-  H    = system entropy (1 - occupancy), averaged across all schemas.
-  High H (sparse Neocortex) → generous threshold (few schemas, absorb more).
-  Low  H (dense Neocortex)  → strict threshold (many schemas, discriminate more).
+Threshold τ(H)  —  Scarcity Semantics:
+  τ(H) = τ_min + (τ_max - τ_min) · (1 - H)^α
+  H    = system entropy (averaged across all schemas).
+
+  High H (virgin Neocortex, few schemas):
+    → τ ≈ τ_min  → permissive → weak correlations accepted as siblings.
+    Like a child who sees a balloon and thinks it can fly.
+
+  Low H (mature Neocortex, many schemas):
+    → τ ≈ τ_max  → strict → only strong trajectory matches are siblings.
+    Like an adult who discriminates finely between concepts.
 
 Future (search algorithm roadmap):
   - Ball Tree  : O(log N), works with custom metrics. Good entry point.
@@ -46,11 +52,13 @@ class Neocortex:
 
     def __init__(
         self,
-        tau_max: float = 0.75,
+        tau_min: float = 0.40,
+        tau_max: float = 0.80,
         alpha: float = 1.0,
     ) -> None:
         self._schemas: dict[str, EventSchema] = {}   # name → schema
         self._by_id:   dict[str, EventSchema] = {}   # schema_id → schema
+        self.tau_min = tau_min
         self.tau_max = tau_max
         self.alpha   = alpha
 
@@ -113,7 +121,8 @@ class Neocortex:
     # ── Private helpers ───────────────────────────────────────────────────────
 
     def _threshold(self) -> float:
-        return self.tau_max * (self.entropy ** self.alpha)
+        """τ(H) = τ_min + (τ_max - τ_min) · (1 - H)^α"""
+        return self.tau_min + (self.tau_max - self.tau_min) * ((1.0 - self.entropy) ** self.alpha)
 
     def _find_best_schema(self, event: Event) -> tuple[EventSchema, float]:
         """
