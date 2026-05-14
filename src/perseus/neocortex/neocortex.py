@@ -54,7 +54,7 @@ class Neocortex:
         self,
         tau_min: float = 0.40,
         tau_max: float = 0.80,
-        alpha: float = 1.0,
+        alpha: float = 2.5,
     ) -> None:
         self._schemas: dict[str, EventSchema] = {}   # name → schema
         self._by_id:   dict[str, EventSchema] = {}   # schema_id → schema
