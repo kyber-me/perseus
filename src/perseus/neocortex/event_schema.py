@@ -16,7 +16,7 @@ from __future__ import annotations
 import numpy as np
 
 from perseus.automaton.event_model_automaton import EventModelAutomaton, EventModelMode
-from perseus.neocortex.event_point import EventPoint
+from perseus.neocortex.point import Point
 
 
 class EventSchema:
@@ -34,21 +34,17 @@ class EventSchema:
     def __init__(self, name: str, width: int = 16, height: int = 16) -> None:
         self.name   = name
         self.model  = EventModelAutomaton(schema=name, width=width, height=height)
-        self.points: list[EventPoint] = []
+        self.points: list[Point] = []
 
     # ── Delegation & Management ───────────────────────────────────────────────
 
-    def activate(self, text: str, seed: np.ndarray) -> EventPoint:
+    def activate(self, text: str, embedding: np.ndarray) -> Point:
         """
-        Process an incoming event boundary.
-        Creates a new EventPoint, adds it to the catalogue, and seeds the model.
+        [PLACEHOLDER — will be replaced by Event-based activation in Subtarefa 3]
+        Creates a new Point and adds it to the catalogue.
         """
-        point = EventPoint(text=text, seed=seed)
+        point = Point(text=text, embedding=embedding)
         self.points.append(point)
-        
-        # Synchronize with the automaton's internal catalogue
-        self.model.activate(seed)
-        
         return point
 
     def rest(self) -> None:
