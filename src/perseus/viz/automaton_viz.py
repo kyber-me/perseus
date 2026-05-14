@@ -18,7 +18,7 @@ import pygame
 import numpy as np
 
 from perseus.automaton.event_model_automaton import EventModelMode
-from perseus.automaton.grid import Automaton
+from perseus.automaton.grid import Automaton, AutomatonState
 from perseus.neocortex.neocortex import Neocortex
 
 
@@ -124,6 +124,12 @@ class AutomatonVisualizer:
                     self.fps = min(60, self.fps + 1)
                 elif event.key == pygame.K_DOWN:
                     self.fps = max(1, self.fps - 1)
+                elif event.key == pygame.K_e:
+                    # Trigger a manual EventPoint registration (Demo)
+                    seed = self.automaton.grid.copy()
+                    text = f"Manual Event {len(self.schema.points) + 1}"
+                    self.schema.activate(text, seed)
+                    print(f"Registered: {text}")
                 elif event.key == pygame.K_RIGHT:
                     if self.history_index < len(self.history) - 1:
                         self.history_index += 1
