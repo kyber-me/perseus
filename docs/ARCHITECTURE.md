@@ -69,20 +69,30 @@ Resultado: número entre `0` (nada parecidos) e `1` (idênticos).
 **Parâmetro 2 — Limiar de roteamento (`τ`)** ← *o "threshold de irmão"*
 
 Define **a partir de qual similaridade** um evento é considerado "irmão" de um schema existente.
+A curva é uma **sigmoide** — não linear, biologicamente inspirada:
 
-$$\tau(H) = \tau_{max} \cdot H^{\alpha}$$
+$$\tau(H) = \tau_{min} + \frac{\tau_{max} - \tau_{min}}{1 + e^{\,k \cdot (H - \text{center})}}$$
 
-| Variável | Valor padrão | Significado |
+| Parâmetro | Valor padrão | Significado |
 |---|---|---|
-| `τ_max` | `0.75` | Limiar máximo (quando o Neocórtex está vazio) |
-| `H` | entropia média dos schemas | Maturidade do sistema (`1.0` = vazio, `0.0` = cheio) |
-| `α` | `1.0` | Velocidade do decaimento (linear por padrão) |
+| `τ_min` | `0.40` | Piso permissivo (sistema virgem) |
+| `τ_max` | `0.80` | Teto estrito (sistema maduro) |
+| `center` | `0.75` | Ponto de inflexão — onde τ = (τ_min + τ_max) / 2 |
+| `k` | `8.0` | Inclinação — quanto maior, mais abrupta a transição |
 
-**Na prática:**
-- Neocórtex vazio → `H ≈ 1.0` → `τ ≈ 0.75` → limiar alto, quase tudo forma novo schema.
-- Neocórtex maduro → `H ≈ 0.3` → `τ ≈ 0.22` → limiar baixo, novos eventos facilmente absorvidos.
+**Ciclo de vida do Neocórtex:**
 
-> ⚠️ Atenção: `τ` e o `α` da função `sim` são parâmetros **independentes** com nomes similares. O `α=0.5` da similaridade pondera trajetória vs. posição. O `α=1.0` do threshold controla a velocidade do decaimento.
+| H (entropia) | τ | Fase |
+|---|---|---|
+| 1.00 | 0.448 | Infância — aceita correlações fracas (a criança e o balão) |
+| 0.75 | 0.600 | Inflexão — aprendizado acelerado |
+| 0.50 | 0.752 | Quase adulto — já muito seletivo |
+| 0.25 | 0.793 | Praticamente blindado |
+| 0.00 | 0.799 | Maturidade plena |
+
+A janela permissiva dura apenas até **H ≈ 0.85**. Depois a curva sobe rapidamente — o sistema aprende rápido.
+
+> ⚠️ A `sim()` também usa um parâmetro interno `α=0.5` para ponderar trajetória vs. posição. Esse `α` é **independente** de `k` e `center` do threshold — não confundir.
 
 ---
 
@@ -94,6 +104,7 @@ $$\tau(H) = \tau_{max} \cdot H^{\alpha}$$
 
 - **O centroid** do schema é mantido para uso futuro em posicionamento 2D e pré-filtro de busca, **não** para roteamento.
 - **Roadmap de busca** (a estudar): Ball Tree → NSW/HNSW → LSH → IVF.
+
 
 
 ### Memória Episódica e Ressonância Passiva
