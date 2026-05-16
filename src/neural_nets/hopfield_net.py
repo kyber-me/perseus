@@ -33,13 +33,12 @@ class HopfieldNet:
             for c in r:
                 pattern_flatten.append(c)
         outer_mem_w = []
-        enum_flatten = enumerate(pattern_flatten)
 
         # For every neuron a inner_w is a list of weights associated with it's pairs.
         # The index of each corresponds to the position in the original flatten version of the neurons
-        for i, outer_n in enum_flatten:
+        for i, outer_n in enumerate(pattern_flatten):
             inner_mem_w = []
-            for j, inner_n in enum_flatten:
+            for j, inner_n in enumerate(pattern_flatten):
                 inner_mem_w.append(outer_n * inner_n) if i != j else inner_mem_w.append(0)
             
             outer_mem_w.append(inner_mem_w)
