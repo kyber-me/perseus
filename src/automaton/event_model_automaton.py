@@ -26,7 +26,7 @@ from enum import Enum, auto
 
 import numpy as np
 
-from perseus.automaton.grid import Automaton, AutomatonState
+from automaton.grid import Automaton, AutomatonState
 
 
 class EventModelMode(Enum):

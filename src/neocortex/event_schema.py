@@ -18,8 +18,8 @@ import uuid
 
 import numpy as np
 
-from perseus.automaton.event_model_automaton import EventModelAutomaton, EventModelMode
-from perseus.neocortex.event import Event
+from automaton.event_model_automaton import EventModelAutomaton, EventModelMode
+from neocortex.event import Event
 
 
 class EventSchema:

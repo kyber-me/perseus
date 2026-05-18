@@ -33,19 +33,24 @@ class SparseEncoder:
     def __init__(
         self,
         input_dim: int,
-        grid_size: int = 16,
+        grid_shape: int | tuple[int, ...] = (16, 16),
         density: float = 0.05,
         temperature: float = 1.0,
         seed: int = 42,
     ) -> None:
         self.input_dim   = input_dim
-        self.grid_size   = grid_size
         self.density     = density
         self.temperature = temperature
         self.seed        = seed
 
-        self._N   = grid_size * grid_size          # total cells in automaton grid
-        self._k   = max(1, int(self._N * density)) # active cells per seed
+        self.grid_shape: tuple[int, ...]
+        if isinstance(grid_shape, int):
+            self.grid_shape = (grid_shape, grid_shape)
+        else:
+            self.grid_shape = grid_shape
+
+        self._N   = int(np.prod(self.grid_shape))  # total cells in automaton/memory grid
+        self._k   = max(1, int(self._N * density)) # active cells per projection
         self._rng = np.random.default_rng(seed + 1)
 
         # Fixed Gaussian projection matrix: (input_dim, N)  ~ N(0, 1/D)
@@ -84,7 +89,7 @@ class SparseEncoder:
 
         grid = np.zeros(self._N, dtype=np.uint8)
         grid[flat_idx] = 1
-        return grid.reshape(self.grid_size, self.grid_size)
+        return grid.reshape(self.grid_shape)
 
     def encode_neocortex(self, embedding: np.ndarray) -> np.ndarray:
         """

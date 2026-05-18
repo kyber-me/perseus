@@ -37,8 +37,8 @@ import uuid
 
 import numpy as np
 
-from perseus.neocortex.event import Event
-from perseus.neocortex.event_schema import EventSchema
+from neocortex.event import Event
+from neocortex.event_schema import EventSchema
 
 
 class Neocortex:

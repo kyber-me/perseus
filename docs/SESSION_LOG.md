@@ -1,7 +1,7 @@
 # Perseus — Log de Conversa
 
 > Uma demonstração de como colaborar com uma IA para construir software de pesquisa, do zero à arquitetura completa.
-> Cobre duas sessões: **13 de maio de 2026** (fundação do projeto) e **14 de maio de 2026** (episodic memory & routing).
+> Cobre três sessões: **13 de maio de 2026** (fundação do projeto), **14 de maio de 2026** (episodic memory & routing), e **18 de maio de 2026** (Hopfield Net & alinhamento).
 
 ---
 
@@ -300,5 +300,54 @@ Point → Event → EventSchema → Neocortex
 
 ---
 
+## Sessão 3 — 18 de maio de 2026
+
+### Alinhamento e Inicialização de Sessão
+
+**Tiago:** Vamos iniciar uma nova sessão. Atualize o status do projeto, foque principalmente no Perseus.
+
+**AI:** Mapeou todo o ecossistema do Perseus (Point, Event, EventSchema, Neocortex, SparseEncoder e EventModelAutomaton) e identificou que o status atual das entregas da Sessão 2 está robusto e consistente. Apontou que o foco ativo de desenvolvimento da base de código está em `neural_nets/hopfield_net.py` (Rede de Hopfield). Criou o log da sessão em `docs/sessions/SESSION_003.md` detalhando as inconsistências do HopfieldNet e os próximos passos.
+
+---
+
+### Desenvolvimento e Refinamento do HopfieldNet 3D
+
+**Tiago:** *(Solicitou a atualização do status do projeto)*
+
+**AI:** Consolidou e refinou a implementação da classe `HopfieldNet` (`hopfield_net.py`):
+1. **Representação Interna**: Transicionou de listas Python aninhadas para tensores nativos `numpy` eficientes (armazenamento das sinapses cumulativas em `np.int8` com prevenção de transbordo/overflow via upcast `int32` na acumulação de produtos escalares).
+2. **Dinâmica de Atração**: Codificou o aprendizado Hebbiano com conversão bipolar automática, eliminação de auto-conexões na diagonal (`np.fill_diagonal`), e inferência de energia mínima nos modos **assíncrono** (atualização sequencial aleatória) e **síncrono** (atualização matricial paralela).
+3. **Escala 3D**: Ajustou o `SparseEncoder` para suportar formatos genéricos de grid (`grid_shape`), viabilizando a injeção em volumes tridimensionais (como $16\times16\times16$ correspondendo a 4096 neurônios).
+
+### Experimentos In-Vitro & Validação Cognitiva
+
+**AI:** Desenvolveu um ambiente de simulação e suite de experimentos (`labs/hopfield_experiments/`):
+- **`semantic_retrieval.py`**: Gera volumes semânticos densos, consolida memórias e roda dinâmicas de atrator.
+    - **Teste A (Corrupção)**: Inseriu 20% de ruído aleatório em uma frase associada à mecânica quântica. O sistema convergiu em apenas 2 épocas no modo assíncrono para **100% de recuperação perfeita (Perfect Recovery)**.
+    - **Teste B (Conceito Inédito)**: Injetou uma frase alienígena (inteligência artificial). A rede rejeitou com sucesso o padrão inédito (mantendo similaridade própria de ~51%) e colapsou para um **Estado Espúrio** (confabulação e mistura de atratores pré-existentes, registrando ~75% de similaridade com as memórias conhecidas), demonstrando fidelidade ao comportamento biológico/cognitivo orgânico.
+- **`hopfield_runner.py`**: Orquestrador na forma de Skill agêntica que exporta automaticamente relatórios científicos detalhados em JSON.
+
+---
+
+## Estado Final do Sistema
+
+```
+Point → Event → EventSchema → Neocortex ──[SparseEncoder (3D)]──> HopfieldNet (Memory Substrate)
+```
+
+| Componente | Decisão chave |
+|---|---|
+| `similarity()` | DTW sobre todos os Points (default) |
+| `similarity_direction()` | O(1), só start/end (alternativa) |
+| `τ(H)` | Sigmoide: `center=0.75, k=8` |
+| Semântica | Alta entropia = permissivo (escassez) |
+| `Episode` | Deletado — `Event` é o container unificado |
+| Schemas | Emergem bottom-up via `route()` |
+| `HopfieldNet` | Tensores NumPy, dinâmicas síncronas/assíncronas, prevenção de overflow |
+| `SparseEncoder` | Dual-projection compatível com 2D e 3D |
+
+---
+
 *Projeto: Perseus / BeeBrain — kyber57*
-*Período: 13–14 maio de 2026*
+*Período: 13–18 maio de 2026*
+

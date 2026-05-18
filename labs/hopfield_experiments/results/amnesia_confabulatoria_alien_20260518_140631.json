@@ -1,0 +1,42 @@
+{
+    "experiment_name": "Amnesia_Confabulatoria_Alien",
+    "timestamp": "2026-05-18T14:06:31.476616",
+    "description": "Testa a capacidade da rede de rejeitar frases totalmente inéditas. Avalia se ela colapsa em um Falso Positivo ou em um Estado Espúrio Misto.",
+    "parameters": {
+        "grid_shape": [
+            16,
+            16,
+            16
+        ],
+        "entropy_density": 0.5,
+        "noise_injected_percentage": 0.0
+    },
+    "learning_phase": {
+        "facts_learned": 3
+    },
+    "test_phase": {
+        "test_fact": "A inteligência artificial é baseada em redes neurais profundas.",
+        "is_novel_concept": true,
+        "final_similarity_to_itself_percentage": 50.93,
+        "similarities_to_learned_facts": [
+            {
+                "fact_id": 1,
+                "fact_text": "A rápida raposa marrom salta sobre o cão preguiçoso.",
+                "similarity_percentage": 48.78,
+                "status": "NOISE"
+            },
+            {
+                "fact_id": 2,
+                "fact_text": "A mecânica quântica descreve o universo em escalas subatômicas.",
+                "similarity_percentage": 100.0,
+                "status": "PERFECT_RECOVERY"
+            },
+            {
+                "fact_id": 3,
+                "fact_text": "Uma receita de bolo de chocolate exige farinha, açúcar e cacau.",
+                "similarity_percentage": 49.9,
+                "status": "NOISE"
+            }
+        ]
+    }
+}

@@ -19,7 +19,7 @@ import time
 
 import numpy as np
 
-from perseus.neocortex.point import Point
+from neocortex.point import Point
 
 
 # ── DTW helpers (module-level, used by Event.similarity) ─────────────────────

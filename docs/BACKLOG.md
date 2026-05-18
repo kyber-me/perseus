@@ -61,6 +61,10 @@
     - [ ] Adaptar visualizador existente para nova estrutura (Event, schema_id)
     - [ ] Mostrar trajetória DTW na visualização 2D
 
+- [ ] **Bitpacking na Matriz de Pesos (Hopfield)**:
+    - [ ] Binarização das sinapses unificadas pós-treino ($w_{ij} \in \{-1, 1\}$)
+    - [ ] Compactar a matriz unificada final de 16 MB para 2 MB usando `np.packbits` (redução de 8x para grids $16\times 16\times 16$)
+
 ---
 
 ## 🔴 Longo Prazo / Pesquisa

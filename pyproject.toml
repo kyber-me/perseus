@@ -17,7 +17,7 @@ dependencies = [
 dev = ["pytest>=8.0"]
 
 [project.scripts]
-perseus-viz = "perseus.viz.automaton_viz:main"
+perseus-viz = "viz.automaton_viz:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
