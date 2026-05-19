@@ -40,6 +40,9 @@
     - [ ] Implementar `resonance_check()` em `Event`: detectar co-ocorrência passiva de `quorum` Points nos autômatos em modo `PASSIVE_REFLEXIVE` dentro de `time_window_ticks`
     - [ ] Integrar ao loop principal de ticks do sistema
 
+- [ ] **Documentação & README**:
+    - [ ] Criar um `README.md` descritivo detalhando a nova camada de memória associativa inspirada no hipocampo (utilizando Redes de Hopfield 3D) e como ela se integra às projeções esparsas e ao Neocórtex.
+
 ---
 
 ## 🟡 Médio Prazo
