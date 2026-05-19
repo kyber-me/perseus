@@ -1,0 +1,120 @@
+{
+    "experiment_set": "depth_1_macro_events",
+    "readable_timestamp": "19 de Maio de 2026, 11:29:52",
+    "timestamp_iso": "2026-05-19T11:29:52.436100",
+    "interpretation": "Os eventos macro são suficientemente distintos para gerar matrizes esparsas únicas (overlap médio de 29.51%). O espaço semântico global dos eventos é mapeado com forte dispersão espacial, validando a capacidade de isolamento episódico.",
+    "parameters": {
+        "grid_shape": [
+            27,
+            27
+        ],
+        "density": 0.15,
+        "model_dimensions": 768
+    },
+    "metrics_summary": {
+        "average_cosine_similarity": 0.3218,
+        "average_sdr_overlap": 0.2951
+    },
+    "top_5_closest": [
+        {
+            "text_a": "A brilliant scientist studies the supermassive black hole at the center of the Andromeda galaxy.",
+            "text_b": "Quantum mechanics mathematically describes the universe at extremely small subatomic scales.",
+            "cosine_similarity": 0.4825,
+            "sdr_overlap": 0.3761
+        },
+        {
+            "text_a": "The small black cat sleeps peacefully on the living room sofa during the storm.",
+            "text_b": "Quantum mechanics mathematically describes the universe at extremely small subatomic scales.",
+            "cosine_similarity": 0.3577,
+            "sdr_overlap": 0.3486
+        },
+        {
+            "text_a": "The small black cat sleeps peacefully on the living room sofa during the storm.",
+            "text_b": "The quick brown fox jumps swiftly over the lazy dog in the open field.",
+            "cosine_similarity": 0.2948,
+            "sdr_overlap": 0.3028
+        },
+        {
+            "text_a": "The small black cat sleeps peacefully on the living room sofa during the storm.",
+            "text_b": "A brilliant scientist studies the supermassive black hole at the center of the Andromeda galaxy.",
+            "cosine_similarity": 0.2776,
+            "sdr_overlap": 0.2752
+        },
+        {
+            "text_a": "The quick brown fox jumps swiftly over the lazy dog in the open field.",
+            "text_b": "Quantum mechanics mathematically describes the universe at extremely small subatomic scales.",
+            "cosine_similarity": 0.2735,
+            "sdr_overlap": 0.2752
+        }
+    ],
+    "top_5_farthest": [
+        {
+            "text_a": "The quick brown fox jumps swiftly over the lazy dog in the open field.",
+            "text_b": "A brilliant scientist studies the supermassive black hole at the center of the Andromeda galaxy.",
+            "cosine_similarity": 0.2446,
+            "sdr_overlap": 0.1927
+        },
+        {
+            "text_a": "The quick brown fox jumps swiftly over the lazy dog in the open field.",
+            "text_b": "Quantum mechanics mathematically describes the universe at extremely small subatomic scales.",
+            "cosine_similarity": 0.2735,
+            "sdr_overlap": 0.2752
+        },
+        {
+            "text_a": "The small black cat sleeps peacefully on the living room sofa during the storm.",
+            "text_b": "A brilliant scientist studies the supermassive black hole at the center of the Andromeda galaxy.",
+            "cosine_similarity": 0.2776,
+            "sdr_overlap": 0.2752
+        },
+        {
+            "text_a": "The small black cat sleeps peacefully on the living room sofa during the storm.",
+            "text_b": "The quick brown fox jumps swiftly over the lazy dog in the open field.",
+            "cosine_similarity": 0.2948,
+            "sdr_overlap": 0.3028
+        },
+        {
+            "text_a": "The small black cat sleeps peacefully on the living room sofa during the storm.",
+            "text_b": "Quantum mechanics mathematically describes the universe at extremely small subatomic scales.",
+            "cosine_similarity": 0.3577,
+            "sdr_overlap": 0.3486
+        }
+    ],
+    "all_comparisons": [
+        {
+            "text_a": "The small black cat sleeps peacefully on the living room sofa during the storm.",
+            "text_b": "The quick brown fox jumps swiftly over the lazy dog in the open field.",
+            "cosine_similarity": 0.2948,
+            "sdr_overlap": 0.3028
+        },
+        {
+            "text_a": "The small black cat sleeps peacefully on the living room sofa during the storm.",
+            "text_b": "A brilliant scientist studies the supermassive black hole at the center of the Andromeda galaxy.",
+            "cosine_similarity": 0.2776,
+            "sdr_overlap": 0.2752
+        },
+        {
+            "text_a": "The small black cat sleeps peacefully on the living room sofa during the storm.",
+            "text_b": "Quantum mechanics mathematically describes the universe at extremely small subatomic scales.",
+            "cosine_similarity": 0.3577,
+            "sdr_overlap": 0.3486
+        },
+        {
+            "text_a": "The quick brown fox jumps swiftly over the lazy dog in the open field.",
+            "text_b": "A brilliant scientist studies the supermassive black hole at the center of the Andromeda galaxy.",
+            "cosine_similarity": 0.2446,
+            "sdr_overlap": 0.1927
+        },
+        {
+            "text_a": "The quick brown fox jumps swiftly over the lazy dog in the open field.",
+            "text_b": "Quantum mechanics mathematically describes the universe at extremely small subatomic scales.",
+            "cosine_similarity": 0.2735,
+            "sdr_overlap": 0.2752
+        },
+        {
+            "text_a": "A brilliant scientist studies the supermassive black hole at the center of the Andromeda galaxy.",
+            "text_b": "Quantum mechanics mathematically describes the universe at extremely small subatomic scales.",
+            "cosine_similarity": 0.4825,
+            "sdr_overlap": 0.3761
+        }
+    ]
+}

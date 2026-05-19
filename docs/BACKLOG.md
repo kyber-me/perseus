@@ -65,10 +65,16 @@
     - [ ] Binarização das sinapses unificadas pós-treino ($w_{ij} \in \{-1, 1\}$)
     - [ ] Compactar a matriz unificada final de 16 MB para 2 MB usando `np.packbits` (redução de 8x para grids $16\times 16\times 16$)
 
+- [ ] **Pesquisa de Embeddings e Isotropização**:
+    - [ ] Avaliar **Model Routing**: usar modelos distribuídos estáticos (ex: GloVe, fastText) para sintagmas atômicos isolados (que sofrem colapso de contexto) e Transformers (BGE) para macro-eventos.
+    - [ ] Avaliar estratégias de projeção de dimensionalidade mista no `SparseEncoder` caso o Roteamento de Modelos seja implementado.
+    - [ ] Testar normalização de pós-processamento (Isotropização / Mean Centering) para alongar o "Cone Semântico" e aumentar a variância das similaridades de Cosseno.
+
 ---
 
 ## 🔴 Longo Prazo / Pesquisa
 
+- [ ] **Regionalização do Neocórtex (Grids Heterogêneos)**: Avaliar a geração de SDRs de tamanhos diferentes (ex: 16x16 para conceitos, 27x27 para eventos macro). Isso exigiria criar sub-regiões hipocampais independentes para cada escala, simulando a especialização topológica das colunas corticais biológicas.
 - [ ] **Custo direcional no autômato**: diferenciar pesos de transição OFF→ON vs DYING→OFF
 - [ ] **Mecanismo de atração (bias espacial)**: campos de probabilidade para guiar o CA
 - [ ] **Modulação de temperatura**: integrar estado de atenção global ao roteamento

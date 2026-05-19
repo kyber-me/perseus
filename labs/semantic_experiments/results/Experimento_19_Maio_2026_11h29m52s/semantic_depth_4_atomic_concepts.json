@@ -1,0 +1,210 @@
+{
+    "experiment_set": "depth_4_atomic_concepts",
+    "readable_timestamp": "19 de Maio de 2026, 11:29:52",
+    "timestamp_iso": "2026-05-19T11:29:52.436100",
+    "interpretation": "Os conceitos atômicos apresentam uma sobreposição considerável (37.79%), sugerindo que a proximidade latente desses termos no espaço denso contínuo forçou a ativação de sub-regiões similares no espaço esparso.",
+    "parameters": {
+        "grid_shape": [
+            27,
+            27
+        ],
+        "density": 0.15,
+        "model_dimensions": 768
+    },
+    "metrics_summary": {
+        "average_cosine_similarity": 0.5325,
+        "average_sdr_overlap": 0.3779
+    },
+    "top_5_closest": [
+        {
+            "text_a": "scientist",
+            "text_b": "quantum",
+            "cosine_similarity": 0.5807,
+            "sdr_overlap": 0.4954
+        },
+        {
+            "text_a": "quantum",
+            "text_b": "black hole",
+            "cosine_similarity": 0.5685,
+            "sdr_overlap": 0.4862
+        },
+        {
+            "text_a": "quantum",
+            "text_b": "universe",
+            "cosine_similarity": 0.6444,
+            "sdr_overlap": 0.4679
+        },
+        {
+            "text_a": "cat",
+            "text_b": "fox",
+            "cosine_similarity": 0.61,
+            "sdr_overlap": 0.4404
+        },
+        {
+            "text_a": "cat",
+            "text_b": "black hole",
+            "cosine_similarity": 0.5258,
+            "sdr_overlap": 0.422
+        }
+    ],
+    "top_5_farthest": [
+        {
+            "text_a": "black hole",
+            "text_b": "storm",
+            "cosine_similarity": 0.458,
+            "sdr_overlap": 0.2844
+        },
+        {
+            "text_a": "fox",
+            "text_b": "black hole",
+            "cosine_similarity": 0.4517,
+            "sdr_overlap": 0.2936
+        },
+        {
+            "text_a": "quantum",
+            "text_b": "storm",
+            "cosine_similarity": 0.4509,
+            "sdr_overlap": 0.3028
+        },
+        {
+            "text_a": "scientist",
+            "text_b": "storm",
+            "cosine_similarity": 0.4981,
+            "sdr_overlap": 0.3119
+        },
+        {
+            "text_a": "fox",
+            "text_b": "quantum",
+            "cosine_similarity": 0.4168,
+            "sdr_overlap": 0.3119
+        }
+    ],
+    "all_comparisons": [
+        {
+            "text_a": "cat",
+            "text_b": "fox",
+            "cosine_similarity": 0.61,
+            "sdr_overlap": 0.4404
+        },
+        {
+            "text_a": "cat",
+            "text_b": "scientist",
+            "cosine_similarity": 0.5477,
+            "sdr_overlap": 0.3578
+        },
+        {
+            "text_a": "cat",
+            "text_b": "quantum",
+            "cosine_similarity": 0.5912,
+            "sdr_overlap": 0.3945
+        },
+        {
+            "text_a": "cat",
+            "text_b": "black hole",
+            "cosine_similarity": 0.5258,
+            "sdr_overlap": 0.422
+        },
+        {
+            "text_a": "cat",
+            "text_b": "universe",
+            "cosine_similarity": 0.6049,
+            "sdr_overlap": 0.4037
+        },
+        {
+            "text_a": "cat",
+            "text_b": "storm",
+            "cosine_similarity": 0.5796,
+            "sdr_overlap": 0.3578
+        },
+        {
+            "text_a": "fox",
+            "text_b": "scientist",
+            "cosine_similarity": 0.4728,
+            "sdr_overlap": 0.3761
+        },
+        {
+            "text_a": "fox",
+            "text_b": "quantum",
+            "cosine_similarity": 0.4168,
+            "sdr_overlap": 0.3119
+        },
+        {
+            "text_a": "fox",
+            "text_b": "black hole",
+            "cosine_similarity": 0.4517,
+            "sdr_overlap": 0.2936
+        },
+        {
+            "text_a": "fox",
+            "text_b": "universe",
+            "cosine_similarity": 0.482,
+            "sdr_overlap": 0.3394
+        },
+        {
+            "text_a": "fox",
+            "text_b": "storm",
+            "cosine_similarity": 0.5132,
+            "sdr_overlap": 0.3853
+        },
+        {
+            "text_a": "scientist",
+            "text_b": "quantum",
+            "cosine_similarity": 0.5807,
+            "sdr_overlap": 0.4954
+        },
+        {
+            "text_a": "scientist",
+            "text_b": "black hole",
+            "cosine_similarity": 0.499,
+            "sdr_overlap": 0.3945
+        },
+        {
+            "text_a": "scientist",
+            "text_b": "universe",
+            "cosine_similarity": 0.542,
+            "sdr_overlap": 0.3853
+        },
+        {
+            "text_a": "scientist",
+            "text_b": "storm",
+            "cosine_similarity": 0.4981,
+            "sdr_overlap": 0.3119
+        },
+        {
+            "text_a": "quantum",
+            "text_b": "black hole",
+            "cosine_similarity": 0.5685,
+            "sdr_overlap": 0.4862
+        },
+        {
+            "text_a": "quantum",
+            "text_b": "universe",
+            "cosine_similarity": 0.6444,
+            "sdr_overlap": 0.4679
+        },
+        {
+            "text_a": "quantum",
+            "text_b": "storm",
+            "cosine_similarity": 0.4509,
+            "sdr_overlap": 0.3028
+        },
+        {
+            "text_a": "black hole",
+            "text_b": "universe",
+            "cosine_similarity": 0.6031,
+            "sdr_overlap": 0.3853
+        },
+        {
+            "text_a": "black hole",
+            "text_b": "storm",
+            "cosine_similarity": 0.458,
+            "sdr_overlap": 0.2844
+        },
+        {
+            "text_a": "universe",
+            "text_b": "storm",
+            "cosine_similarity": 0.542,
+            "sdr_overlap": 0.3394
+        }
+    ]
+}

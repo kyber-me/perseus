@@ -1,0 +1,120 @@
+{
+    "experiment_set": "depth_3_entities",
+    "readable_timestamp": "19 de Maio de 2026, 11:29:52",
+    "timestamp_iso": "2026-05-19T11:29:52.436100",
+    "interpretation": "Em níveis intermediários de abstração semântica (sub-eventos e entidades), a similaridade contínua (Cosseno) de 48.17% resulta em uma sobreposição de memória esparsa (SDR) de 33.64%. O sistema exibe um comportamento balanceado entre generalização e distinção.",
+    "parameters": {
+        "grid_shape": [
+            27,
+            27
+        ],
+        "density": 0.15,
+        "model_dimensions": 768
+    },
+    "metrics_summary": {
+        "average_cosine_similarity": 0.4817,
+        "average_sdr_overlap": 0.3364
+    },
+    "top_5_closest": [
+        {
+            "text_a": "the small black cat",
+            "text_b": "the quick brown fox",
+            "cosine_similarity": 0.6252,
+            "sdr_overlap": 0.4404
+        },
+        {
+            "text_a": "a brilliant scientist",
+            "text_b": "quantum mechanics",
+            "cosine_similarity": 0.5499,
+            "sdr_overlap": 0.4128
+        },
+        {
+            "text_a": "the small black cat",
+            "text_b": "a brilliant scientist",
+            "cosine_similarity": 0.4446,
+            "sdr_overlap": 0.3486
+        },
+        {
+            "text_a": "the quick brown fox",
+            "text_b": "a brilliant scientist",
+            "cosine_similarity": 0.4559,
+            "sdr_overlap": 0.2936
+        },
+        {
+            "text_a": "the small black cat",
+            "text_b": "quantum mechanics",
+            "cosine_similarity": 0.4139,
+            "sdr_overlap": 0.2844
+        }
+    ],
+    "top_5_farthest": [
+        {
+            "text_a": "the quick brown fox",
+            "text_b": "quantum mechanics",
+            "cosine_similarity": 0.4009,
+            "sdr_overlap": 0.2385
+        },
+        {
+            "text_a": "the small black cat",
+            "text_b": "quantum mechanics",
+            "cosine_similarity": 0.4139,
+            "sdr_overlap": 0.2844
+        },
+        {
+            "text_a": "the quick brown fox",
+            "text_b": "a brilliant scientist",
+            "cosine_similarity": 0.4559,
+            "sdr_overlap": 0.2936
+        },
+        {
+            "text_a": "the small black cat",
+            "text_b": "a brilliant scientist",
+            "cosine_similarity": 0.4446,
+            "sdr_overlap": 0.3486
+        },
+        {
+            "text_a": "a brilliant scientist",
+            "text_b": "quantum mechanics",
+            "cosine_similarity": 0.5499,
+            "sdr_overlap": 0.4128
+        }
+    ],
+    "all_comparisons": [
+        {
+            "text_a": "the small black cat",
+            "text_b": "the quick brown fox",
+            "cosine_similarity": 0.6252,
+            "sdr_overlap": 0.4404
+        },
+        {
+            "text_a": "the small black cat",
+            "text_b": "a brilliant scientist",
+            "cosine_similarity": 0.4446,
+            "sdr_overlap": 0.3486
+        },
+        {
+            "text_a": "the small black cat",
+            "text_b": "quantum mechanics",
+            "cosine_similarity": 0.4139,
+            "sdr_overlap": 0.2844
+        },
+        {
+            "text_a": "the quick brown fox",
+            "text_b": "a brilliant scientist",
+            "cosine_similarity": 0.4559,
+            "sdr_overlap": 0.2936
+        },
+        {
+            "text_a": "the quick brown fox",
+            "text_b": "quantum mechanics",
+            "cosine_similarity": 0.4009,
+            "sdr_overlap": 0.2385
+        },
+        {
+            "text_a": "a brilliant scientist",
+            "text_b": "quantum mechanics",
+            "cosine_similarity": 0.5499,
+            "sdr_overlap": 0.4128
+        }
+    ]
+}

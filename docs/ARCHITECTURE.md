@@ -8,15 +8,20 @@ O Perseus é uma evolução do BeeBrain, focando em uma representação de memó
 
 ---
 
-## 3. Fluxo de Processamento (Pipeline)
+## 3. Fases do Pipeline de Memória (Fluxo de Processamento)
 
-### Passo 1: Entrada e Segmentação de Eventos (EST)
-- **Entrada**: Texto bruto do usuário.
-- **Processamento**: Em vez de chunking gramatical fixo, o sistema utiliza a **Teoria de Segmentação de Eventos (EST)**.
-- **Fronteiras de Eventos**: A LLM atua como o Lobo Frontal, identificando "fronteiras semânticas" que definem unidades autocontidas de significado.
-- **Excitação**: Cada fronteira de evento dispara um **Pico de Amostragem (High-Res)** no autômato correspondente.
+O processamento semântico do Perseus é estruturado em camadas (fases) claras, cada uma alinhada a uma mecânica biológica da memória (recuperação, criatividade, etc).
 
-### Passo 2: Recuperação Ativa via Event Models
+### Fase 1: Processamento e Segmentação de Eventos (EST / Lobo Frontal)
+- **Objetivo**: Processamento da entrada de texto para identificação das fronteiras de eventos e criação dos sintagmas.
+- **Mecânica**: Este processo é parametrizável para ajustar a granularidade do evento, podendo fatiar desde eventos macro inteiros até conceitos atômicos específicos.
+- **Processamento Atual**: Em vez de chunking gramatical fixo, o sistema utiliza a **Teoria de Segmentação de Eventos (EST)** executada inicialmente por uma LLM (que atua como o Lobo Frontal). Cada fronteira de evento dispara um **Pico de Amostragem (High-Res)** no autômato correspondente.
+
+### Fase 2: Geração de Embeddings Semânticos (`semantic_embedder`)
+- **Objetivo**: Vetorização matemática contínua.
+- **Mecânica**: O módulo `semantic_embedder` recebe um ou um conjunto de sintagmas gerados na Fase 1 e os converte em embeddings semânticos densos (ex: 768D). Estes vetores são a matéria-prima para a projeção espacial e esparsa nas próximas fases.
+
+### Passo 3: Recuperação Ativa via Event Models
 - O autômato instanciado funciona como um **Event Model** (representação dinâmica do evento atual).
 - **Heurística de Recuperação**:
     1. **Acima do Limiar**: Apenas estados com ressonância superior ao limiar dinâmico são recuperados.

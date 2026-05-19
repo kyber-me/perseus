@@ -1,0 +1,120 @@
+{
+    "experiment_set": "depth_2_sub_events",
+    "readable_timestamp": "19 de Maio de 2026, 11:29:52",
+    "timestamp_iso": "2026-05-19T11:29:52.436100",
+    "interpretation": "Em níveis intermediários de abstração semântica (sub-eventos e entidades), a similaridade contínua (Cosseno) de 41.69% resulta em uma sobreposição de memória esparsa (SDR) de 32.72%. O sistema exibe um comportamento balanceado entre generalização e distinção.",
+    "parameters": {
+        "grid_shape": [
+            27,
+            27
+        ],
+        "density": 0.15,
+        "model_dimensions": 768
+    },
+    "metrics_summary": {
+        "average_cosine_similarity": 0.4169,
+        "average_sdr_overlap": 0.3272
+    },
+    "top_5_closest": [
+        {
+            "text_a": "studies the supermassive black hole at the center",
+            "text_b": "mathematically describes the universe at subatomic scales",
+            "cosine_similarity": 0.53,
+            "sdr_overlap": 0.3853
+        },
+        {
+            "text_a": "sleeps peacefully on the living room sofa",
+            "text_b": "jumps swiftly over the lazy dog",
+            "cosine_similarity": 0.4818,
+            "sdr_overlap": 0.367
+        },
+        {
+            "text_a": "sleeps peacefully on the living room sofa",
+            "text_b": "mathematically describes the universe at subatomic scales",
+            "cosine_similarity": 0.3868,
+            "sdr_overlap": 0.3486
+        },
+        {
+            "text_a": "sleeps peacefully on the living room sofa",
+            "text_b": "studies the supermassive black hole at the center",
+            "cosine_similarity": 0.3943,
+            "sdr_overlap": 0.2936
+        },
+        {
+            "text_a": "jumps swiftly over the lazy dog",
+            "text_b": "mathematically describes the universe at subatomic scales",
+            "cosine_similarity": 0.3368,
+            "sdr_overlap": 0.2936
+        }
+    ],
+    "top_5_farthest": [
+        {
+            "text_a": "jumps swiftly over the lazy dog",
+            "text_b": "studies the supermassive black hole at the center",
+            "cosine_similarity": 0.3717,
+            "sdr_overlap": 0.2752
+        },
+        {
+            "text_a": "jumps swiftly over the lazy dog",
+            "text_b": "mathematically describes the universe at subatomic scales",
+            "cosine_similarity": 0.3368,
+            "sdr_overlap": 0.2936
+        },
+        {
+            "text_a": "sleeps peacefully on the living room sofa",
+            "text_b": "studies the supermassive black hole at the center",
+            "cosine_similarity": 0.3943,
+            "sdr_overlap": 0.2936
+        },
+        {
+            "text_a": "sleeps peacefully on the living room sofa",
+            "text_b": "mathematically describes the universe at subatomic scales",
+            "cosine_similarity": 0.3868,
+            "sdr_overlap": 0.3486
+        },
+        {
+            "text_a": "sleeps peacefully on the living room sofa",
+            "text_b": "jumps swiftly over the lazy dog",
+            "cosine_similarity": 0.4818,
+            "sdr_overlap": 0.367
+        }
+    ],
+    "all_comparisons": [
+        {
+            "text_a": "sleeps peacefully on the living room sofa",
+            "text_b": "jumps swiftly over the lazy dog",
+            "cosine_similarity": 0.4818,
+            "sdr_overlap": 0.367
+        },
+        {
+            "text_a": "sleeps peacefully on the living room sofa",
+            "text_b": "studies the supermassive black hole at the center",
+            "cosine_similarity": 0.3943,
+            "sdr_overlap": 0.2936
+        },
+        {
+            "text_a": "sleeps peacefully on the living room sofa",
+            "text_b": "mathematically describes the universe at subatomic scales",
+            "cosine_similarity": 0.3868,
+            "sdr_overlap": 0.3486
+        },
+        {
+            "text_a": "jumps swiftly over the lazy dog",
+            "text_b": "studies the supermassive black hole at the center",
+            "cosine_similarity": 0.3717,
+            "sdr_overlap": 0.2752
+        },
+        {
+            "text_a": "jumps swiftly over the lazy dog",
+            "text_b": "mathematically describes the universe at subatomic scales",
+            "cosine_similarity": 0.3368,
+            "sdr_overlap": 0.2936
+        },
+        {
+            "text_a": "studies the supermassive black hole at the center",
+            "text_b": "mathematically describes the universe at subatomic scales",
+            "cosine_similarity": 0.53,
+            "sdr_overlap": 0.3853
+        }
+    ]
+}
