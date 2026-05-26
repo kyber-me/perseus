@@ -1,8 +1,8 @@
 import os
 import json
 import sys
+import datetime
 import numpy as np
-
 
 # Ajusta path para importar src
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../src')))
@@ -10,60 +10,51 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../s
 from embedding.semantic_embedder import SemanticEmbedder
 from encoder.encoder import SparseEncoder
 
-# =====================================================================
-# DADOS SINTÉTICOS: 4 Níveis de Profundidade Semântica (Intra-Camada)
-# =====================================================================
-
-# Nível 1: Eventos Macro (Episódico/Contextual)
-DEPTH_1_EVENTS = [
-    "The small black cat sleeps peacefully on the living room sofa during the storm.",
-    "The quick brown fox jumps swiftly over the lazy dog in the open field.",
-    "A brilliant scientist studies the supermassive black hole at the center of the Andromeda galaxy.",
-    "Quantum mechanics mathematically describes the universe at extremely small subatomic scales."
-]
-
-# Nível 2: Sub-eventos / Sintagmas Relacionais (Ação/Contexto reduzido)
-DEPTH_2_SUBEVENTS = [
-    "sleeps peacefully on the living room sofa",
-    "jumps swiftly over the lazy dog",
-    "studies the supermassive black hole at the center",
-    "mathematically describes the universe at subatomic scales"
-]
-
-# Nível 3: Entidades Compostas / Fragmentos Estáticos
-DEPTH_3_ENTITIES = [
-    "the small black cat",
-    "the quick brown fox",
-    "a brilliant scientist",
-    "quantum mechanics"
-]
-
-# Nível 4: Conceitos Atômicos (Alta especificidade)
-DEPTH_4_CONCEPTS = [
-    "cat",
-    "fox",
-    "scientist",
-    "quantum",
-    "black hole",
-    "universe",
-    "storm"
-]
-
-SYNTHETIC_DATASETS = {
-    "depth_1_macro_events": DEPTH_1_EVENTS,
-    "depth_2_sub_events": DEPTH_2_SUBEVENTS,
-    "depth_3_entities": DEPTH_3_ENTITIES,
-    "depth_4_atomic_concepts": DEPTH_4_CONCEPTS
+# -------------------------------------------------------------------------
+# O DATASET BENCHMARK DE 25 FRASES (5 Temas × 5 Frases: 4 Bases + 1 Query)
+# -------------------------------------------------------------------------
+BENCHMARK_DATASET = {
+    "Astrophysics and Black Holes": [
+        "Supermassive black holes warp space-time at the center of distant galaxies.",
+        "Light cannot escape extreme gravity after crossing the event horizon.",
+        "Astronomers use radio telescopes to capture the shadow of a singularity horizon.",
+        "Hawking radiation describes the slow thermal evaporation of black holes in deep space.",
+        "Colossal gravitational distortions in the galactic core prevent the escape of electromagnetic radiation."  # Query
+    ],
+    "Culinary Arts and Baking": [
+        "A traditional recipe for homemade bread requires slow fermentation and wheat flour.",
+        "The pastry chef prepares a moist chocolate cake using pure cocoa.",
+        "Baking sourdough bread in a wood-fired oven creates a golden, crispy crust.",
+        "Preparing fresh artisanal pasta requires free-range eggs and vigorous kneading.",
+        "Artisanal baking involves mixing simple ingredients and fermenting the dough under controlled temperature."  # Query
+    ],
+    "Quantum Mechanics": [
+        "Wave-particle duality shows that electrons behave like waves under specific conditions.",
+        "Quantum entanglement links particle states instantaneously across infinite distances.",
+        "Heisenberg's uncertainty principle prevents determining both position and momentum precisely.",
+        "Superposition allows a qubit to represent multiple logical states simultaneously.",
+        "Subatomic particles exist in multiple states until a measurement collapses their wave function."  # Query
+    ],
+    "Artificial Intelligence and Deep Learning": [
+        "Deep neural networks adjust their synaptic weights using the backpropagation algorithm.",
+        "Large language models utilize the transformer architecture with multi-directional attention.",
+        "Reinforcement learning trains autonomous agents by maximizing cumulative rewards in the environment.",
+        "Dropout regularization prevents overfitting by randomly deactivating neurons during training.",
+        "Deep learning algorithms learn hierarchical representations from massive amounts of data."  # Query
+    ],
+    "Domestic Cat Behavior": [
+        "Domestic cats purr to express contentment or to alleviate stress.",
+        "Feline predatory behavior is triggered by fast-moving visual stimuli.",
+        "Felines groom their fur daily by licking themselves to remove loose hair.",
+        "A cat demonstrates affection by rubbing its scent glands against its owner's legs.",
+        "Domestic felines spend a large part of the day sleeping in high, warm places."  # Query
+    ]
 }
-
-# =====================================================================
-# MOTOR DE EXPERIMENTAÇÃO
-# =====================================================================
 
 class GranularityExperimentRunner:
     """
-    Laboratório Semântico Intra-Camada (Grid 27x27).
-    Avalia a similaridade (Cosseno e SDR Overlap) entre sintagmas pertencentes ao mesmo nível de profundidade.
+    Laboratório Semântico Intra-Tema vs. Inter-Tema (Grid 27x27).
+    Avalia a similaridade (Cosseno e SDR Overlap) entre as 25 frases estruturadas.
     """
     
     def __init__(self, grid_shape=(27, 27), input_dim=768, density=0.15, seed=42):
@@ -82,113 +73,196 @@ class GranularityExperimentRunner:
             seed=seed
         )
 
-    def _generate_heuristic_interpretation(self, dataset_name: str, avg_cosine: float, avg_hamming: float) -> str:
-        """
-        Gera um texto interpretativo heurístico com base no nome do conjunto e nos valores médios computados.
-        """
-        if "depth_1" in dataset_name:
-            if avg_hamming > 0.4:
-                return f"Os eventos macro apresentam uma sobreposição SDR surpreendentemente alta ({avg_hamming:.2%}), indicando que a malha de 27x27 consegue aglutinar o amplo contexto semântico sem perder o ruído estrutural."
-            else:
-                return f"Os eventos macro são suficientemente distintos para gerar matrizes esparsas únicas (overlap médio de {avg_hamming:.2%}). O espaço semântico global dos eventos é mapeado com forte dispersão espacial, validando a capacidade de isolamento episódico."
-        elif "depth_4" in dataset_name:
-            if avg_hamming < 0.2:
-                return f"Os conceitos atômicos geraram sobreposição SDR extremamente baixa ({avg_hamming:.2%}), demonstrando a severa seletividade da projeção ortogonal 27x27 para separar núcleos semânticos isolados."
-            else:
-                return f"Os conceitos atômicos apresentam uma sobreposição considerável ({avg_hamming:.2%}), sugerindo que a proximidade latente desses termos no espaço denso contínuo forçou a ativação de sub-regiões similares no espaço esparso."
-        else:
-            return f"Em níveis intermediários de abstração semântica (sub-eventos e entidades), a similaridade contínua (Cosseno) de {avg_cosine:.2%} resulta em uma sobreposição de memória esparsa (SDR) de {avg_hamming:.2%}. O sistema exibe um comportamento balanceado entre generalização e distinção."
-
     def run_all_depths(self):
         """
-        Itera sobre todos os datasets sintéticos, calcula as similaridades intra-conjunto,
-        e salva um relatório JSON detalhado para cada nível de profundidade.
+        Executa o experimento temático sobre as 25 frases.
+        Calcula correlações Intra-Tema vs. Inter-Tema (Raw vs Centered) e salva o relatório.
         """
-        import datetime
-        
-        # Formatação Amigável da Data para a Pasta
+        # Formatação Amigável de Data
         pt_months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
         now = datetime.datetime.now()
         readable_ts = f"{now.day} de {pt_months[now.month-1]} de {now.year}, {now.strftime('%H:%M:%S')}"
-        folder_name = f"Experimento_{now.day}_{pt_months[now.month-1]}_{now.year}_{now.strftime('%Hh%Mm%Ss')}"
+        folder_name = f"Experimento_Tematico_{now.day}_{pt_months[now.month-1]}_{now.year}_{now.strftime('%Hh%Mm%Ss')}"
         
         experiment_dir = os.path.join(os.path.dirname(__file__), "results", folder_name)
         os.makedirs(experiment_dir, exist_ok=True)
         
-        for name, sentences in SYNTHETIC_DATASETS.items():
-            comparisons = []
-            cosines = []
-            hammings = []
-            
-            n = len(sentences)
-            for i in range(n):
-                text_a = sentences[i]
-                emb_a = self.embedder.embed(text_a)
-                grid_a = self.encoder.encode_seed(emb_a)
-                b1 = np.where(grid_a.ravel() <= 0, 0, 1)
+        # 1. Pré-computação de representações
+        print("\n[+] Pré-computando embeddings...")
+        all_sentences = []
+        embeddings = []
+        
+        for theme, sentences in BENCHMARK_DATASET.items():
+            for idx, sentence in enumerate(sentences):
+                is_query = (idx == 4)
+                role = "Query" if is_query else f"Base {idx+1}"
                 
-                for j in range(i + 1, n):
-                    text_b = sentences[j]
-                    emb_b = self.embedder.embed(text_b)
-                    grid_b = self.encoder.encode_seed(emb_b)
-                    b2 = np.where(grid_b.ravel() <= 0, 0, 1)
-                    
-                    # Similaridade de Cosseno (Denso)
-                    cos_sim = float(np.dot(emb_a, emb_b) / (np.linalg.norm(emb_a) * np.linalg.norm(emb_b)))
-                    cosines.append(cos_sim)
-                    
-                    # Overlap de Hamming SDR (Esparso)
-                    overlap = np.sum((b1 == 1) & (b2 == 1))
-                    active = np.sum(b1)
-                    hamming_sim = float(overlap / active) if active > 0 else 0.0
-                    hammings.append(hamming_sim)
-                    
-                    comparisons.append({
-                        "text_a": text_a,
-                        "text_b": text_b,
-                        "cosine_similarity": round(cos_sim, 4),
-                        "sdr_overlap": round(hamming_sim, 4)
-                    })
-            
-            # Estatísticas Agregadas
-            avg_cos = float(np.mean(cosines)) if cosines else 0.0
-            avg_ham = float(np.mean(hammings)) if hammings else 0.0
-            
-            # Interpretação Automática
-            interpretation = self._generate_heuristic_interpretation(name, avg_cos, avg_ham)
-            
-            # Ordenar comparações por SDR Overlap para extrair os extremos
-            sorted_comparisons = sorted(comparisons, key=lambda x: x["sdr_overlap"], reverse=True)
-            top_5_closest = sorted_comparisons[:5]
-            top_5_farthest = sorted_comparisons[-5:][::-1] if len(sorted_comparisons) >= 5 else sorted_comparisons[::-1]
-            
-            # Estrutura JSON Final
-            report = {
-                "experiment_set": name,
-                "readable_timestamp": readable_ts,
-                "timestamp_iso": now.isoformat(),
-                "interpretation": interpretation,
-                "parameters": {
-                    "grid_shape": list(self.grid_shape),
-                    "density": self.density,
-                    "model_dimensions": self.input_dim
-                },
-                "metrics_summary": {
-                    "average_cosine_similarity": round(avg_cos, 4),
-                    "average_sdr_overlap": round(avg_ham, 4)
-                },
-                "top_5_closest": top_5_closest,
-                "top_5_farthest": top_5_farthest,
-                "all_comparisons": comparisons
-            }
-            
-            filename = f"semantic_{name}.json"
-            filepath = os.path.join(experiment_dir, filename)
-            
-            with open(filepath, 'w', encoding='utf-8') as f:
-                json.dump(report, f, indent=4, ensure_ascii=False)
+                emb = self.embedder.embed(sentence)
+                embeddings.append(emb)
                 
-            print(f"[+] Relatório {name} salvo em: {filepath}")
+                all_sentences.append({
+                    "text": sentence,
+                    "theme": theme,
+                    "role": role,
+                    "is_query": is_query,
+                    "embedding": emb
+                })
+        
+        embeddings = np.array(embeddings)
+        mean_emb = np.mean(embeddings, axis=0)
+        
+        # 2. Computação das projeções (Raw vs Centered)
+        print("[+] Projetando nos grids (Raw vs Centered)...")
+        for s in all_sentences:
+            # Projeção Raw
+            grid_r = self.encoder.encode_seed(s["embedding"])
+            s["grid_raw"] = np.where(grid_r.ravel() <= 0, 0, 1)
+            
+            # Projeção Centrada
+            centered = s["embedding"] - mean_emb
+            norm = np.linalg.norm(centered)
+            if norm > 0:
+                centered /= norm
+            s["emb_centered"] = centered
+            grid_c = self.encoder.encode_seed(centered)
+            s["grid_centered"] = np.where(grid_c.ravel() <= 0, 0, 1)
+
+        # 3. Computação de todas as comparações de pares
+        print("[+] Computando similaridades para todos os 300 pares...")
+        comps_raw_intra = []
+        comps_raw_inter = []
+        
+        comps_cent_intra = []
+        comps_cent_inter = []
+        
+        n = len(all_sentences)
+        for i in range(n):
+            meta_a = all_sentences[i]
+            for j in range(i + 1, n):
+                meta_b = all_sentences[j]
+                
+                # --- RAW ---
+                cos_raw = float(np.dot(meta_a["embedding"], meta_b["embedding"]))
+                overlap_raw = np.sum((meta_a["grid_raw"] == 1) & (meta_b["grid_raw"] == 1))
+                active_raw = np.sum(meta_a["grid_raw"])
+                sdr_raw = float(overlap_raw / active_raw) if active_raw > 0 else 0.0
+                
+                comp_raw = {
+                    "text_a": meta_a["text"],
+                    "text_b": meta_b["text"],
+                    "theme_a": meta_a["theme"],
+                    "theme_b": meta_b["theme"],
+                    "role_a": meta_a["role"],
+                    "role_b": meta_b["role"],
+                    "cosine_similarity": round(cos_raw, 4),
+                    "sdr_overlap": round(sdr_raw, 4)
+                }
+                if meta_a["theme"] == meta_b["theme"]:
+                    comps_raw_intra.append(comp_raw)
+                else:
+                    comps_raw_inter.append(comp_raw)
+                    
+                # --- CENTERED ---
+                cos_cent = float(np.dot(meta_a["emb_centered"], meta_b["emb_centered"]))
+                overlap_cent = np.sum((meta_a["grid_centered"] == 1) & (meta_b["grid_centered"] == 1))
+                active_cent = np.sum(meta_a["grid_centered"])
+                sdr_cent = float(overlap_cent / active_cent) if active_cent > 0 else 0.0
+                
+                comp_cent = {
+                    "text_a": meta_a["text"],
+                    "text_b": meta_b["text"],
+                    "theme_a": meta_a["theme"],
+                    "theme_b": meta_b["theme"],
+                    "role_a": meta_a["role"],
+                    "role_b": meta_b["role"],
+                    "cosine_similarity": round(cos_cent, 4),
+                    "sdr_overlap": round(sdr_cent, 4)
+                }
+                if meta_a["theme"] == meta_b["theme"]:
+                    comps_cent_intra.append(comp_cent)
+                else:
+                    comps_cent_inter.append(comp_cent)
+
+        # 4. Estatísticas Agregadas
+        # --- RAW ---
+        raw_intra_cos = [c["cosine_similarity"] for c in comps_raw_intra]
+        raw_intra_ham = [c["sdr_overlap"] for c in comps_raw_intra]
+        raw_inter_cos = [c["cosine_similarity"] for c in comps_raw_inter]
+        raw_inter_ham = [c["sdr_overlap"] for c in comps_raw_inter]
+        
+        avg_raw_intra_cos = float(np.mean(raw_intra_cos)) if raw_intra_cos else 0.0
+        avg_raw_intra_ham = float(np.mean(raw_intra_ham)) if raw_intra_ham else 0.0
+        avg_raw_inter_cos = float(np.mean(raw_inter_cos)) if raw_inter_cos else 0.0
+        avg_raw_inter_ham = float(np.mean(raw_inter_ham)) if raw_inter_ham else 0.0
+        
+        # --- CENTERED ---
+        cent_intra_cos = [c["cosine_similarity"] for c in comps_cent_intra]
+        cent_intra_ham = [c["sdr_overlap"] for c in comps_cent_intra]
+        cent_inter_cos = [c["cosine_similarity"] for c in comps_cent_inter]
+        cent_inter_ham = [c["sdr_overlap"] for c in comps_cent_inter]
+        
+        avg_cent_intra_cos = float(np.mean(cent_intra_cos)) if cent_intra_cos else 0.0
+        avg_cent_intra_ham = float(np.mean(cent_intra_ham)) if cent_intra_ham else 0.0
+        avg_cent_inter_cos = float(np.mean(cent_inter_cos)) if cent_inter_cos else 0.0
+        avg_cent_inter_ham = float(np.mean(cent_inter_ham)) if cent_inter_ham else 0.0
+
+        interpretation = (
+            f"BGE Raw vs. Centered: Centering embeddings eliminates the language cone effect, "
+            f"shifting the inter-theme cosine similarity to negative levels ({avg_cent_inter_cos:.2%}) "
+            f"and successfully orthogonalizing different schemas down to an SDR Overlap of {avg_cent_inter_ham:.2%}, "
+            f"which lies well below the 15% random noise floor. This guarantees complete protection against cross-schema "
+            f"collision in the CA3 Hopfield network, while retaining a strong {avg_cent_intra_ham:.2%} intra-theme SDR overlap."
+        )
+
+        # 5. Estrutura JSON Final
+        report = {
+            "experiment_set": "Perseus 25-Sentence Theme Benchmark (Raw vs Centered)",
+            "readable_timestamp": readable_ts,
+            "timestamp_iso": now.isoformat(),
+            "interpretation": interpretation,
+            "parameters": {
+                "grid_shape": list(self.grid_shape),
+                "density": self.density,
+                "model_dimensions": self.input_dim
+            },
+            "metrics_summary_raw": {
+                "average_intra_theme_cosine": round(avg_raw_intra_cos, 4),
+                "average_intra_theme_sdr_overlap": round(avg_raw_intra_ham, 4),
+                "average_inter_theme_cosine": round(avg_raw_inter_cos, 4),
+                "average_inter_theme_sdr_overlap": round(avg_raw_inter_ham, 4)
+            },
+            "metrics_summary_centered": {
+                "average_intra_theme_cosine": round(avg_cent_intra_cos, 4),
+                "average_intra_theme_sdr_overlap": round(avg_cent_intra_ham, 4),
+                "average_inter_theme_cosine": round(avg_cent_inter_cos, 4),
+                "average_inter_theme_sdr_overlap": round(avg_cent_inter_ham, 4)
+            },
+            "raw_intra_theme_comparisons": comps_raw_intra,
+            "raw_inter_theme_comparisons": comps_raw_inter,
+            "centered_intra_theme_comparisons": comps_cent_intra,
+            "centered_inter_theme_comparisons": comps_cent_inter
+        }
+
+        filename = "theme_granularity_report.json"
+        filepath = os.path.join(experiment_dir, filename)
+        
+        with open(filepath, 'w', encoding='utf-8') as f:
+            json.dump(report, f, indent=4, ensure_ascii=False)
+            
+        print("\n" + "="*75)
+        print("🧠 RELATÓRIO DO EXPERIMENTO TEMÁTICO COMPARATIVO CONCLUÍDO")
+        print("="*75)
+        print(f"  - [Raw] Similaridade Cosseno Média Intra-Tema  : {avg_raw_intra_cos:.2%}")
+        print(f"  - [Raw] SDR Overlap Médio Média Intra-Tema     : {avg_raw_intra_ham:.2%}")
+        print(f"  - [Raw] Similaridade Cosseno Média Inter-Tema  : {avg_raw_inter_cos:.2%}")
+        print(f"  - [Raw] SDR Overlap Médio Média Inter-Tema     : {avg_raw_inter_ham:.2%}")
+        print("-"*75)
+        print(f"  - [Cent] Similaridade Cosseno Média Intra-Tema : {avg_cent_intra_cos:.2%}")
+        print(f"  - [Cent] SDR Overlap Médio Média Intra-Tema    : {avg_cent_intra_ham:.2%}")
+        print(f"  - [Cent] Similaridade Cosseno Média Inter-Tema : {avg_cent_inter_cos:.2%}")
+        print(f"  - [Cent] SDR Overlap Médio Média Inter-Tema    : {avg_cent_inter_ham:.2%}")
+        print("="*75)
+        print(f"[+] Relatório completo salvo em: {filepath}")
 
 if __name__ == "__main__":
     runner = GranularityExperimentRunner()

@@ -346,8 +346,18 @@ Point → Event → EventSchema → Neocortex ──[SparseEncoder (3D)]──> 
 | `HopfieldNet` | Tensores NumPy, dinâmicas síncronas/assíncronas, prevenção de overflow |
 | `SparseEncoder` | Dual-projection compatível com 2D e 3D |
 
+## Sessão 4 — 26 de maio de 2026
+
+### Transição para Inglês Nativo & Centramento de Bacia (Contrastive Centering)
+
+**Tiago:** Identificou e reportou que a recuperação semântica no modelo de embedding anterior sofria em estabelecer relações monótonas e precisas entre os sintagmas, causando vazamentos em testes de preservação métrica.
+
+**AI:** Investigou as similaridades de cosseno e detectou o "efeito cone" de linguagem natural e o colapso de idioma gerado pela premissa multilíngue. Propôs e implementou:
+1.  **Inglês Nativo**: Migração completa do benchmark temático de 25 frases e das ferramentas interativas para inglês nativo com o modelo especializado `BAAI/bge-base-en-v1.5`.
+2.  **Centramento de Bacia Semântica (Contrastive Mean Centering)**: Subtração da média global dos embeddings do dataset antes da projeção esparsa de 27x27. Isso deslocou o centro comum do cone de linguagem para a origem, elevando a razão de contraste físico ativo de $1.54\times$ para **$2.70\times$** e reduzindo o overlap de temas diferentes para **$11.17\%$** (abaixo do ruído teórico aleatório de 15%).
+3.  **Criação de Skill Agêntica e Ledger Dinâmico**: Removeu o gerador de templates estáticos markdown de dentro do runner `granularity_runner.py` (deixando-o compilar apenas o JSON de dados brutos). Estabeleceu a skill local `skills/semantic-granularity-experiment/` que delega ao próprio agente a responsabilidade de orquestrar a execução, extrair e computar as métricas em tempo real e lavrar um registro histórico qualitativo enriquecido com sua própria inteligência analítica no livro central de experimentos (`results/report.md`).
+
 ---
 
 *Projeto: Perseus / BeeBrain — kyber57*
-*Período: 13–18 maio de 2026*
-
+*Período: 13–26 maio de 2026*

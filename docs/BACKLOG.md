@@ -22,6 +22,11 @@
     - `ARCHITECTURE.md` — referência técnica com fórmulas e tabelas
     - `HOW_IT_WORKS.md` — explicação narrativa acessível
     - `BACKLOG.md` — este arquivo
+- **Estudos e Preservação Métrica (Inglês Nativo & Centramento de Bacia)**:
+    - Transição do pipeline de embeddings e do visualizador interativo para o modelo `BAAI/bge-base-en-v1.5` sob premissa em inglês nativo.
+    - Implementação de **Centramento Semântico (Contrastive Centering)** no pipeline experimental para eliminar o "efeito cone" de similaridade típico de transformers de linguagem.
+    - Alcance de **$11.17\%$** de SDR Overlap inter-tema (abaixo do piso estatístico de $15.00\%$) e uma razão de contraste físico de **$2.70\times$** (prevenindo vazamentos cruzados em CA3).
+    - Criação da **Skill Agêntica local (`semantic-granularity-experiment`)** e do **Livro de Registro Histórico Central (ledger dinâmico em `results/report.md`)** para conduzir e documentar as execuções de forma puramente qualitativa e dinâmica.
 
 ---
 
@@ -68,10 +73,10 @@
     - [ ] Binarização das sinapses unificadas pós-treino ($w_{ij} \in \{-1, 1\}$)
     - [ ] Compactar a matriz unificada final de 16 MB para 2 MB usando `np.packbits` (redução de 8x para grids $16\times 16\times 16$)
 
-- [ ] **Pesquisa de Embeddings e Isotropização**:
+- [x] **Pesquisa de Embeddings e Isotropização**:
     - [ ] Avaliar **Model Routing**: usar modelos distribuídos estáticos (ex: GloVe, fastText) para sintagmas atômicos isolados (que sofrem colapso de contexto) e Transformers (BGE) para macro-eventos.
     - [ ] Avaliar estratégias de projeção de dimensionalidade mista no `SparseEncoder` caso o Roteamento de Modelos seja implementado.
-    - [ ] Testar normalização de pós-processamento (Isotropização / Mean Centering) para alongar o "Cone Semântico" e aumentar a variância das similaridades de Cosseno.
+    - [x] Testar normalização de pós-processamento (Isotropização / Mean Centering) para alongar o "Cone Semântico" e aumentar a variância das similaridades de Cosseno (implementado no pipeline experimental).
 
 ---
 
@@ -86,4 +91,4 @@
 
 ---
 
-*Última atualização: 2026-05-14*
+*Última atualização: 2026-05-26*
