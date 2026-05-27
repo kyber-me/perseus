@@ -1,0 +1,3128 @@
+{
+    "experiment_set": "Perseus 25-Sentence Theme Benchmark",
+    "readable_timestamp": "26 de Maio de 2026, 19:57:05",
+    "timestamp_iso": "2026-05-26T19:57:05.211437",
+    "interpretation": "O sistema de projeção 27x27 (729 células) demonstra excelente separação topológica. As frases pertencentes ao mesmo tema (Intra-Tema) registram uma similaridade densa média de 48.59% que é convertida em um SDR Overlap médio de 37.74%. Em contrapartida, frases de temas distintos (Inter-Tema) marcam uma similaridade de cosseno baixa (10.55%) que é comprimida pelo Giro Dentado/SparseEncoder para um SDR Overlap virtualmente nulo (19.16%), garantindo proteção absoluta contra alucinações e vazamentos cruzados em CA3.",
+    "parameters": {
+        "grid_shape": [
+            27,
+            27
+        ],
+        "density": 0.15,
+        "model_dimensions": 768
+    },
+    "metrics_summary": {
+        "average_intra_theme_cosine": 0.4859,
+        "average_intra_theme_sdr_overlap": 0.3774,
+        "average_inter_theme_cosine": 0.1055,
+        "average_inter_theme_sdr_overlap": 0.1916
+    },
+    "top_5_closest": [
+        {
+            "text_a": "Uma receita tradicional de pão caseiro exige fermentação lenta e farinha de trigo.",
+            "text_b": "A panificação artesanal envolve misturar ingredientes simples e fermentar a massa sob calor controlado.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Culinária e Panificação",
+            "role_a": "Base 1",
+            "role_b": "Query",
+            "cosine_similarity": 0.7519,
+            "sdr_overlap": 0.5872
+        },
+        {
+            "text_a": "Assar pães em forno aquecido a lenha cria uma casca dourada e crocante.",
+            "text_b": "A panificação artesanal envolve misturar ingredientes simples e fermentar a massa sob calor controlado.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Culinária e Panificação",
+            "role_a": "Base 3",
+            "role_b": "Query",
+            "cosine_similarity": 0.7179,
+            "sdr_overlap": 0.5872
+        },
+        {
+            "text_a": "Uma receita tradicional de pão caseiro exige fermentação lenta e farinha de trigo.",
+            "text_b": "Assar pães em forno aquecido a lenha cria uma casca dourada e crocante.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Culinária e Panificação",
+            "role_a": "Base 1",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.7105,
+            "sdr_overlap": 0.5413
+        },
+        {
+            "text_a": "A luz não consegue escapar da gravidade extrema após cruzar o horizonte de eventos.",
+            "text_b": "Colossais distorções gravitacionais no núcleo galáctico impedem a fuga da radiação luminosa.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Astrofísica e Buracos Negros",
+            "role_a": "Base 2",
+            "role_b": "Query",
+            "cosine_similarity": 0.7121,
+            "sdr_overlap": 0.5321
+        },
+        {
+            "text_a": "Buracos negros supermassivos curvam o espaço-tempo no centro de galáxias distantes.",
+            "text_b": "A radiação Hawking descreve a evaporação térmica lenta de buracos negros no espaço profundo.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Astrofísica e Buracos Negros",
+            "role_a": "Base 1",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.6553,
+            "sdr_overlap": 0.5138
+        }
+    ],
+    "top_5_farthest": [
+        {
+            "text_a": "A dualidade onda-partícula mostra que elétrons se comportam como ondas sob certas condições.",
+            "text_b": "Algoritmos de deep learning aprendem representações hierárquicas a partir de grandes volumes de dados.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 1",
+            "role_b": "Query",
+            "cosine_similarity": -0.0611,
+            "sdr_overlap": 0.0734
+        },
+        {
+            "text_a": "O chefe de cozinha prepara um bolo de chocolate úmido com cacau puro.",
+            "text_b": "Animais felinos domésticos passam grande parte do dia dormindo em locais altos e aquecidos.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 2",
+            "role_b": "Query",
+            "cosine_similarity": 0.0104,
+            "sdr_overlap": 0.0826
+        },
+        {
+            "text_a": "Astrônomos usam telescópios de rádio para capturar a sombra de um horizonte de singularidade.",
+            "text_b": "O aprendizado por reforço treina agentes autônomos maximizando recompensas cumulativas no ambiente.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 3",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.0401,
+            "sdr_overlap": 0.0917
+        },
+        {
+            "text_a": "Uma receita tradicional de pão caseiro exige fermentação lenta e farinha de trigo.",
+            "text_b": "O aprendizado por reforço treina agentes autônomos maximizando recompensas cumulativas no ambiente.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 1",
+            "role_b": "Base 3",
+            "cosine_similarity": -0.016,
+            "sdr_overlap": 0.1009
+        },
+        {
+            "text_a": "A radiação Hawking descreve a evaporação térmica lenta de buracos negros no espaço profundo.",
+            "text_b": "Modelos de linguagem de larga escala utilizam a arquitetura transformer com atenção multidirecional.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 4",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.0284,
+            "sdr_overlap": 0.1009
+        }
+    ],
+    "intra_theme_comparisons": [
+        {
+            "text_a": "Buracos negros supermassivos curvam o espaço-tempo no centro de galáxias distantes.",
+            "text_b": "A luz não consegue escapar da gravidade extrema após cruzar o horizonte de eventos.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Astrofísica e Buracos Negros",
+            "role_a": "Base 1",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.562,
+            "sdr_overlap": 0.3761
+        },
+        {
+            "text_a": "Buracos negros supermassivos curvam o espaço-tempo no centro de galáxias distantes.",
+            "text_b": "Astrônomos usam telescópios de rádio para capturar a sombra de um horizonte de singularidade.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Astrofísica e Buracos Negros",
+            "role_a": "Base 1",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.5964,
+            "sdr_overlap": 0.4404
+        },
+        {
+            "text_a": "Buracos negros supermassivos curvam o espaço-tempo no centro de galáxias distantes.",
+            "text_b": "A radiação Hawking descreve a evaporação térmica lenta de buracos negros no espaço profundo.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Astrofísica e Buracos Negros",
+            "role_a": "Base 1",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.6553,
+            "sdr_overlap": 0.5138
+        },
+        {
+            "text_a": "Buracos negros supermassivos curvam o espaço-tempo no centro de galáxias distantes.",
+            "text_b": "Colossais distorções gravitacionais no núcleo galáctico impedem a fuga da radiação luminosa.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Astrofísica e Buracos Negros",
+            "role_a": "Base 1",
+            "role_b": "Query",
+            "cosine_similarity": 0.6966,
+            "sdr_overlap": 0.4587
+        },
+        {
+            "text_a": "A luz não consegue escapar da gravidade extrema após cruzar o horizonte de eventos.",
+            "text_b": "Astrônomos usam telescópios de rádio para capturar a sombra de um horizonte de singularidade.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Astrofísica e Buracos Negros",
+            "role_a": "Base 2",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.5377,
+            "sdr_overlap": 0.3945
+        },
+        {
+            "text_a": "A luz não consegue escapar da gravidade extrema após cruzar o horizonte de eventos.",
+            "text_b": "A radiação Hawking descreve a evaporação térmica lenta de buracos negros no espaço profundo.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Astrofísica e Buracos Negros",
+            "role_a": "Base 2",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.4445,
+            "sdr_overlap": 0.3486
+        },
+        {
+            "text_a": "A luz não consegue escapar da gravidade extrema após cruzar o horizonte de eventos.",
+            "text_b": "Colossais distorções gravitacionais no núcleo galáctico impedem a fuga da radiação luminosa.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Astrofísica e Buracos Negros",
+            "role_a": "Base 2",
+            "role_b": "Query",
+            "cosine_similarity": 0.7121,
+            "sdr_overlap": 0.5321
+        },
+        {
+            "text_a": "Astrônomos usam telescópios de rádio para capturar a sombra de um horizonte de singularidade.",
+            "text_b": "A radiação Hawking descreve a evaporação térmica lenta de buracos negros no espaço profundo.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Astrofísica e Buracos Negros",
+            "role_a": "Base 3",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.5364,
+            "sdr_overlap": 0.3853
+        },
+        {
+            "text_a": "Astrônomos usam telescópios de rádio para capturar a sombra de um horizonte de singularidade.",
+            "text_b": "Colossais distorções gravitacionais no núcleo galáctico impedem a fuga da radiação luminosa.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Astrofísica e Buracos Negros",
+            "role_a": "Base 3",
+            "role_b": "Query",
+            "cosine_similarity": 0.6079,
+            "sdr_overlap": 0.4679
+        },
+        {
+            "text_a": "A radiação Hawking descreve a evaporação térmica lenta de buracos negros no espaço profundo.",
+            "text_b": "Colossais distorções gravitacionais no núcleo galáctico impedem a fuga da radiação luminosa.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Astrofísica e Buracos Negros",
+            "role_a": "Base 4",
+            "role_b": "Query",
+            "cosine_similarity": 0.6087,
+            "sdr_overlap": 0.4128
+        },
+        {
+            "text_a": "Uma receita tradicional de pão caseiro exige fermentação lenta e farinha de trigo.",
+            "text_b": "O chefe de cozinha prepara um bolo de chocolate úmido com cacau puro.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Culinária e Panificação",
+            "role_a": "Base 1",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.3839,
+            "sdr_overlap": 0.2844
+        },
+        {
+            "text_a": "Uma receita tradicional de pão caseiro exige fermentação lenta e farinha de trigo.",
+            "text_b": "Assar pães em forno aquecido a lenha cria uma casca dourada e crocante.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Culinária e Panificação",
+            "role_a": "Base 1",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.7105,
+            "sdr_overlap": 0.5413
+        },
+        {
+            "text_a": "Uma receita tradicional de pão caseiro exige fermentação lenta e farinha de trigo.",
+            "text_b": "O preparo de massas frescas artesanais requer ovos caipiras e sova vigorosa.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Culinária e Panificação",
+            "role_a": "Base 1",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.5418,
+            "sdr_overlap": 0.4037
+        },
+        {
+            "text_a": "Uma receita tradicional de pão caseiro exige fermentação lenta e farinha de trigo.",
+            "text_b": "A panificação artesanal envolve misturar ingredientes simples e fermentar a massa sob calor controlado.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Culinária e Panificação",
+            "role_a": "Base 1",
+            "role_b": "Query",
+            "cosine_similarity": 0.7519,
+            "sdr_overlap": 0.5872
+        },
+        {
+            "text_a": "O chefe de cozinha prepara um bolo de chocolate úmido com cacau puro.",
+            "text_b": "Assar pães em forno aquecido a lenha cria uma casca dourada e crocante.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Culinária e Panificação",
+            "role_a": "Base 2",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.4896,
+            "sdr_overlap": 0.4404
+        },
+        {
+            "text_a": "O chefe de cozinha prepara um bolo de chocolate úmido com cacau puro.",
+            "text_b": "O preparo de massas frescas artesanais requer ovos caipiras e sova vigorosa.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Culinária e Panificação",
+            "role_a": "Base 2",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.4508,
+            "sdr_overlap": 0.3945
+        },
+        {
+            "text_a": "O chefe de cozinha prepara um bolo de chocolate úmido com cacau puro.",
+            "text_b": "A panificação artesanal envolve misturar ingredientes simples e fermentar a massa sob calor controlado.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Culinária e Panificação",
+            "role_a": "Base 2",
+            "role_b": "Query",
+            "cosine_similarity": 0.5392,
+            "sdr_overlap": 0.422
+        },
+        {
+            "text_a": "Assar pães em forno aquecido a lenha cria uma casca dourada e crocante.",
+            "text_b": "O preparo de massas frescas artesanais requer ovos caipiras e sova vigorosa.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Culinária e Panificação",
+            "role_a": "Base 3",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.5856,
+            "sdr_overlap": 0.422
+        },
+        {
+            "text_a": "Assar pães em forno aquecido a lenha cria uma casca dourada e crocante.",
+            "text_b": "A panificação artesanal envolve misturar ingredientes simples e fermentar a massa sob calor controlado.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Culinária e Panificação",
+            "role_a": "Base 3",
+            "role_b": "Query",
+            "cosine_similarity": 0.7179,
+            "sdr_overlap": 0.5872
+        },
+        {
+            "text_a": "O preparo de massas frescas artesanais requer ovos caipiras e sova vigorosa.",
+            "text_b": "A panificação artesanal envolve misturar ingredientes simples e fermentar a massa sob calor controlado.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Culinária e Panificação",
+            "role_a": "Base 4",
+            "role_b": "Query",
+            "cosine_similarity": 0.5923,
+            "sdr_overlap": 0.4862
+        },
+        {
+            "text_a": "A dualidade onda-partícula mostra que elétrons se comportam como ondas sob certas condições.",
+            "text_b": "O emaranhamento quântico conecta estados de partículas instantaneamente a distâncias infinitas.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Base 1",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.4635,
+            "sdr_overlap": 0.3394
+        },
+        {
+            "text_a": "A dualidade onda-partícula mostra que elétrons se comportam como ondas sob certas condições.",
+            "text_b": "O princípio da incerteza de Heisenberg impede determinar a posição e momento de forma precisa.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Base 1",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.2943,
+            "sdr_overlap": 0.2661
+        },
+        {
+            "text_a": "A dualidade onda-partícula mostra que elétrons se comportam como ondas sob certas condições.",
+            "text_b": "A superposição permite que um qubit represente múltiplos estados lógicos simultaneamente.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Base 1",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.4618,
+            "sdr_overlap": 0.3578
+        },
+        {
+            "text_a": "A dualidade onda-partícula mostra que elétrons se comportam como ondas sob certas condições.",
+            "text_b": "Partículas subatômicas existem em múltiplos estados até que uma medição colapse sua função de onda.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Base 1",
+            "role_b": "Query",
+            "cosine_similarity": 0.6528,
+            "sdr_overlap": 0.4771
+        },
+        {
+            "text_a": "O emaranhamento quântico conecta estados de partículas instantaneamente a distâncias infinitas.",
+            "text_b": "O princípio da incerteza de Heisenberg impede determinar a posição e momento de forma precisa.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Base 2",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.3318,
+            "sdr_overlap": 0.3028
+        },
+        {
+            "text_a": "O emaranhamento quântico conecta estados de partículas instantaneamente a distâncias infinitas.",
+            "text_b": "A superposição permite que um qubit represente múltiplos estados lógicos simultaneamente.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Base 2",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.5143,
+            "sdr_overlap": 0.3945
+        },
+        {
+            "text_a": "O emaranhamento quântico conecta estados de partículas instantaneamente a distâncias infinitas.",
+            "text_b": "Partículas subatômicas existem em múltiplos estados até que uma medição colapse sua função de onda.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Base 2",
+            "role_b": "Query",
+            "cosine_similarity": 0.5336,
+            "sdr_overlap": 0.4404
+        },
+        {
+            "text_a": "O princípio da incerteza de Heisenberg impede determinar a posição e momento de forma precisa.",
+            "text_b": "A superposição permite que um qubit represente múltiplos estados lógicos simultaneamente.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Base 3",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.2198,
+            "sdr_overlap": 0.2661
+        },
+        {
+            "text_a": "O princípio da incerteza de Heisenberg impede determinar a posição e momento de forma precisa.",
+            "text_b": "Partículas subatômicas existem em múltiplos estados até que uma medição colapse sua função de onda.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Base 3",
+            "role_b": "Query",
+            "cosine_similarity": 0.2973,
+            "sdr_overlap": 0.2936
+        },
+        {
+            "text_a": "A superposição permite que um qubit represente múltiplos estados lógicos simultaneamente.",
+            "text_b": "Partículas subatômicas existem em múltiplos estados até que uma medição colapse sua função de onda.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Base 4",
+            "role_b": "Query",
+            "cosine_similarity": 0.4637,
+            "sdr_overlap": 0.3394
+        },
+        {
+            "text_a": "Redes neurais profundas ajustam seus pesos sinápticos através do algoritmo de retropropagação.",
+            "text_b": "Modelos de linguagem de larga escala utilizam a arquitetura transformer com atenção multidirecional.",
+            "theme_a": "Inteligência Artificial e Deep Learning",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 1",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.4267,
+            "sdr_overlap": 0.3303
+        },
+        {
+            "text_a": "Redes neurais profundas ajustam seus pesos sinápticos através do algoritmo de retropropagação.",
+            "text_b": "O aprendizado por reforço treina agentes autônomos maximizando recompensas cumulativas no ambiente.",
+            "theme_a": "Inteligência Artificial e Deep Learning",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 1",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.4047,
+            "sdr_overlap": 0.4037
+        },
+        {
+            "text_a": "Redes neurais profundas ajustam seus pesos sinápticos através do algoritmo de retropropagação.",
+            "text_b": "A regularização por dropout previne o sobreajuste desligando neurônios aleatoriamente no treino.",
+            "theme_a": "Inteligência Artificial e Deep Learning",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 1",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.478,
+            "sdr_overlap": 0.422
+        },
+        {
+            "text_a": "Redes neurais profundas ajustam seus pesos sinápticos através do algoritmo de retropropagação.",
+            "text_b": "Algoritmos de deep learning aprendem representações hierárquicas a partir de grandes volumes de dados.",
+            "theme_a": "Inteligência Artificial e Deep Learning",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 1",
+            "role_b": "Query",
+            "cosine_similarity": 0.6001,
+            "sdr_overlap": 0.3945
+        },
+        {
+            "text_a": "Modelos de linguagem de larga escala utilizam a arquitetura transformer com atenção multidirecional.",
+            "text_b": "O aprendizado por reforço treina agentes autônomos maximizando recompensas cumulativas no ambiente.",
+            "theme_a": "Inteligência Artificial e Deep Learning",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 2",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.2553,
+            "sdr_overlap": 0.2385
+        },
+        {
+            "text_a": "Modelos de linguagem de larga escala utilizam a arquitetura transformer com atenção multidirecional.",
+            "text_b": "A regularização por dropout previne o sobreajuste desligando neurônios aleatoriamente no treino.",
+            "theme_a": "Inteligência Artificial e Deep Learning",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 2",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.1142,
+            "sdr_overlap": 0.1376
+        },
+        {
+            "text_a": "Modelos de linguagem de larga escala utilizam a arquitetura transformer com atenção multidirecional.",
+            "text_b": "Algoritmos de deep learning aprendem representações hierárquicas a partir de grandes volumes de dados.",
+            "theme_a": "Inteligência Artificial e Deep Learning",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 2",
+            "role_b": "Query",
+            "cosine_similarity": 0.4318,
+            "sdr_overlap": 0.2661
+        },
+        {
+            "text_a": "O aprendizado por reforço treina agentes autônomos maximizando recompensas cumulativas no ambiente.",
+            "text_b": "A regularização por dropout previne o sobreajuste desligando neurônios aleatoriamente no treino.",
+            "theme_a": "Inteligência Artificial e Deep Learning",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 3",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.5102,
+            "sdr_overlap": 0.4128
+        },
+        {
+            "text_a": "O aprendizado por reforço treina agentes autônomos maximizando recompensas cumulativas no ambiente.",
+            "text_b": "Algoritmos de deep learning aprendem representações hierárquicas a partir de grandes volumes de dados.",
+            "theme_a": "Inteligência Artificial e Deep Learning",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 3",
+            "role_b": "Query",
+            "cosine_similarity": 0.4013,
+            "sdr_overlap": 0.2936
+        },
+        {
+            "text_a": "A regularização por dropout previne o sobreajuste desligando neurônios aleatoriamente no treino.",
+            "text_b": "Algoritmos de deep learning aprendem representações hierárquicas a partir de grandes volumes de dados.",
+            "theme_a": "Inteligência Artificial e Deep Learning",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 4",
+            "role_b": "Query",
+            "cosine_similarity": 0.247,
+            "sdr_overlap": 0.2477
+        },
+        {
+            "text_a": "Gatos domésticos ronronam para expressar contentamento ou para aliviar o estresse.",
+            "text_b": "O comportamento caçador de felinos é ativado por estímulos visuais rápidos em movimento.",
+            "theme_a": "Comportamento de Gatos Domésticos",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 1",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.4835,
+            "sdr_overlap": 0.4128
+        },
+        {
+            "text_a": "Gatos domésticos ronronam para expressar contentamento ou para aliviar o estresse.",
+            "text_b": "Felinos limpam sua pelagem diariamente lambendo-se para remover pelos mortos.",
+            "theme_a": "Comportamento de Gatos Domésticos",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 1",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.483,
+            "sdr_overlap": 0.3211
+        },
+        {
+            "text_a": "Gatos domésticos ronronam para expressar contentamento ou para aliviar o estresse.",
+            "text_b": "Um gato demonstra afeto esfregando suas glândulas odoríferas nas pernas do tutor.",
+            "theme_a": "Comportamento de Gatos Domésticos",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 1",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.6203,
+            "sdr_overlap": 0.4587
+        },
+        {
+            "text_a": "Gatos domésticos ronronam para expressar contentamento ou para aliviar o estresse.",
+            "text_b": "Animais felinos domésticos passam grande parte do dia dormindo em locais altos e aquecidos.",
+            "theme_a": "Comportamento de Gatos Domésticos",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 1",
+            "role_b": "Query",
+            "cosine_similarity": 0.5578,
+            "sdr_overlap": 0.3761
+        },
+        {
+            "text_a": "O comportamento caçador de felinos é ativado por estímulos visuais rápidos em movimento.",
+            "text_b": "Felinos limpam sua pelagem diariamente lambendo-se para remover pelos mortos.",
+            "theme_a": "Comportamento de Gatos Domésticos",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 2",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.3881,
+            "sdr_overlap": 0.3211
+        },
+        {
+            "text_a": "O comportamento caçador de felinos é ativado por estímulos visuais rápidos em movimento.",
+            "text_b": "Um gato demonstra afeto esfregando suas glândulas odoríferas nas pernas do tutor.",
+            "theme_a": "Comportamento de Gatos Domésticos",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 2",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.4693,
+            "sdr_overlap": 0.3945
+        },
+        {
+            "text_a": "O comportamento caçador de felinos é ativado por estímulos visuais rápidos em movimento.",
+            "text_b": "Animais felinos domésticos passam grande parte do dia dormindo em locais altos e aquecidos.",
+            "theme_a": "Comportamento de Gatos Domésticos",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 2",
+            "role_b": "Query",
+            "cosine_similarity": 0.3115,
+            "sdr_overlap": 0.2661
+        },
+        {
+            "text_a": "Felinos limpam sua pelagem diariamente lambendo-se para remover pelos mortos.",
+            "text_b": "Um gato demonstra afeto esfregando suas glândulas odoríferas nas pernas do tutor.",
+            "theme_a": "Comportamento de Gatos Domésticos",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 3",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.4411,
+            "sdr_overlap": 0.2569
+        },
+        {
+            "text_a": "Felinos limpam sua pelagem diariamente lambendo-se para remover pelos mortos.",
+            "text_b": "Animais felinos domésticos passam grande parte do dia dormindo em locais altos e aquecidos.",
+            "theme_a": "Comportamento de Gatos Domésticos",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 3",
+            "role_b": "Query",
+            "cosine_similarity": 0.4143,
+            "sdr_overlap": 0.2844
+        },
+        {
+            "text_a": "Um gato demonstra afeto esfregando suas glândulas odoríferas nas pernas do tutor.",
+            "text_b": "Animais felinos domésticos passam grande parte do dia dormindo em locais altos e aquecidos.",
+            "theme_a": "Comportamento de Gatos Domésticos",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 4",
+            "role_b": "Query",
+            "cosine_similarity": 0.3016,
+            "sdr_overlap": 0.2569
+        }
+    ],
+    "inter_theme_comparisons": [
+        {
+            "text_a": "Buracos negros supermassivos curvam o espaço-tempo no centro de galáxias distantes.",
+            "text_b": "Uma receita tradicional de pão caseiro exige fermentação lenta e farinha de trigo.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Culinária e Panificação",
+            "role_a": "Base 1",
+            "role_b": "Base 1",
+            "cosine_similarity": 0.0609,
+            "sdr_overlap": 0.1284
+        },
+        {
+            "text_a": "Buracos negros supermassivos curvam o espaço-tempo no centro de galáxias distantes.",
+            "text_b": "O chefe de cozinha prepara um bolo de chocolate úmido com cacau puro.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Culinária e Panificação",
+            "role_a": "Base 1",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.1269,
+            "sdr_overlap": 0.2385
+        },
+        {
+            "text_a": "Buracos negros supermassivos curvam o espaço-tempo no centro de galáxias distantes.",
+            "text_b": "Assar pães em forno aquecido a lenha cria uma casca dourada e crocante.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Culinária e Panificação",
+            "role_a": "Base 1",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.1341,
+            "sdr_overlap": 0.2018
+        },
+        {
+            "text_a": "Buracos negros supermassivos curvam o espaço-tempo no centro de galáxias distantes.",
+            "text_b": "O preparo de massas frescas artesanais requer ovos caipiras e sova vigorosa.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Culinária e Panificação",
+            "role_a": "Base 1",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.0086,
+            "sdr_overlap": 0.1468
+        },
+        {
+            "text_a": "Buracos negros supermassivos curvam o espaço-tempo no centro de galáxias distantes.",
+            "text_b": "A panificação artesanal envolve misturar ingredientes simples e fermentar a massa sob calor controlado.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Culinária e Panificação",
+            "role_a": "Base 1",
+            "role_b": "Query",
+            "cosine_similarity": 0.0223,
+            "sdr_overlap": 0.1468
+        },
+        {
+            "text_a": "Buracos negros supermassivos curvam o espaço-tempo no centro de galáxias distantes.",
+            "text_b": "A dualidade onda-partícula mostra que elétrons se comportam como ondas sob certas condições.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Base 1",
+            "role_b": "Base 1",
+            "cosine_similarity": 0.2045,
+            "sdr_overlap": 0.2569
+        },
+        {
+            "text_a": "Buracos negros supermassivos curvam o espaço-tempo no centro de galáxias distantes.",
+            "text_b": "O emaranhamento quântico conecta estados de partículas instantaneamente a distâncias infinitas.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Base 1",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.3051,
+            "sdr_overlap": 0.2936
+        },
+        {
+            "text_a": "Buracos negros supermassivos curvam o espaço-tempo no centro de galáxias distantes.",
+            "text_b": "O princípio da incerteza de Heisenberg impede determinar a posição e momento de forma precisa.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Base 1",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.2149,
+            "sdr_overlap": 0.1927
+        },
+        {
+            "text_a": "Buracos negros supermassivos curvam o espaço-tempo no centro de galáxias distantes.",
+            "text_b": "A superposição permite que um qubit represente múltiplos estados lógicos simultaneamente.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Base 1",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.1485,
+            "sdr_overlap": 0.1927
+        },
+        {
+            "text_a": "Buracos negros supermassivos curvam o espaço-tempo no centro de galáxias distantes.",
+            "text_b": "Partículas subatômicas existem em múltiplos estados até que uma medição colapse sua função de onda.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Base 1",
+            "role_b": "Query",
+            "cosine_similarity": 0.3349,
+            "sdr_overlap": 0.3028
+        },
+        {
+            "text_a": "Buracos negros supermassivos curvam o espaço-tempo no centro de galáxias distantes.",
+            "text_b": "Redes neurais profundas ajustam seus pesos sinápticos através do algoritmo de retropropagação.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 1",
+            "role_b": "Base 1",
+            "cosine_similarity": 0.2032,
+            "sdr_overlap": 0.2477
+        },
+        {
+            "text_a": "Buracos negros supermassivos curvam o espaço-tempo no centro de galáxias distantes.",
+            "text_b": "Modelos de linguagem de larga escala utilizam a arquitetura transformer com atenção multidirecional.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 1",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.0492,
+            "sdr_overlap": 0.1468
+        },
+        {
+            "text_a": "Buracos negros supermassivos curvam o espaço-tempo no centro de galáxias distantes.",
+            "text_b": "O aprendizado por reforço treina agentes autônomos maximizando recompensas cumulativas no ambiente.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 1",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.0301,
+            "sdr_overlap": 0.156
+        },
+        {
+            "text_a": "Buracos negros supermassivos curvam o espaço-tempo no centro de galáxias distantes.",
+            "text_b": "A regularização por dropout previne o sobreajuste desligando neurônios aleatoriamente no treino.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 1",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.1159,
+            "sdr_overlap": 0.1743
+        },
+        {
+            "text_a": "Buracos negros supermassivos curvam o espaço-tempo no centro de galáxias distantes.",
+            "text_b": "Algoritmos de deep learning aprendem representações hierárquicas a partir de grandes volumes de dados.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 1",
+            "role_b": "Query",
+            "cosine_similarity": 0.1587,
+            "sdr_overlap": 0.2385
+        },
+        {
+            "text_a": "Buracos negros supermassivos curvam o espaço-tempo no centro de galáxias distantes.",
+            "text_b": "Gatos domésticos ronronam para expressar contentamento ou para aliviar o estresse.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 1",
+            "role_b": "Base 1",
+            "cosine_similarity": 0.0965,
+            "sdr_overlap": 0.2385
+        },
+        {
+            "text_a": "Buracos negros supermassivos curvam o espaço-tempo no centro de galáxias distantes.",
+            "text_b": "O comportamento caçador de felinos é ativado por estímulos visuais rápidos em movimento.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 1",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.1102,
+            "sdr_overlap": 0.211
+        },
+        {
+            "text_a": "Buracos negros supermassivos curvam o espaço-tempo no centro de galáxias distantes.",
+            "text_b": "Felinos limpam sua pelagem diariamente lambendo-se para remover pelos mortos.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 1",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.0375,
+            "sdr_overlap": 0.1468
+        },
+        {
+            "text_a": "Buracos negros supermassivos curvam o espaço-tempo no centro de galáxias distantes.",
+            "text_b": "Um gato demonstra afeto esfregando suas glândulas odoríferas nas pernas do tutor.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 1",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.076,
+            "sdr_overlap": 0.1835
+        },
+        {
+            "text_a": "Buracos negros supermassivos curvam o espaço-tempo no centro de galáxias distantes.",
+            "text_b": "Animais felinos domésticos passam grande parte do dia dormindo em locais altos e aquecidos.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 1",
+            "role_b": "Query",
+            "cosine_similarity": 0.136,
+            "sdr_overlap": 0.2294
+        },
+        {
+            "text_a": "A luz não consegue escapar da gravidade extrema após cruzar o horizonte de eventos.",
+            "text_b": "Uma receita tradicional de pão caseiro exige fermentação lenta e farinha de trigo.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Culinária e Panificação",
+            "role_a": "Base 2",
+            "role_b": "Base 1",
+            "cosine_similarity": 0.0591,
+            "sdr_overlap": 0.1101
+        },
+        {
+            "text_a": "A luz não consegue escapar da gravidade extrema após cruzar o horizonte de eventos.",
+            "text_b": "O chefe de cozinha prepara um bolo de chocolate úmido com cacau puro.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Culinária e Panificação",
+            "role_a": "Base 2",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.081,
+            "sdr_overlap": 0.211
+        },
+        {
+            "text_a": "A luz não consegue escapar da gravidade extrema após cruzar o horizonte de eventos.",
+            "text_b": "Assar pães em forno aquecido a lenha cria uma casca dourada e crocante.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Culinária e Panificação",
+            "role_a": "Base 2",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.0732,
+            "sdr_overlap": 0.1284
+        },
+        {
+            "text_a": "A luz não consegue escapar da gravidade extrema após cruzar o horizonte de eventos.",
+            "text_b": "O preparo de massas frescas artesanais requer ovos caipiras e sova vigorosa.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Culinária e Panificação",
+            "role_a": "Base 2",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.0074,
+            "sdr_overlap": 0.1468
+        },
+        {
+            "text_a": "A luz não consegue escapar da gravidade extrema após cruzar o horizonte de eventos.",
+            "text_b": "A panificação artesanal envolve misturar ingredientes simples e fermentar a massa sob calor controlado.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Culinária e Panificação",
+            "role_a": "Base 2",
+            "role_b": "Query",
+            "cosine_similarity": 0.0254,
+            "sdr_overlap": 0.1376
+        },
+        {
+            "text_a": "A luz não consegue escapar da gravidade extrema após cruzar o horizonte de eventos.",
+            "text_b": "A dualidade onda-partícula mostra que elétrons se comportam como ondas sob certas condições.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Base 2",
+            "role_b": "Base 1",
+            "cosine_similarity": 0.2201,
+            "sdr_overlap": 0.2385
+        },
+        {
+            "text_a": "A luz não consegue escapar da gravidade extrema após cruzar o horizonte de eventos.",
+            "text_b": "O emaranhamento quântico conecta estados de partículas instantaneamente a distâncias infinitas.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Base 2",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.3524,
+            "sdr_overlap": 0.2844
+        },
+        {
+            "text_a": "A luz não consegue escapar da gravidade extrema após cruzar o horizonte de eventos.",
+            "text_b": "O princípio da incerteza de Heisenberg impede determinar a posição e momento de forma precisa.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Base 2",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.3466,
+            "sdr_overlap": 0.2661
+        },
+        {
+            "text_a": "A luz não consegue escapar da gravidade extrema após cruzar o horizonte de eventos.",
+            "text_b": "A superposição permite que um qubit represente múltiplos estados lógicos simultaneamente.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Base 2",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.1442,
+            "sdr_overlap": 0.211
+        },
+        {
+            "text_a": "A luz não consegue escapar da gravidade extrema após cruzar o horizonte de eventos.",
+            "text_b": "Partículas subatômicas existem em múltiplos estados até que uma medição colapse sua função de onda.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Base 2",
+            "role_b": "Query",
+            "cosine_similarity": 0.3104,
+            "sdr_overlap": 0.2477
+        },
+        {
+            "text_a": "A luz não consegue escapar da gravidade extrema após cruzar o horizonte de eventos.",
+            "text_b": "Redes neurais profundas ajustam seus pesos sinápticos através do algoritmo de retropropagação.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 2",
+            "role_b": "Base 1",
+            "cosine_similarity": 0.1249,
+            "sdr_overlap": 0.2385
+        },
+        {
+            "text_a": "A luz não consegue escapar da gravidade extrema após cruzar o horizonte de eventos.",
+            "text_b": "Modelos de linguagem de larga escala utilizam a arquitetura transformer com atenção multidirecional.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 2",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.0036,
+            "sdr_overlap": 0.156
+        },
+        {
+            "text_a": "A luz não consegue escapar da gravidade extrema após cruzar o horizonte de eventos.",
+            "text_b": "O aprendizado por reforço treina agentes autônomos maximizando recompensas cumulativas no ambiente.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 2",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.0111,
+            "sdr_overlap": 0.156
+        },
+        {
+            "text_a": "A luz não consegue escapar da gravidade extrema após cruzar o horizonte de eventos.",
+            "text_b": "A regularização por dropout previne o sobreajuste desligando neurônios aleatoriamente no treino.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 2",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.1383,
+            "sdr_overlap": 0.2294
+        },
+        {
+            "text_a": "A luz não consegue escapar da gravidade extrema após cruzar o horizonte de eventos.",
+            "text_b": "Algoritmos de deep learning aprendem representações hierárquicas a partir de grandes volumes de dados.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 2",
+            "role_b": "Query",
+            "cosine_similarity": 0.0479,
+            "sdr_overlap": 0.1835
+        },
+        {
+            "text_a": "A luz não consegue escapar da gravidade extrema após cruzar o horizonte de eventos.",
+            "text_b": "Gatos domésticos ronronam para expressar contentamento ou para aliviar o estresse.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 2",
+            "role_b": "Base 1",
+            "cosine_similarity": 0.0255,
+            "sdr_overlap": 0.211
+        },
+        {
+            "text_a": "A luz não consegue escapar da gravidade extrema após cruzar o horizonte de eventos.",
+            "text_b": "O comportamento caçador de felinos é ativado por estímulos visuais rápidos em movimento.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 2",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.1539,
+            "sdr_overlap": 0.2569
+        },
+        {
+            "text_a": "A luz não consegue escapar da gravidade extrema após cruzar o horizonte de eventos.",
+            "text_b": "Felinos limpam sua pelagem diariamente lambendo-se para remover pelos mortos.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 2",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.0344,
+            "sdr_overlap": 0.1743
+        },
+        {
+            "text_a": "A luz não consegue escapar da gravidade extrema após cruzar o horizonte de eventos.",
+            "text_b": "Um gato demonstra afeto esfregando suas glândulas odoríferas nas pernas do tutor.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 2",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.0696,
+            "sdr_overlap": 0.211
+        },
+        {
+            "text_a": "A luz não consegue escapar da gravidade extrema após cruzar o horizonte de eventos.",
+            "text_b": "Animais felinos domésticos passam grande parte do dia dormindo em locais altos e aquecidos.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 2",
+            "role_b": "Query",
+            "cosine_similarity": 0.0897,
+            "sdr_overlap": 0.1927
+        },
+        {
+            "text_a": "Astrônomos usam telescópios de rádio para capturar a sombra de um horizonte de singularidade.",
+            "text_b": "Uma receita tradicional de pão caseiro exige fermentação lenta e farinha de trigo.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Culinária e Panificação",
+            "role_a": "Base 3",
+            "role_b": "Base 1",
+            "cosine_similarity": 0.0047,
+            "sdr_overlap": 0.1284
+        },
+        {
+            "text_a": "Astrônomos usam telescópios de rádio para capturar a sombra de um horizonte de singularidade.",
+            "text_b": "O chefe de cozinha prepara um bolo de chocolate úmido com cacau puro.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Culinária e Panificação",
+            "role_a": "Base 3",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.1209,
+            "sdr_overlap": 0.2477
+        },
+        {
+            "text_a": "Astrônomos usam telescópios de rádio para capturar a sombra de um horizonte de singularidade.",
+            "text_b": "Assar pães em forno aquecido a lenha cria uma casca dourada e crocante.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Culinária e Panificação",
+            "role_a": "Base 3",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.1293,
+            "sdr_overlap": 0.2018
+        },
+        {
+            "text_a": "Astrônomos usam telescópios de rádio para capturar a sombra de um horizonte de singularidade.",
+            "text_b": "O preparo de massas frescas artesanais requer ovos caipiras e sova vigorosa.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Culinária e Panificação",
+            "role_a": "Base 3",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.0012,
+            "sdr_overlap": 0.156
+        },
+        {
+            "text_a": "Astrônomos usam telescópios de rádio para capturar a sombra de um horizonte de singularidade.",
+            "text_b": "A panificação artesanal envolve misturar ingredientes simples e fermentar a massa sob calor controlado.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Culinária e Panificação",
+            "role_a": "Base 3",
+            "role_b": "Query",
+            "cosine_similarity": 0.0487,
+            "sdr_overlap": 0.1376
+        },
+        {
+            "text_a": "Astrônomos usam telescópios de rádio para capturar a sombra de um horizonte de singularidade.",
+            "text_b": "A dualidade onda-partícula mostra que elétrons se comportam como ondas sob certas condições.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Base 3",
+            "role_b": "Base 1",
+            "cosine_similarity": 0.3159,
+            "sdr_overlap": 0.2844
+        },
+        {
+            "text_a": "Astrônomos usam telescópios de rádio para capturar a sombra de um horizonte de singularidade.",
+            "text_b": "O emaranhamento quântico conecta estados de partículas instantaneamente a distâncias infinitas.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Base 3",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.2674,
+            "sdr_overlap": 0.2477
+        },
+        {
+            "text_a": "Astrônomos usam telescópios de rádio para capturar a sombra de um horizonte de singularidade.",
+            "text_b": "O princípio da incerteza de Heisenberg impede determinar a posição e momento de forma precisa.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Base 3",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.2234,
+            "sdr_overlap": 0.2294
+        },
+        {
+            "text_a": "Astrônomos usam telescópios de rádio para capturar a sombra de um horizonte de singularidade.",
+            "text_b": "A superposição permite que um qubit represente múltiplos estados lógicos simultaneamente.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Base 3",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.157,
+            "sdr_overlap": 0.1468
+        },
+        {
+            "text_a": "Astrônomos usam telescópios de rádio para capturar a sombra de um horizonte de singularidade.",
+            "text_b": "Partículas subatômicas existem em múltiplos estados até que uma medição colapse sua função de onda.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Base 3",
+            "role_b": "Query",
+            "cosine_similarity": 0.3304,
+            "sdr_overlap": 0.3303
+        },
+        {
+            "text_a": "Astrônomos usam telescópios de rádio para capturar a sombra de um horizonte de singularidade.",
+            "text_b": "Redes neurais profundas ajustam seus pesos sinápticos através do algoritmo de retropropagação.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 3",
+            "role_b": "Base 1",
+            "cosine_similarity": 0.0877,
+            "sdr_overlap": 0.1651
+        },
+        {
+            "text_a": "Astrônomos usam telescópios de rádio para capturar a sombra de um horizonte de singularidade.",
+            "text_b": "Modelos de linguagem de larga escala utilizam a arquitetura transformer com atenção multidirecional.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 3",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.1077,
+            "sdr_overlap": 0.1651
+        },
+        {
+            "text_a": "Astrônomos usam telescópios de rádio para capturar a sombra de um horizonte de singularidade.",
+            "text_b": "O aprendizado por reforço treina agentes autônomos maximizando recompensas cumulativas no ambiente.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 3",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.0401,
+            "sdr_overlap": 0.0917
+        },
+        {
+            "text_a": "Astrônomos usam telescópios de rádio para capturar a sombra de um horizonte de singularidade.",
+            "text_b": "A regularização por dropout previne o sobreajuste desligando neurônios aleatoriamente no treino.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 3",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.0368,
+            "sdr_overlap": 0.1376
+        },
+        {
+            "text_a": "Astrônomos usam telescópios de rádio para capturar a sombra de um horizonte de singularidade.",
+            "text_b": "Algoritmos de deep learning aprendem representações hierárquicas a partir de grandes volumes de dados.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 3",
+            "role_b": "Query",
+            "cosine_similarity": 0.0502,
+            "sdr_overlap": 0.211
+        },
+        {
+            "text_a": "Astrônomos usam telescópios de rádio para capturar a sombra de um horizonte de singularidade.",
+            "text_b": "Gatos domésticos ronronam para expressar contentamento ou para aliviar o estresse.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 3",
+            "role_b": "Base 1",
+            "cosine_similarity": 0.0763,
+            "sdr_overlap": 0.2202
+        },
+        {
+            "text_a": "Astrônomos usam telescópios de rádio para capturar a sombra de um horizonte de singularidade.",
+            "text_b": "O comportamento caçador de felinos é ativado por estímulos visuais rápidos em movimento.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 3",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.2023,
+            "sdr_overlap": 0.2661
+        },
+        {
+            "text_a": "Astrônomos usam telescópios de rádio para capturar a sombra de um horizonte de singularidade.",
+            "text_b": "Felinos limpam sua pelagem diariamente lambendo-se para remover pelos mortos.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 3",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.1111,
+            "sdr_overlap": 0.1468
+        },
+        {
+            "text_a": "Astrônomos usam telescópios de rádio para capturar a sombra de um horizonte de singularidade.",
+            "text_b": "Um gato demonstra afeto esfregando suas glândulas odoríferas nas pernas do tutor.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 3",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.0565,
+            "sdr_overlap": 0.1743
+        },
+        {
+            "text_a": "Astrônomos usam telescópios de rádio para capturar a sombra de um horizonte de singularidade.",
+            "text_b": "Animais felinos domésticos passam grande parte do dia dormindo em locais altos e aquecidos.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 3",
+            "role_b": "Query",
+            "cosine_similarity": 0.162,
+            "sdr_overlap": 0.1835
+        },
+        {
+            "text_a": "A radiação Hawking descreve a evaporação térmica lenta de buracos negros no espaço profundo.",
+            "text_b": "Uma receita tradicional de pão caseiro exige fermentação lenta e farinha de trigo.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Culinária e Panificação",
+            "role_a": "Base 4",
+            "role_b": "Base 1",
+            "cosine_similarity": 0.143,
+            "sdr_overlap": 0.2018
+        },
+        {
+            "text_a": "A radiação Hawking descreve a evaporação térmica lenta de buracos negros no espaço profundo.",
+            "text_b": "O chefe de cozinha prepara um bolo de chocolate úmido com cacau puro.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Culinária e Panificação",
+            "role_a": "Base 4",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.1691,
+            "sdr_overlap": 0.2477
+        },
+        {
+            "text_a": "A radiação Hawking descreve a evaporação térmica lenta de buracos negros no espaço profundo.",
+            "text_b": "Assar pães em forno aquecido a lenha cria uma casca dourada e crocante.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Culinária e Panificação",
+            "role_a": "Base 4",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.178,
+            "sdr_overlap": 0.211
+        },
+        {
+            "text_a": "A radiação Hawking descreve a evaporação térmica lenta de buracos negros no espaço profundo.",
+            "text_b": "O preparo de massas frescas artesanais requer ovos caipiras e sova vigorosa.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Culinária e Panificação",
+            "role_a": "Base 4",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.0337,
+            "sdr_overlap": 0.156
+        },
+        {
+            "text_a": "A radiação Hawking descreve a evaporação térmica lenta de buracos negros no espaço profundo.",
+            "text_b": "A panificação artesanal envolve misturar ingredientes simples e fermentar a massa sob calor controlado.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Culinária e Panificação",
+            "role_a": "Base 4",
+            "role_b": "Query",
+            "cosine_similarity": 0.1273,
+            "sdr_overlap": 0.2202
+        },
+        {
+            "text_a": "A radiação Hawking descreve a evaporação térmica lenta de buracos negros no espaço profundo.",
+            "text_b": "A dualidade onda-partícula mostra que elétrons se comportam como ondas sob certas condições.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Base 4",
+            "role_b": "Base 1",
+            "cosine_similarity": 0.2811,
+            "sdr_overlap": 0.3028
+        },
+        {
+            "text_a": "A radiação Hawking descreve a evaporação térmica lenta de buracos negros no espaço profundo.",
+            "text_b": "O emaranhamento quântico conecta estados de partículas instantaneamente a distâncias infinitas.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Base 4",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.3627,
+            "sdr_overlap": 0.2752
+        },
+        {
+            "text_a": "A radiação Hawking descreve a evaporação térmica lenta de buracos negros no espaço profundo.",
+            "text_b": "O princípio da incerteza de Heisenberg impede determinar a posição e momento de forma precisa.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Base 4",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.1586,
+            "sdr_overlap": 0.2018
+        },
+        {
+            "text_a": "A radiação Hawking descreve a evaporação térmica lenta de buracos negros no espaço profundo.",
+            "text_b": "A superposição permite que um qubit represente múltiplos estados lógicos simultaneamente.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Base 4",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.1404,
+            "sdr_overlap": 0.2294
+        },
+        {
+            "text_a": "A radiação Hawking descreve a evaporação térmica lenta de buracos negros no espaço profundo.",
+            "text_b": "Partículas subatômicas existem em múltiplos estados até que uma medição colapse sua função de onda.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Base 4",
+            "role_b": "Query",
+            "cosine_similarity": 0.3978,
+            "sdr_overlap": 0.367
+        },
+        {
+            "text_a": "A radiação Hawking descreve a evaporação térmica lenta de buracos negros no espaço profundo.",
+            "text_b": "Redes neurais profundas ajustam seus pesos sinápticos através do algoritmo de retropropagação.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 4",
+            "role_b": "Base 1",
+            "cosine_similarity": 0.1187,
+            "sdr_overlap": 0.2202
+        },
+        {
+            "text_a": "A radiação Hawking descreve a evaporação térmica lenta de buracos negros no espaço profundo.",
+            "text_b": "Modelos de linguagem de larga escala utilizam a arquitetura transformer com atenção multidirecional.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 4",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.0284,
+            "sdr_overlap": 0.1009
+        },
+        {
+            "text_a": "A radiação Hawking descreve a evaporação térmica lenta de buracos negros no espaço profundo.",
+            "text_b": "O aprendizado por reforço treina agentes autônomos maximizando recompensas cumulativas no ambiente.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 4",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.0102,
+            "sdr_overlap": 0.1376
+        },
+        {
+            "text_a": "A radiação Hawking descreve a evaporação térmica lenta de buracos negros no espaço profundo.",
+            "text_b": "A regularização por dropout previne o sobreajuste desligando neurônios aleatoriamente no treino.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 4",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.1197,
+            "sdr_overlap": 0.1743
+        },
+        {
+            "text_a": "A radiação Hawking descreve a evaporação térmica lenta de buracos negros no espaço profundo.",
+            "text_b": "Algoritmos de deep learning aprendem representações hierárquicas a partir de grandes volumes de dados.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 4",
+            "role_b": "Query",
+            "cosine_similarity": 0.1516,
+            "sdr_overlap": 0.2477
+        },
+        {
+            "text_a": "A radiação Hawking descreve a evaporação térmica lenta de buracos negros no espaço profundo.",
+            "text_b": "Gatos domésticos ronronam para expressar contentamento ou para aliviar o estresse.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 4",
+            "role_b": "Base 1",
+            "cosine_similarity": 0.1547,
+            "sdr_overlap": 0.2385
+        },
+        {
+            "text_a": "A radiação Hawking descreve a evaporação térmica lenta de buracos negros no espaço profundo.",
+            "text_b": "O comportamento caçador de felinos é ativado por estímulos visuais rápidos em movimento.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 4",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.1484,
+            "sdr_overlap": 0.2477
+        },
+        {
+            "text_a": "A radiação Hawking descreve a evaporação térmica lenta de buracos negros no espaço profundo.",
+            "text_b": "Felinos limpam sua pelagem diariamente lambendo-se para remover pelos mortos.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 4",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.0985,
+            "sdr_overlap": 0.1743
+        },
+        {
+            "text_a": "A radiação Hawking descreve a evaporação térmica lenta de buracos negros no espaço profundo.",
+            "text_b": "Um gato demonstra afeto esfregando suas glândulas odoríferas nas pernas do tutor.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 4",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.1458,
+            "sdr_overlap": 0.2385
+        },
+        {
+            "text_a": "A radiação Hawking descreve a evaporação térmica lenta de buracos negros no espaço profundo.",
+            "text_b": "Animais felinos domésticos passam grande parte do dia dormindo em locais altos e aquecidos.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 4",
+            "role_b": "Query",
+            "cosine_similarity": 0.2188,
+            "sdr_overlap": 0.2569
+        },
+        {
+            "text_a": "Colossais distorções gravitacionais no núcleo galáctico impedem a fuga da radiação luminosa.",
+            "text_b": "Uma receita tradicional de pão caseiro exige fermentação lenta e farinha de trigo.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Culinária e Panificação",
+            "role_a": "Query",
+            "role_b": "Base 1",
+            "cosine_similarity": 0.1212,
+            "sdr_overlap": 0.1101
+        },
+        {
+            "text_a": "Colossais distorções gravitacionais no núcleo galáctico impedem a fuga da radiação luminosa.",
+            "text_b": "O chefe de cozinha prepara um bolo de chocolate úmido com cacau puro.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Culinária e Panificação",
+            "role_a": "Query",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.1065,
+            "sdr_overlap": 0.1743
+        },
+        {
+            "text_a": "Colossais distorções gravitacionais no núcleo galáctico impedem a fuga da radiação luminosa.",
+            "text_b": "Assar pães em forno aquecido a lenha cria uma casca dourada e crocante.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Culinária e Panificação",
+            "role_a": "Query",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.1307,
+            "sdr_overlap": 0.1376
+        },
+        {
+            "text_a": "Colossais distorções gravitacionais no núcleo galáctico impedem a fuga da radiação luminosa.",
+            "text_b": "O preparo de massas frescas artesanais requer ovos caipiras e sova vigorosa.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Culinária e Panificação",
+            "role_a": "Query",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.0551,
+            "sdr_overlap": 0.1651
+        },
+        {
+            "text_a": "Colossais distorções gravitacionais no núcleo galáctico impedem a fuga da radiação luminosa.",
+            "text_b": "A panificação artesanal envolve misturar ingredientes simples e fermentar a massa sob calor controlado.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Culinária e Panificação",
+            "role_a": "Query",
+            "role_b": "Query",
+            "cosine_similarity": 0.0612,
+            "sdr_overlap": 0.1376
+        },
+        {
+            "text_a": "Colossais distorções gravitacionais no núcleo galáctico impedem a fuga da radiação luminosa.",
+            "text_b": "A dualidade onda-partícula mostra que elétrons se comportam como ondas sob certas condições.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Query",
+            "role_b": "Base 1",
+            "cosine_similarity": 0.2718,
+            "sdr_overlap": 0.3028
+        },
+        {
+            "text_a": "Colossais distorções gravitacionais no núcleo galáctico impedem a fuga da radiação luminosa.",
+            "text_b": "O emaranhamento quântico conecta estados de partículas instantaneamente a distâncias infinitas.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Query",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.2532,
+            "sdr_overlap": 0.2385
+        },
+        {
+            "text_a": "Colossais distorções gravitacionais no núcleo galáctico impedem a fuga da radiação luminosa.",
+            "text_b": "O princípio da incerteza de Heisenberg impede determinar a posição e momento de forma precisa.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Query",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.2571,
+            "sdr_overlap": 0.2202
+        },
+        {
+            "text_a": "Colossais distorções gravitacionais no núcleo galáctico impedem a fuga da radiação luminosa.",
+            "text_b": "A superposição permite que um qubit represente múltiplos estados lógicos simultaneamente.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Query",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.0666,
+            "sdr_overlap": 0.1651
+        },
+        {
+            "text_a": "Colossais distorções gravitacionais no núcleo galáctico impedem a fuga da radiação luminosa.",
+            "text_b": "Partículas subatômicas existem em múltiplos estados até que uma medição colapse sua função de onda.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Query",
+            "role_b": "Query",
+            "cosine_similarity": 0.3482,
+            "sdr_overlap": 0.3028
+        },
+        {
+            "text_a": "Colossais distorções gravitacionais no núcleo galáctico impedem a fuga da radiação luminosa.",
+            "text_b": "Redes neurais profundas ajustam seus pesos sinápticos através do algoritmo de retropropagação.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Query",
+            "role_b": "Base 1",
+            "cosine_similarity": 0.1442,
+            "sdr_overlap": 0.2018
+        },
+        {
+            "text_a": "Colossais distorções gravitacionais no núcleo galáctico impedem a fuga da radiação luminosa.",
+            "text_b": "Modelos de linguagem de larga escala utilizam a arquitetura transformer com atenção multidirecional.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Query",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.0451,
+            "sdr_overlap": 0.1651
+        },
+        {
+            "text_a": "Colossais distorções gravitacionais no núcleo galáctico impedem a fuga da radiação luminosa.",
+            "text_b": "O aprendizado por reforço treina agentes autônomos maximizando recompensas cumulativas no ambiente.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Query",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.0097,
+            "sdr_overlap": 0.1468
+        },
+        {
+            "text_a": "Colossais distorções gravitacionais no núcleo galáctico impedem a fuga da radiação luminosa.",
+            "text_b": "A regularização por dropout previne o sobreajuste desligando neurônios aleatoriamente no treino.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Query",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.19,
+            "sdr_overlap": 0.2018
+        },
+        {
+            "text_a": "Colossais distorções gravitacionais no núcleo galáctico impedem a fuga da radiação luminosa.",
+            "text_b": "Algoritmos de deep learning aprendem representações hierárquicas a partir de grandes volumes de dados.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Query",
+            "role_b": "Query",
+            "cosine_similarity": 0.0779,
+            "sdr_overlap": 0.1835
+        },
+        {
+            "text_a": "Colossais distorções gravitacionais no núcleo galáctico impedem a fuga da radiação luminosa.",
+            "text_b": "Gatos domésticos ronronam para expressar contentamento ou para aliviar o estresse.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Query",
+            "role_b": "Base 1",
+            "cosine_similarity": 0.1021,
+            "sdr_overlap": 0.2018
+        },
+        {
+            "text_a": "Colossais distorções gravitacionais no núcleo galáctico impedem a fuga da radiação luminosa.",
+            "text_b": "O comportamento caçador de felinos é ativado por estímulos visuais rápidos em movimento.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Query",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.1189,
+            "sdr_overlap": 0.2018
+        },
+        {
+            "text_a": "Colossais distorções gravitacionais no núcleo galáctico impedem a fuga da radiação luminosa.",
+            "text_b": "Felinos limpam sua pelagem diariamente lambendo-se para remover pelos mortos.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Query",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.0492,
+            "sdr_overlap": 0.1468
+        },
+        {
+            "text_a": "Colossais distorções gravitacionais no núcleo galáctico impedem a fuga da radiação luminosa.",
+            "text_b": "Um gato demonstra afeto esfregando suas glândulas odoríferas nas pernas do tutor.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Query",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.0926,
+            "sdr_overlap": 0.1743
+        },
+        {
+            "text_a": "Colossais distorções gravitacionais no núcleo galáctico impedem a fuga da radiação luminosa.",
+            "text_b": "Animais felinos domésticos passam grande parte do dia dormindo em locais altos e aquecidos.",
+            "theme_a": "Astrofísica e Buracos Negros",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Query",
+            "role_b": "Query",
+            "cosine_similarity": 0.1167,
+            "sdr_overlap": 0.2294
+        },
+        {
+            "text_a": "Uma receita tradicional de pão caseiro exige fermentação lenta e farinha de trigo.",
+            "text_b": "A dualidade onda-partícula mostra que elétrons se comportam como ondas sob certas condições.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Base 1",
+            "role_b": "Base 1",
+            "cosine_similarity": 0.0383,
+            "sdr_overlap": 0.1743
+        },
+        {
+            "text_a": "Uma receita tradicional de pão caseiro exige fermentação lenta e farinha de trigo.",
+            "text_b": "O emaranhamento quântico conecta estados de partículas instantaneamente a distâncias infinitas.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Base 1",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.0038,
+            "sdr_overlap": 0.156
+        },
+        {
+            "text_a": "Uma receita tradicional de pão caseiro exige fermentação lenta e farinha de trigo.",
+            "text_b": "O princípio da incerteza de Heisenberg impede determinar a posição e momento de forma precisa.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Base 1",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.0637,
+            "sdr_overlap": 0.1468
+        },
+        {
+            "text_a": "Uma receita tradicional de pão caseiro exige fermentação lenta e farinha de trigo.",
+            "text_b": "A superposição permite que um qubit represente múltiplos estados lógicos simultaneamente.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Base 1",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.022,
+            "sdr_overlap": 0.156
+        },
+        {
+            "text_a": "Uma receita tradicional de pão caseiro exige fermentação lenta e farinha de trigo.",
+            "text_b": "Partículas subatômicas existem em múltiplos estados até que uma medição colapse sua função de onda.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Base 1",
+            "role_b": "Query",
+            "cosine_similarity": 0.0378,
+            "sdr_overlap": 0.156
+        },
+        {
+            "text_a": "Uma receita tradicional de pão caseiro exige fermentação lenta e farinha de trigo.",
+            "text_b": "Redes neurais profundas ajustam seus pesos sinápticos através do algoritmo de retropropagação.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 1",
+            "role_b": "Base 1",
+            "cosine_similarity": 0.0621,
+            "sdr_overlap": 0.1284
+        },
+        {
+            "text_a": "Uma receita tradicional de pão caseiro exige fermentação lenta e farinha de trigo.",
+            "text_b": "Modelos de linguagem de larga escala utilizam a arquitetura transformer com atenção multidirecional.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 1",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.1038,
+            "sdr_overlap": 0.1835
+        },
+        {
+            "text_a": "Uma receita tradicional de pão caseiro exige fermentação lenta e farinha de trigo.",
+            "text_b": "O aprendizado por reforço treina agentes autônomos maximizando recompensas cumulativas no ambiente.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 1",
+            "role_b": "Base 3",
+            "cosine_similarity": -0.016,
+            "sdr_overlap": 0.1009
+        },
+        {
+            "text_a": "Uma receita tradicional de pão caseiro exige fermentação lenta e farinha de trigo.",
+            "text_b": "A regularização por dropout previne o sobreajuste desligando neurônios aleatoriamente no treino.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 1",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.099,
+            "sdr_overlap": 0.1468
+        },
+        {
+            "text_a": "Uma receita tradicional de pão caseiro exige fermentação lenta e farinha de trigo.",
+            "text_b": "Algoritmos de deep learning aprendem representações hierárquicas a partir de grandes volumes de dados.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 1",
+            "role_b": "Query",
+            "cosine_similarity": 0.0554,
+            "sdr_overlap": 0.156
+        },
+        {
+            "text_a": "Uma receita tradicional de pão caseiro exige fermentação lenta e farinha de trigo.",
+            "text_b": "Gatos domésticos ronronam para expressar contentamento ou para aliviar o estresse.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 1",
+            "role_b": "Base 1",
+            "cosine_similarity": 0.1315,
+            "sdr_overlap": 0.2018
+        },
+        {
+            "text_a": "Uma receita tradicional de pão caseiro exige fermentação lenta e farinha de trigo.",
+            "text_b": "O comportamento caçador de felinos é ativado por estímulos visuais rápidos em movimento.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 1",
+            "role_b": "Base 2",
+            "cosine_similarity": -0.0134,
+            "sdr_overlap": 0.156
+        },
+        {
+            "text_a": "Uma receita tradicional de pão caseiro exige fermentação lenta e farinha de trigo.",
+            "text_b": "Felinos limpam sua pelagem diariamente lambendo-se para remover pelos mortos.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 1",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.155,
+            "sdr_overlap": 0.1927
+        },
+        {
+            "text_a": "Uma receita tradicional de pão caseiro exige fermentação lenta e farinha de trigo.",
+            "text_b": "Um gato demonstra afeto esfregando suas glândulas odoríferas nas pernas do tutor.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 1",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.059,
+            "sdr_overlap": 0.1468
+        },
+        {
+            "text_a": "Uma receita tradicional de pão caseiro exige fermentação lenta e farinha de trigo.",
+            "text_b": "Animais felinos domésticos passam grande parte do dia dormindo em locais altos e aquecidos.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 1",
+            "role_b": "Query",
+            "cosine_similarity": 0.1979,
+            "sdr_overlap": 0.2385
+        },
+        {
+            "text_a": "O chefe de cozinha prepara um bolo de chocolate úmido com cacau puro.",
+            "text_b": "A dualidade onda-partícula mostra que elétrons se comportam como ondas sob certas condições.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Base 2",
+            "role_b": "Base 1",
+            "cosine_similarity": -0.0659,
+            "sdr_overlap": 0.1376
+        },
+        {
+            "text_a": "O chefe de cozinha prepara um bolo de chocolate úmido com cacau puro.",
+            "text_b": "O emaranhamento quântico conecta estados de partículas instantaneamente a distâncias infinitas.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Base 2",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.0763,
+            "sdr_overlap": 0.2385
+        },
+        {
+            "text_a": "O chefe de cozinha prepara um bolo de chocolate úmido com cacau puro.",
+            "text_b": "O princípio da incerteza de Heisenberg impede determinar a posição e momento de forma precisa.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Base 2",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.0266,
+            "sdr_overlap": 0.1376
+        },
+        {
+            "text_a": "O chefe de cozinha prepara um bolo de chocolate úmido com cacau puro.",
+            "text_b": "A superposição permite que um qubit represente múltiplos estados lógicos simultaneamente.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Base 2",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.0604,
+            "sdr_overlap": 0.156
+        },
+        {
+            "text_a": "O chefe de cozinha prepara um bolo de chocolate úmido com cacau puro.",
+            "text_b": "Partículas subatômicas existem em múltiplos estados até que uma medição colapse sua função de onda.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Base 2",
+            "role_b": "Query",
+            "cosine_similarity": 0.0535,
+            "sdr_overlap": 0.2294
+        },
+        {
+            "text_a": "O chefe de cozinha prepara um bolo de chocolate úmido com cacau puro.",
+            "text_b": "Redes neurais profundas ajustam seus pesos sinápticos através do algoritmo de retropropagação.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 2",
+            "role_b": "Base 1",
+            "cosine_similarity": -0.0317,
+            "sdr_overlap": 0.1376
+        },
+        {
+            "text_a": "O chefe de cozinha prepara um bolo de chocolate úmido com cacau puro.",
+            "text_b": "Modelos de linguagem de larga escala utilizam a arquitetura transformer com atenção multidirecional.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 2",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.0174,
+            "sdr_overlap": 0.1743
+        },
+        {
+            "text_a": "O chefe de cozinha prepara um bolo de chocolate úmido com cacau puro.",
+            "text_b": "O aprendizado por reforço treina agentes autônomos maximizando recompensas cumulativas no ambiente.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 2",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.0444,
+            "sdr_overlap": 0.2385
+        },
+        {
+            "text_a": "O chefe de cozinha prepara um bolo de chocolate úmido com cacau puro.",
+            "text_b": "A regularização por dropout previne o sobreajuste desligando neurônios aleatoriamente no treino.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 2",
+            "role_b": "Base 4",
+            "cosine_similarity": -0.0411,
+            "sdr_overlap": 0.1651
+        },
+        {
+            "text_a": "O chefe de cozinha prepara um bolo de chocolate úmido com cacau puro.",
+            "text_b": "Algoritmos de deep learning aprendem representações hierárquicas a partir de grandes volumes de dados.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 2",
+            "role_b": "Query",
+            "cosine_similarity": 0.0414,
+            "sdr_overlap": 0.1284
+        },
+        {
+            "text_a": "O chefe de cozinha prepara um bolo de chocolate úmido com cacau puro.",
+            "text_b": "Gatos domésticos ronronam para expressar contentamento ou para aliviar o estresse.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 2",
+            "role_b": "Base 1",
+            "cosine_similarity": 0.0245,
+            "sdr_overlap": 0.156
+        },
+        {
+            "text_a": "O chefe de cozinha prepara um bolo de chocolate úmido com cacau puro.",
+            "text_b": "O comportamento caçador de felinos é ativado por estímulos visuais rápidos em movimento.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 2",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.0023,
+            "sdr_overlap": 0.1927
+        },
+        {
+            "text_a": "O chefe de cozinha prepara um bolo de chocolate úmido com cacau puro.",
+            "text_b": "Felinos limpam sua pelagem diariamente lambendo-se para remover pelos mortos.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 2",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.0684,
+            "sdr_overlap": 0.1376
+        },
+        {
+            "text_a": "O chefe de cozinha prepara um bolo de chocolate úmido com cacau puro.",
+            "text_b": "Um gato demonstra afeto esfregando suas glândulas odoríferas nas pernas do tutor.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 2",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.0963,
+            "sdr_overlap": 0.2385
+        },
+        {
+            "text_a": "O chefe de cozinha prepara um bolo de chocolate úmido com cacau puro.",
+            "text_b": "Animais felinos domésticos passam grande parte do dia dormindo em locais altos e aquecidos.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 2",
+            "role_b": "Query",
+            "cosine_similarity": 0.0104,
+            "sdr_overlap": 0.0826
+        },
+        {
+            "text_a": "Assar pães em forno aquecido a lenha cria uma casca dourada e crocante.",
+            "text_b": "A dualidade onda-partícula mostra que elétrons se comportam como ondas sob certas condições.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Base 3",
+            "role_b": "Base 1",
+            "cosine_similarity": 0.0552,
+            "sdr_overlap": 0.211
+        },
+        {
+            "text_a": "Assar pães em forno aquecido a lenha cria uma casca dourada e crocante.",
+            "text_b": "O emaranhamento quântico conecta estados de partículas instantaneamente a distâncias infinitas.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Base 3",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.0755,
+            "sdr_overlap": 0.2202
+        },
+        {
+            "text_a": "Assar pães em forno aquecido a lenha cria uma casca dourada e crocante.",
+            "text_b": "O princípio da incerteza de Heisenberg impede determinar a posição e momento de forma precisa.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Base 3",
+            "role_b": "Base 3",
+            "cosine_similarity": -0.0153,
+            "sdr_overlap": 0.1193
+        },
+        {
+            "text_a": "Assar pães em forno aquecido a lenha cria uma casca dourada e crocante.",
+            "text_b": "A superposição permite que um qubit represente múltiplos estados lógicos simultaneamente.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Base 3",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.0881,
+            "sdr_overlap": 0.1927
+        },
+        {
+            "text_a": "Assar pães em forno aquecido a lenha cria uma casca dourada e crocante.",
+            "text_b": "Partículas subatômicas existem em múltiplos estados até que uma medição colapse sua função de onda.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Base 3",
+            "role_b": "Query",
+            "cosine_similarity": 0.0815,
+            "sdr_overlap": 0.2569
+        },
+        {
+            "text_a": "Assar pães em forno aquecido a lenha cria uma casca dourada e crocante.",
+            "text_b": "Redes neurais profundas ajustam seus pesos sinápticos através do algoritmo de retropropagação.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 3",
+            "role_b": "Base 1",
+            "cosine_similarity": 0.0238,
+            "sdr_overlap": 0.1468
+        },
+        {
+            "text_a": "Assar pães em forno aquecido a lenha cria uma casca dourada e crocante.",
+            "text_b": "Modelos de linguagem de larga escala utilizam a arquitetura transformer com atenção multidirecional.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 3",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.073,
+            "sdr_overlap": 0.1835
+        },
+        {
+            "text_a": "Assar pães em forno aquecido a lenha cria uma casca dourada e crocante.",
+            "text_b": "O aprendizado por reforço treina agentes autônomos maximizando recompensas cumulativas no ambiente.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 3",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.0074,
+            "sdr_overlap": 0.1651
+        },
+        {
+            "text_a": "Assar pães em forno aquecido a lenha cria uma casca dourada e crocante.",
+            "text_b": "A regularização por dropout previne o sobreajuste desligando neurônios aleatoriamente no treino.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 3",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.0098,
+            "sdr_overlap": 0.1651
+        },
+        {
+            "text_a": "Assar pães em forno aquecido a lenha cria uma casca dourada e crocante.",
+            "text_b": "Algoritmos de deep learning aprendem representações hierárquicas a partir de grandes volumes de dados.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 3",
+            "role_b": "Query",
+            "cosine_similarity": 0.05,
+            "sdr_overlap": 0.156
+        },
+        {
+            "text_a": "Assar pães em forno aquecido a lenha cria uma casca dourada e crocante.",
+            "text_b": "Gatos domésticos ronronam para expressar contentamento ou para aliviar o estresse.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 3",
+            "role_b": "Base 1",
+            "cosine_similarity": 0.0804,
+            "sdr_overlap": 0.1651
+        },
+        {
+            "text_a": "Assar pães em forno aquecido a lenha cria uma casca dourada e crocante.",
+            "text_b": "O comportamento caçador de felinos é ativado por estímulos visuais rápidos em movimento.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 3",
+            "role_b": "Base 2",
+            "cosine_similarity": -0.0004,
+            "sdr_overlap": 0.1376
+        },
+        {
+            "text_a": "Assar pães em forno aquecido a lenha cria uma casca dourada e crocante.",
+            "text_b": "Felinos limpam sua pelagem diariamente lambendo-se para remover pelos mortos.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 3",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.1524,
+            "sdr_overlap": 0.156
+        },
+        {
+            "text_a": "Assar pães em forno aquecido a lenha cria uma casca dourada e crocante.",
+            "text_b": "Um gato demonstra afeto esfregando suas glândulas odoríferas nas pernas do tutor.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 3",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.0609,
+            "sdr_overlap": 0.1651
+        },
+        {
+            "text_a": "Assar pães em forno aquecido a lenha cria uma casca dourada e crocante.",
+            "text_b": "Animais felinos domésticos passam grande parte do dia dormindo em locais altos e aquecidos.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 3",
+            "role_b": "Query",
+            "cosine_similarity": 0.2045,
+            "sdr_overlap": 0.2385
+        },
+        {
+            "text_a": "O preparo de massas frescas artesanais requer ovos caipiras e sova vigorosa.",
+            "text_b": "A dualidade onda-partícula mostra que elétrons se comportam como ondas sob certas condições.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Base 4",
+            "role_b": "Base 1",
+            "cosine_similarity": 0.0746,
+            "sdr_overlap": 0.1835
+        },
+        {
+            "text_a": "O preparo de massas frescas artesanais requer ovos caipiras e sova vigorosa.",
+            "text_b": "O emaranhamento quântico conecta estados de partículas instantaneamente a distâncias infinitas.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Base 4",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.0835,
+            "sdr_overlap": 0.2294
+        },
+        {
+            "text_a": "O preparo de massas frescas artesanais requer ovos caipiras e sova vigorosa.",
+            "text_b": "O princípio da incerteza de Heisenberg impede determinar a posição e momento de forma precisa.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Base 4",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.0017,
+            "sdr_overlap": 0.1835
+        },
+        {
+            "text_a": "O preparo de massas frescas artesanais requer ovos caipiras e sova vigorosa.",
+            "text_b": "A superposição permite que um qubit represente múltiplos estados lógicos simultaneamente.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Base 4",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.1233,
+            "sdr_overlap": 0.2477
+        },
+        {
+            "text_a": "O preparo de massas frescas artesanais requer ovos caipiras e sova vigorosa.",
+            "text_b": "Partículas subatômicas existem em múltiplos estados até que uma medição colapse sua função de onda.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Base 4",
+            "role_b": "Query",
+            "cosine_similarity": 0.072,
+            "sdr_overlap": 0.2294
+        },
+        {
+            "text_a": "O preparo de massas frescas artesanais requer ovos caipiras e sova vigorosa.",
+            "text_b": "Redes neurais profundas ajustam seus pesos sinápticos através do algoritmo de retropropagação.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 4",
+            "role_b": "Base 1",
+            "cosine_similarity": 0.0474,
+            "sdr_overlap": 0.1835
+        },
+        {
+            "text_a": "O preparo de massas frescas artesanais requer ovos caipiras e sova vigorosa.",
+            "text_b": "Modelos de linguagem de larga escala utilizam a arquitetura transformer com atenção multidirecional.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 4",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.1022,
+            "sdr_overlap": 0.2294
+        },
+        {
+            "text_a": "O preparo de massas frescas artesanais requer ovos caipiras e sova vigorosa.",
+            "text_b": "O aprendizado por reforço treina agentes autônomos maximizando recompensas cumulativas no ambiente.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 4",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.0917,
+            "sdr_overlap": 0.211
+        },
+        {
+            "text_a": "O preparo de massas frescas artesanais requer ovos caipiras e sova vigorosa.",
+            "text_b": "A regularização por dropout previne o sobreajuste desligando neurônios aleatoriamente no treino.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 4",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.0482,
+            "sdr_overlap": 0.2385
+        },
+        {
+            "text_a": "O preparo de massas frescas artesanais requer ovos caipiras e sova vigorosa.",
+            "text_b": "Algoritmos de deep learning aprendem representações hierárquicas a partir de grandes volumes de dados.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 4",
+            "role_b": "Query",
+            "cosine_similarity": 0.0438,
+            "sdr_overlap": 0.1927
+        },
+        {
+            "text_a": "O preparo de massas frescas artesanais requer ovos caipiras e sova vigorosa.",
+            "text_b": "Gatos domésticos ronronam para expressar contentamento ou para aliviar o estresse.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 4",
+            "role_b": "Base 1",
+            "cosine_similarity": 0.1033,
+            "sdr_overlap": 0.1468
+        },
+        {
+            "text_a": "O preparo de massas frescas artesanais requer ovos caipiras e sova vigorosa.",
+            "text_b": "O comportamento caçador de felinos é ativado por estímulos visuais rápidos em movimento.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 4",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.0964,
+            "sdr_overlap": 0.2294
+        },
+        {
+            "text_a": "O preparo de massas frescas artesanais requer ovos caipiras e sova vigorosa.",
+            "text_b": "Felinos limpam sua pelagem diariamente lambendo-se para remover pelos mortos.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 4",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.2554,
+            "sdr_overlap": 0.1835
+        },
+        {
+            "text_a": "O preparo de massas frescas artesanais requer ovos caipiras e sova vigorosa.",
+            "text_b": "Um gato demonstra afeto esfregando suas glândulas odoríferas nas pernas do tutor.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 4",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.0446,
+            "sdr_overlap": 0.156
+        },
+        {
+            "text_a": "O preparo de massas frescas artesanais requer ovos caipiras e sova vigorosa.",
+            "text_b": "Animais felinos domésticos passam grande parte do dia dormindo em locais altos e aquecidos.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 4",
+            "role_b": "Query",
+            "cosine_similarity": 0.1204,
+            "sdr_overlap": 0.2018
+        },
+        {
+            "text_a": "A panificação artesanal envolve misturar ingredientes simples e fermentar a massa sob calor controlado.",
+            "text_b": "A dualidade onda-partícula mostra que elétrons se comportam como ondas sob certas condições.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Query",
+            "role_b": "Base 1",
+            "cosine_similarity": 0.0026,
+            "sdr_overlap": 0.1651
+        },
+        {
+            "text_a": "A panificação artesanal envolve misturar ingredientes simples e fermentar a massa sob calor controlado.",
+            "text_b": "O emaranhamento quântico conecta estados de partículas instantaneamente a distâncias infinitas.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Query",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.0715,
+            "sdr_overlap": 0.2477
+        },
+        {
+            "text_a": "A panificação artesanal envolve misturar ingredientes simples e fermentar a massa sob calor controlado.",
+            "text_b": "O princípio da incerteza de Heisenberg impede determinar a posição e momento de forma precisa.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Query",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.0306,
+            "sdr_overlap": 0.156
+        },
+        {
+            "text_a": "A panificação artesanal envolve misturar ingredientes simples e fermentar a massa sob calor controlado.",
+            "text_b": "A superposição permite que um qubit represente múltiplos estados lógicos simultaneamente.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Query",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.0496,
+            "sdr_overlap": 0.2202
+        },
+        {
+            "text_a": "A panificação artesanal envolve misturar ingredientes simples e fermentar a massa sob calor controlado.",
+            "text_b": "Partículas subatômicas existem em múltiplos estados até que uma medição colapse sua função de onda.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Mecânica Quântica",
+            "role_a": "Query",
+            "role_b": "Query",
+            "cosine_similarity": 0.0548,
+            "sdr_overlap": 0.2385
+        },
+        {
+            "text_a": "A panificação artesanal envolve misturar ingredientes simples e fermentar a massa sob calor controlado.",
+            "text_b": "Redes neurais profundas ajustam seus pesos sinápticos através do algoritmo de retropropagação.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Query",
+            "role_b": "Base 1",
+            "cosine_similarity": 0.0442,
+            "sdr_overlap": 0.156
+        },
+        {
+            "text_a": "A panificação artesanal envolve misturar ingredientes simples e fermentar a massa sob calor controlado.",
+            "text_b": "Modelos de linguagem de larga escala utilizam a arquitetura transformer com atenção multidirecional.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Query",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.1083,
+            "sdr_overlap": 0.2018
+        },
+        {
+            "text_a": "A panificação artesanal envolve misturar ingredientes simples e fermentar a massa sob calor controlado.",
+            "text_b": "O aprendizado por reforço treina agentes autônomos maximizando recompensas cumulativas no ambiente.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Query",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.1274,
+            "sdr_overlap": 0.2385
+        },
+        {
+            "text_a": "A panificação artesanal envolve misturar ingredientes simples e fermentar a massa sob calor controlado.",
+            "text_b": "A regularização por dropout previne o sobreajuste desligando neurônios aleatoriamente no treino.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Query",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.0943,
+            "sdr_overlap": 0.2018
+        },
+        {
+            "text_a": "A panificação artesanal envolve misturar ingredientes simples e fermentar a massa sob calor controlado.",
+            "text_b": "Algoritmos de deep learning aprendem representações hierárquicas a partir de grandes volumes de dados.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Query",
+            "role_b": "Query",
+            "cosine_similarity": 0.1076,
+            "sdr_overlap": 0.1835
+        },
+        {
+            "text_a": "A panificação artesanal envolve misturar ingredientes simples e fermentar a massa sob calor controlado.",
+            "text_b": "Gatos domésticos ronronam para expressar contentamento ou para aliviar o estresse.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Query",
+            "role_b": "Base 1",
+            "cosine_similarity": 0.086,
+            "sdr_overlap": 0.1376
+        },
+        {
+            "text_a": "A panificação artesanal envolve misturar ingredientes simples e fermentar a massa sob calor controlado.",
+            "text_b": "O comportamento caçador de felinos é ativado por estímulos visuais rápidos em movimento.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Query",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.0326,
+            "sdr_overlap": 0.1743
+        },
+        {
+            "text_a": "A panificação artesanal envolve misturar ingredientes simples e fermentar a massa sob calor controlado.",
+            "text_b": "Felinos limpam sua pelagem diariamente lambendo-se para remover pelos mortos.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Query",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.1396,
+            "sdr_overlap": 0.1835
+        },
+        {
+            "text_a": "A panificação artesanal envolve misturar ingredientes simples e fermentar a massa sob calor controlado.",
+            "text_b": "Um gato demonstra afeto esfregando suas glândulas odoríferas nas pernas do tutor.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Query",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.068,
+            "sdr_overlap": 0.156
+        },
+        {
+            "text_a": "A panificação artesanal envolve misturar ingredientes simples e fermentar a massa sob calor controlado.",
+            "text_b": "Animais felinos domésticos passam grande parte do dia dormindo em locais altos e aquecidos.",
+            "theme_a": "Culinária e Panificação",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Query",
+            "role_b": "Query",
+            "cosine_similarity": 0.1698,
+            "sdr_overlap": 0.211
+        },
+        {
+            "text_a": "A dualidade onda-partícula mostra que elétrons se comportam como ondas sob certas condições.",
+            "text_b": "Redes neurais profundas ajustam seus pesos sinápticos através do algoritmo de retropropagação.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 1",
+            "role_b": "Base 1",
+            "cosine_similarity": 0.0902,
+            "sdr_overlap": 0.1468
+        },
+        {
+            "text_a": "A dualidade onda-partícula mostra que elétrons se comportam como ondas sob certas condições.",
+            "text_b": "Modelos de linguagem de larga escala utilizam a arquitetura transformer com atenção multidirecional.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 1",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.0776,
+            "sdr_overlap": 0.1376
+        },
+        {
+            "text_a": "A dualidade onda-partícula mostra que elétrons se comportam como ondas sob certas condições.",
+            "text_b": "O aprendizado por reforço treina agentes autônomos maximizando recompensas cumulativas no ambiente.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 1",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.014,
+            "sdr_overlap": 0.1193
+        },
+        {
+            "text_a": "A dualidade onda-partícula mostra que elétrons se comportam como ondas sob certas condições.",
+            "text_b": "A regularização por dropout previne o sobreajuste desligando neurônios aleatoriamente no treino.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 1",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.084,
+            "sdr_overlap": 0.1284
+        },
+        {
+            "text_a": "A dualidade onda-partícula mostra que elétrons se comportam como ondas sob certas condições.",
+            "text_b": "Algoritmos de deep learning aprendem representações hierárquicas a partir de grandes volumes de dados.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 1",
+            "role_b": "Query",
+            "cosine_similarity": -0.0611,
+            "sdr_overlap": 0.0734
+        },
+        {
+            "text_a": "A dualidade onda-partícula mostra que elétrons se comportam como ondas sob certas condições.",
+            "text_b": "Gatos domésticos ronronam para expressar contentamento ou para aliviar o estresse.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 1",
+            "role_b": "Base 1",
+            "cosine_similarity": 0.117,
+            "sdr_overlap": 0.2202
+        },
+        {
+            "text_a": "A dualidade onda-partícula mostra que elétrons se comportam como ondas sob certas condições.",
+            "text_b": "O comportamento caçador de felinos é ativado por estímulos visuais rápidos em movimento.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 1",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.1421,
+            "sdr_overlap": 0.2569
+        },
+        {
+            "text_a": "A dualidade onda-partícula mostra que elétrons se comportam como ondas sob certas condições.",
+            "text_b": "Felinos limpam sua pelagem diariamente lambendo-se para remover pelos mortos.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 1",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.0676,
+            "sdr_overlap": 0.1835
+        },
+        {
+            "text_a": "A dualidade onda-partícula mostra que elétrons se comportam como ondas sob certas condições.",
+            "text_b": "Um gato demonstra afeto esfregando suas glândulas odoríferas nas pernas do tutor.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 1",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.0848,
+            "sdr_overlap": 0.1835
+        },
+        {
+            "text_a": "A dualidade onda-partícula mostra que elétrons se comportam como ondas sob certas condições.",
+            "text_b": "Animais felinos domésticos passam grande parte do dia dormindo em locais altos e aquecidos.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 1",
+            "role_b": "Query",
+            "cosine_similarity": 0.1002,
+            "sdr_overlap": 0.211
+        },
+        {
+            "text_a": "O emaranhamento quântico conecta estados de partículas instantaneamente a distâncias infinitas.",
+            "text_b": "Redes neurais profundas ajustam seus pesos sinápticos através do algoritmo de retropropagação.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 2",
+            "role_b": "Base 1",
+            "cosine_similarity": 0.1719,
+            "sdr_overlap": 0.2018
+        },
+        {
+            "text_a": "O emaranhamento quântico conecta estados de partículas instantaneamente a distâncias infinitas.",
+            "text_b": "Modelos de linguagem de larga escala utilizam a arquitetura transformer com atenção multidirecional.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 2",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.0632,
+            "sdr_overlap": 0.211
+        },
+        {
+            "text_a": "O emaranhamento quântico conecta estados de partículas instantaneamente a distâncias infinitas.",
+            "text_b": "O aprendizado por reforço treina agentes autônomos maximizando recompensas cumulativas no ambiente.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 2",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.0839,
+            "sdr_overlap": 0.2202
+        },
+        {
+            "text_a": "O emaranhamento quântico conecta estados de partículas instantaneamente a distâncias infinitas.",
+            "text_b": "A regularização por dropout previne o sobreajuste desligando neurônios aleatoriamente no treino.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 2",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.1034,
+            "sdr_overlap": 0.1743
+        },
+        {
+            "text_a": "O emaranhamento quântico conecta estados de partículas instantaneamente a distâncias infinitas.",
+            "text_b": "Algoritmos de deep learning aprendem representações hierárquicas a partir de grandes volumes de dados.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 2",
+            "role_b": "Query",
+            "cosine_similarity": 0.0946,
+            "sdr_overlap": 0.1835
+        },
+        {
+            "text_a": "O emaranhamento quântico conecta estados de partículas instantaneamente a distâncias infinitas.",
+            "text_b": "Gatos domésticos ronronam para expressar contentamento ou para aliviar o estresse.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 2",
+            "role_b": "Base 1",
+            "cosine_similarity": 0.0503,
+            "sdr_overlap": 0.156
+        },
+        {
+            "text_a": "O emaranhamento quântico conecta estados de partículas instantaneamente a distâncias infinitas.",
+            "text_b": "O comportamento caçador de felinos é ativado por estímulos visuais rápidos em movimento.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 2",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.2275,
+            "sdr_overlap": 0.2661
+        },
+        {
+            "text_a": "O emaranhamento quântico conecta estados de partículas instantaneamente a distâncias infinitas.",
+            "text_b": "Felinos limpam sua pelagem diariamente lambendo-se para remover pelos mortos.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 2",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.0601,
+            "sdr_overlap": 0.2202
+        },
+        {
+            "text_a": "O emaranhamento quântico conecta estados de partículas instantaneamente a distâncias infinitas.",
+            "text_b": "Um gato demonstra afeto esfregando suas glândulas odoríferas nas pernas do tutor.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 2",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.1068,
+            "sdr_overlap": 0.211
+        },
+        {
+            "text_a": "O emaranhamento quântico conecta estados de partículas instantaneamente a distâncias infinitas.",
+            "text_b": "Animais felinos domésticos passam grande parte do dia dormindo em locais altos e aquecidos.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 2",
+            "role_b": "Query",
+            "cosine_similarity": 0.1162,
+            "sdr_overlap": 0.2018
+        },
+        {
+            "text_a": "O princípio da incerteza de Heisenberg impede determinar a posição e momento de forma precisa.",
+            "text_b": "Redes neurais profundas ajustam seus pesos sinápticos através do algoritmo de retropropagação.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 3",
+            "role_b": "Base 1",
+            "cosine_similarity": 0.1167,
+            "sdr_overlap": 0.1927
+        },
+        {
+            "text_a": "O princípio da incerteza de Heisenberg impede determinar a posição e momento de forma precisa.",
+            "text_b": "Modelos de linguagem de larga escala utilizam a arquitetura transformer com atenção multidirecional.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 3",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.0284,
+            "sdr_overlap": 0.1651
+        },
+        {
+            "text_a": "O princípio da incerteza de Heisenberg impede determinar a posição e momento de forma precisa.",
+            "text_b": "O aprendizado por reforço treina agentes autônomos maximizando recompensas cumulativas no ambiente.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 3",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.0762,
+            "sdr_overlap": 0.156
+        },
+        {
+            "text_a": "O princípio da incerteza de Heisenberg impede determinar a posição e momento de forma precisa.",
+            "text_b": "A regularização por dropout previne o sobreajuste desligando neurônios aleatoriamente no treino.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 3",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.1964,
+            "sdr_overlap": 0.211
+        },
+        {
+            "text_a": "O princípio da incerteza de Heisenberg impede determinar a posição e momento de forma precisa.",
+            "text_b": "Algoritmos de deep learning aprendem representações hierárquicas a partir de grandes volumes de dados.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 3",
+            "role_b": "Query",
+            "cosine_similarity": 0.0236,
+            "sdr_overlap": 0.1927
+        },
+        {
+            "text_a": "O princípio da incerteza de Heisenberg impede determinar a posição e momento de forma precisa.",
+            "text_b": "Gatos domésticos ronronam para expressar contentamento ou para aliviar o estresse.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 3",
+            "role_b": "Base 1",
+            "cosine_similarity": 0.0046,
+            "sdr_overlap": 0.1835
+        },
+        {
+            "text_a": "O princípio da incerteza de Heisenberg impede determinar a posição e momento de forma precisa.",
+            "text_b": "O comportamento caçador de felinos é ativado por estímulos visuais rápidos em movimento.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 3",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.1228,
+            "sdr_overlap": 0.211
+        },
+        {
+            "text_a": "O princípio da incerteza de Heisenberg impede determinar a posição e momento de forma precisa.",
+            "text_b": "Felinos limpam sua pelagem diariamente lambendo-se para remover pelos mortos.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 3",
+            "role_b": "Base 3",
+            "cosine_similarity": -0.0514,
+            "sdr_overlap": 0.1284
+        },
+        {
+            "text_a": "O princípio da incerteza de Heisenberg impede determinar a posição e momento de forma precisa.",
+            "text_b": "Um gato demonstra afeto esfregando suas glândulas odoríferas nas pernas do tutor.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 3",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.0625,
+            "sdr_overlap": 0.1927
+        },
+        {
+            "text_a": "O princípio da incerteza de Heisenberg impede determinar a posição e momento de forma precisa.",
+            "text_b": "Animais felinos domésticos passam grande parte do dia dormindo em locais altos e aquecidos.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 3",
+            "role_b": "Query",
+            "cosine_similarity": 0.0143,
+            "sdr_overlap": 0.1651
+        },
+        {
+            "text_a": "A superposição permite que um qubit represente múltiplos estados lógicos simultaneamente.",
+            "text_b": "Redes neurais profundas ajustam seus pesos sinápticos através do algoritmo de retropropagação.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 4",
+            "role_b": "Base 1",
+            "cosine_similarity": 0.2562,
+            "sdr_overlap": 0.2569
+        },
+        {
+            "text_a": "A superposição permite que um qubit represente múltiplos estados lógicos simultaneamente.",
+            "text_b": "Modelos de linguagem de larga escala utilizam a arquitetura transformer com atenção multidirecional.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 4",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.2462,
+            "sdr_overlap": 0.2661
+        },
+        {
+            "text_a": "A superposição permite que um qubit represente múltiplos estados lógicos simultaneamente.",
+            "text_b": "O aprendizado por reforço treina agentes autônomos maximizando recompensas cumulativas no ambiente.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 4",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.0491,
+            "sdr_overlap": 0.1927
+        },
+        {
+            "text_a": "A superposição permite que um qubit represente múltiplos estados lógicos simultaneamente.",
+            "text_b": "A regularização por dropout previne o sobreajuste desligando neurônios aleatoriamente no treino.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 4",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.1544,
+            "sdr_overlap": 0.156
+        },
+        {
+            "text_a": "A superposição permite que um qubit represente múltiplos estados lógicos simultaneamente.",
+            "text_b": "Algoritmos de deep learning aprendem representações hierárquicas a partir de grandes volumes de dados.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Base 4",
+            "role_b": "Query",
+            "cosine_similarity": 0.1478,
+            "sdr_overlap": 0.1651
+        },
+        {
+            "text_a": "A superposição permite que um qubit represente múltiplos estados lógicos simultaneamente.",
+            "text_b": "Gatos domésticos ronronam para expressar contentamento ou para aliviar o estresse.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 4",
+            "role_b": "Base 1",
+            "cosine_similarity": 0.1181,
+            "sdr_overlap": 0.1927
+        },
+        {
+            "text_a": "A superposição permite que um qubit represente múltiplos estados lógicos simultaneamente.",
+            "text_b": "O comportamento caçador de felinos é ativado por estímulos visuais rápidos em movimento.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 4",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.1579,
+            "sdr_overlap": 0.1835
+        },
+        {
+            "text_a": "A superposição permite que um qubit represente múltiplos estados lógicos simultaneamente.",
+            "text_b": "Felinos limpam sua pelagem diariamente lambendo-se para remover pelos mortos.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 4",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.0146,
+            "sdr_overlap": 0.1376
+        },
+        {
+            "text_a": "A superposição permite que um qubit represente múltiplos estados lógicos simultaneamente.",
+            "text_b": "Um gato demonstra afeto esfregando suas glândulas odoríferas nas pernas do tutor.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 4",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.1155,
+            "sdr_overlap": 0.156
+        },
+        {
+            "text_a": "A superposição permite que um qubit represente múltiplos estados lógicos simultaneamente.",
+            "text_b": "Animais felinos domésticos passam grande parte do dia dormindo em locais altos e aquecidos.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 4",
+            "role_b": "Query",
+            "cosine_similarity": 0.1481,
+            "sdr_overlap": 0.1927
+        },
+        {
+            "text_a": "Partículas subatômicas existem em múltiplos estados até que uma medição colapse sua função de onda.",
+            "text_b": "Redes neurais profundas ajustam seus pesos sinápticos através do algoritmo de retropropagação.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Query",
+            "role_b": "Base 1",
+            "cosine_similarity": 0.1849,
+            "sdr_overlap": 0.2385
+        },
+        {
+            "text_a": "Partículas subatômicas existem em múltiplos estados até que uma medição colapse sua função de onda.",
+            "text_b": "Modelos de linguagem de larga escala utilizam a arquitetura transformer com atenção multidirecional.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Query",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.114,
+            "sdr_overlap": 0.2018
+        },
+        {
+            "text_a": "Partículas subatômicas existem em múltiplos estados até que uma medição colapse sua função de onda.",
+            "text_b": "O aprendizado por reforço treina agentes autônomos maximizando recompensas cumulativas no ambiente.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Query",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.0229,
+            "sdr_overlap": 0.1376
+        },
+        {
+            "text_a": "Partículas subatômicas existem em múltiplos estados até que uma medição colapse sua função de onda.",
+            "text_b": "A regularização por dropout previne o sobreajuste desligando neurônios aleatoriamente no treino.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Query",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.1809,
+            "sdr_overlap": 0.1743
+        },
+        {
+            "text_a": "Partículas subatômicas existem em múltiplos estados até que uma medição colapse sua função de onda.",
+            "text_b": "Algoritmos de deep learning aprendem representações hierárquicas a partir de grandes volumes de dados.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Inteligência Artificial e Deep Learning",
+            "role_a": "Query",
+            "role_b": "Query",
+            "cosine_similarity": 0.0876,
+            "sdr_overlap": 0.1651
+        },
+        {
+            "text_a": "Partículas subatômicas existem em múltiplos estados até que uma medição colapse sua função de onda.",
+            "text_b": "Gatos domésticos ronronam para expressar contentamento ou para aliviar o estresse.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Query",
+            "role_b": "Base 1",
+            "cosine_similarity": 0.1197,
+            "sdr_overlap": 0.1927
+        },
+        {
+            "text_a": "Partículas subatômicas existem em múltiplos estados até que uma medição colapse sua função de onda.",
+            "text_b": "O comportamento caçador de felinos é ativado por estímulos visuais rápidos em movimento.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Query",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.1385,
+            "sdr_overlap": 0.211
+        },
+        {
+            "text_a": "Partículas subatômicas existem em múltiplos estados até que uma medição colapse sua função de onda.",
+            "text_b": "Felinos limpam sua pelagem diariamente lambendo-se para remover pelos mortos.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Query",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.108,
+            "sdr_overlap": 0.1743
+        },
+        {
+            "text_a": "Partículas subatômicas existem em múltiplos estados até que uma medição colapse sua função de onda.",
+            "text_b": "Um gato demonstra afeto esfregando suas glândulas odoríferas nas pernas do tutor.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Query",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.0713,
+            "sdr_overlap": 0.1468
+        },
+        {
+            "text_a": "Partículas subatômicas existem em múltiplos estados até que uma medição colapse sua função de onda.",
+            "text_b": "Animais felinos domésticos passam grande parte do dia dormindo em locais altos e aquecidos.",
+            "theme_a": "Mecânica Quântica",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Query",
+            "role_b": "Query",
+            "cosine_similarity": 0.1496,
+            "sdr_overlap": 0.1835
+        },
+        {
+            "text_a": "Redes neurais profundas ajustam seus pesos sinápticos através do algoritmo de retropropagação.",
+            "text_b": "Gatos domésticos ronronam para expressar contentamento ou para aliviar o estresse.",
+            "theme_a": "Inteligência Artificial e Deep Learning",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 1",
+            "role_b": "Base 1",
+            "cosine_similarity": 0.1429,
+            "sdr_overlap": 0.2018
+        },
+        {
+            "text_a": "Redes neurais profundas ajustam seus pesos sinápticos através do algoritmo de retropropagação.",
+            "text_b": "O comportamento caçador de felinos é ativado por estímulos visuais rápidos em movimento.",
+            "theme_a": "Inteligência Artificial e Deep Learning",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 1",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.2826,
+            "sdr_overlap": 0.2936
+        },
+        {
+            "text_a": "Redes neurais profundas ajustam seus pesos sinápticos através do algoritmo de retropropagação.",
+            "text_b": "Felinos limpam sua pelagem diariamente lambendo-se para remover pelos mortos.",
+            "theme_a": "Inteligência Artificial e Deep Learning",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 1",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.1017,
+            "sdr_overlap": 0.1927
+        },
+        {
+            "text_a": "Redes neurais profundas ajustam seus pesos sinápticos através do algoritmo de retropropagação.",
+            "text_b": "Um gato demonstra afeto esfregando suas glândulas odoríferas nas pernas do tutor.",
+            "theme_a": "Inteligência Artificial e Deep Learning",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 1",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.1155,
+            "sdr_overlap": 0.156
+        },
+        {
+            "text_a": "Redes neurais profundas ajustam seus pesos sinápticos através do algoritmo de retropropagação.",
+            "text_b": "Animais felinos domésticos passam grande parte do dia dormindo em locais altos e aquecidos.",
+            "theme_a": "Inteligência Artificial e Deep Learning",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 1",
+            "role_b": "Query",
+            "cosine_similarity": 0.1453,
+            "sdr_overlap": 0.1835
+        },
+        {
+            "text_a": "Modelos de linguagem de larga escala utilizam a arquitetura transformer com atenção multidirecional.",
+            "text_b": "Gatos domésticos ronronam para expressar contentamento ou para aliviar o estresse.",
+            "theme_a": "Inteligência Artificial e Deep Learning",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 2",
+            "role_b": "Base 1",
+            "cosine_similarity": 0.0111,
+            "sdr_overlap": 0.1101
+        },
+        {
+            "text_a": "Modelos de linguagem de larga escala utilizam a arquitetura transformer com atenção multidirecional.",
+            "text_b": "O comportamento caçador de felinos é ativado por estímulos visuais rápidos em movimento.",
+            "theme_a": "Inteligência Artificial e Deep Learning",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 2",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.1503,
+            "sdr_overlap": 0.1927
+        },
+        {
+            "text_a": "Modelos de linguagem de larga escala utilizam a arquitetura transformer com atenção multidirecional.",
+            "text_b": "Felinos limpam sua pelagem diariamente lambendo-se para remover pelos mortos.",
+            "theme_a": "Inteligência Artificial e Deep Learning",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 2",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.007,
+            "sdr_overlap": 0.1468
+        },
+        {
+            "text_a": "Modelos de linguagem de larga escala utilizam a arquitetura transformer com atenção multidirecional.",
+            "text_b": "Um gato demonstra afeto esfregando suas glândulas odoríferas nas pernas do tutor.",
+            "theme_a": "Inteligência Artificial e Deep Learning",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 2",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.0045,
+            "sdr_overlap": 0.1376
+        },
+        {
+            "text_a": "Modelos de linguagem de larga escala utilizam a arquitetura transformer com atenção multidirecional.",
+            "text_b": "Animais felinos domésticos passam grande parte do dia dormindo em locais altos e aquecidos.",
+            "theme_a": "Inteligência Artificial e Deep Learning",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 2",
+            "role_b": "Query",
+            "cosine_similarity": 0.0796,
+            "sdr_overlap": 0.1651
+        },
+        {
+            "text_a": "O aprendizado por reforço treina agentes autônomos maximizando recompensas cumulativas no ambiente.",
+            "text_b": "Gatos domésticos ronronam para expressar contentamento ou para aliviar o estresse.",
+            "theme_a": "Inteligência Artificial e Deep Learning",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 3",
+            "role_b": "Base 1",
+            "cosine_similarity": 0.1832,
+            "sdr_overlap": 0.1835
+        },
+        {
+            "text_a": "O aprendizado por reforço treina agentes autônomos maximizando recompensas cumulativas no ambiente.",
+            "text_b": "O comportamento caçador de felinos é ativado por estímulos visuais rápidos em movimento.",
+            "theme_a": "Inteligência Artificial e Deep Learning",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 3",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.4071,
+            "sdr_overlap": 0.3028
+        },
+        {
+            "text_a": "O aprendizado por reforço treina agentes autônomos maximizando recompensas cumulativas no ambiente.",
+            "text_b": "Felinos limpam sua pelagem diariamente lambendo-se para remover pelos mortos.",
+            "theme_a": "Inteligência Artificial e Deep Learning",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 3",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.2134,
+            "sdr_overlap": 0.2202
+        },
+        {
+            "text_a": "O aprendizado por reforço treina agentes autônomos maximizando recompensas cumulativas no ambiente.",
+            "text_b": "Um gato demonstra afeto esfregando suas glândulas odoríferas nas pernas do tutor.",
+            "theme_a": "Inteligência Artificial e Deep Learning",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 3",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.1738,
+            "sdr_overlap": 0.1927
+        },
+        {
+            "text_a": "O aprendizado por reforço treina agentes autônomos maximizando recompensas cumulativas no ambiente.",
+            "text_b": "Animais felinos domésticos passam grande parte do dia dormindo em locais altos e aquecidos.",
+            "theme_a": "Inteligência Artificial e Deep Learning",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 3",
+            "role_b": "Query",
+            "cosine_similarity": 0.0979,
+            "sdr_overlap": 0.156
+        },
+        {
+            "text_a": "A regularização por dropout previne o sobreajuste desligando neurônios aleatoriamente no treino.",
+            "text_b": "Gatos domésticos ronronam para expressar contentamento ou para aliviar o estresse.",
+            "theme_a": "Inteligência Artificial e Deep Learning",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 4",
+            "role_b": "Base 1",
+            "cosine_similarity": 0.1559,
+            "sdr_overlap": 0.2018
+        },
+        {
+            "text_a": "A regularização por dropout previne o sobreajuste desligando neurônios aleatoriamente no treino.",
+            "text_b": "O comportamento caçador de felinos é ativado por estímulos visuais rápidos em movimento.",
+            "theme_a": "Inteligência Artificial e Deep Learning",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 4",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.2269,
+            "sdr_overlap": 0.3028
+        },
+        {
+            "text_a": "A regularização por dropout previne o sobreajuste desligando neurônios aleatoriamente no treino.",
+            "text_b": "Felinos limpam sua pelagem diariamente lambendo-se para remover pelos mortos.",
+            "theme_a": "Inteligência Artificial e Deep Learning",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 4",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.1674,
+            "sdr_overlap": 0.2385
+        },
+        {
+            "text_a": "A regularização por dropout previne o sobreajuste desligando neurônios aleatoriamente no treino.",
+            "text_b": "Um gato demonstra afeto esfregando suas glândulas odoríferas nas pernas do tutor.",
+            "theme_a": "Inteligência Artificial e Deep Learning",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 4",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.0925,
+            "sdr_overlap": 0.1927
+        },
+        {
+            "text_a": "A regularização por dropout previne o sobreajuste desligando neurônios aleatoriamente no treino.",
+            "text_b": "Animais felinos domésticos passam grande parte do dia dormindo em locais altos e aquecidos.",
+            "theme_a": "Inteligência Artificial e Deep Learning",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Base 4",
+            "role_b": "Query",
+            "cosine_similarity": 0.1429,
+            "sdr_overlap": 0.1927
+        },
+        {
+            "text_a": "Algoritmos de deep learning aprendem representações hierárquicas a partir de grandes volumes de dados.",
+            "text_b": "Gatos domésticos ronronam para expressar contentamento ou para aliviar o estresse.",
+            "theme_a": "Inteligência Artificial e Deep Learning",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Query",
+            "role_b": "Base 1",
+            "cosine_similarity": 0.0573,
+            "sdr_overlap": 0.1835
+        },
+        {
+            "text_a": "Algoritmos de deep learning aprendem representações hierárquicas a partir de grandes volumes de dados.",
+            "text_b": "O comportamento caçador de felinos é ativado por estímulos visuais rápidos em movimento.",
+            "theme_a": "Inteligência Artificial e Deep Learning",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Query",
+            "role_b": "Base 2",
+            "cosine_similarity": 0.1553,
+            "sdr_overlap": 0.211
+        },
+        {
+            "text_a": "Algoritmos de deep learning aprendem representações hierárquicas a partir de grandes volumes de dados.",
+            "text_b": "Felinos limpam sua pelagem diariamente lambendo-se para remover pelos mortos.",
+            "theme_a": "Inteligência Artificial e Deep Learning",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Query",
+            "role_b": "Base 3",
+            "cosine_similarity": 0.0624,
+            "sdr_overlap": 0.1468
+        },
+        {
+            "text_a": "Algoritmos de deep learning aprendem representações hierárquicas a partir de grandes volumes de dados.",
+            "text_b": "Um gato demonstra afeto esfregando suas glândulas odoríferas nas pernas do tutor.",
+            "theme_a": "Inteligência Artificial e Deep Learning",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Query",
+            "role_b": "Base 4",
+            "cosine_similarity": 0.0513,
+            "sdr_overlap": 0.1743
+        },
+        {
+            "text_a": "Algoritmos de deep learning aprendem representações hierárquicas a partir de grandes volumes de dados.",
+            "text_b": "Animais felinos domésticos passam grande parte do dia dormindo em locais altos e aquecidos.",
+            "theme_a": "Inteligência Artificial e Deep Learning",
+            "theme_b": "Comportamento de Gatos Domésticos",
+            "role_a": "Query",
+            "role_b": "Query",
+            "cosine_similarity": 0.1135,
+            "sdr_overlap": 0.2202
+        }
+    ]
+}

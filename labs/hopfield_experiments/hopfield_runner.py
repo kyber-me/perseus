@@ -1,5 +1,4 @@
 import numpy as np
-import hashlib
 import json
 import os
 from datetime import datetime
@@ -15,25 +14,28 @@ class HopfieldExperimentSkill:
     Skill encapsulada para rodar simulações In-Vitro na HopfieldNet.
     Gera automaticamente logs detalhados em JSON para cada experimento iterativo.
     """
-    def __init__(self, h_dim=(16, 16, 16), input_dim=384, density=0.50, seed=123):
+    def __init__(self, h_dim=(16, 16, 16), input_dim=768, density=0.50, seed=123):
         self.h_dim = h_dim
         self.input_dim = input_dim
         self.encoder = SparseEncoder(input_dim=input_dim, grid_shape=h_dim, density=density, seed=seed)
+        
+        from embedding.semantic_embedder import SemanticEmbedder
+        self.embedder = SemanticEmbedder(input_dim)
+        
         self.hopnet = HopfieldNet(h_dim)
         self.memory_volumes = []
         self.facts = []
 
-    def _string_to_dense_embedding(self, text: str) -> np.ndarray:
-        seed = int(hashlib.md5(text.encode()).hexdigest()[:8], 16)
-        rng = np.random.default_rng(seed)
-        v = rng.standard_normal(self.input_dim).astype(np.float32)
-        return v / np.linalg.norm(v)
 
     def _calculate_hamming_similarity(self, p1: np.ndarray, p2: np.ndarray) -> float:
         b1 = np.where(p1.ravel() <= 0, 0, 1)
         b2 = np.where(p2.ravel() <= 0, 0, 1)
-        matches = np.sum(b1 == b2)
-        return float(matches / len(b1))
+        
+        overlap = np.sum((b1 == 1) & (b2 == 1))
+        active = np.sum(b1)
+        if active == 0: return 0.0
+        
+        return float(overlap / active)
 
     def run_semantic_retrieval(
         self, 
@@ -48,13 +50,13 @@ class HopfieldExperimentSkill:
         self.facts = learning_facts
         self.memory_volumes = []
         for fact in self.facts:
-            emb = self._string_to_dense_embedding(fact)
+            emb = self.embedder.embed(fact)
             vol = self.encoder.encode_seed(emb)
             self.memory_volumes.append(vol)
             self.hopnet.learn(vol)
 
         # 2. Gerar Gatilho (Cue) de Teste
-        emb_test = self._string_to_dense_embedding(test_fact)
+        emb_test = self.embedder.embed(test_fact)
         test_volume = self.encoder.encode_seed(emb_test)
         original_test_volume = test_volume.copy()
         
@@ -124,6 +126,46 @@ class HopfieldExperimentSkill:
         
         with open(filepath, 'w', encoding='utf-8') as f:
             json.dump(report, f, indent=4, ensure_ascii=False)
+
+        # Geração dinâmica do report.md conforme solicitado pelo usuário
+        report_md_filename = filename.replace('.json', '.md')
+        report_md_filepath = os.path.join(output_dir, report_md_filename)
+        
+        target_results = ""
+        for res in results:
+            marker = " <=== RECUPERAÇÃO PERFEITA!" if res["similarity_percentage"] == 100.0 else (
+                " <=== FALSO POSITIVO (ALUCINAÇÃO)!" if res["similarity_percentage"] > 90.0 and test_fact not in self.facts else ""
+            )
+            target_results += f"    - Similaridade com o Fato {res['fact_id']}: {res['similarity_percentage']:.2f}% ({res['status']}){marker}\n"
+            
+        report_md_content = f"""# Relatório Experimental: Recuperação Semântica (Hopfield 3D)
+<!-- Relatório de Validação da Unidade de Memória Associativa de CA3 -->
+
+## 1. Objetivo do Experimento
+Validar a capacidade da **Unidade CA3 Hipocampal**, modelada por uma **Rede de Hopfield Recorrente 3D** (escala {self.h_dim[0]}x{self.h_dim[1]}x{self.h_dim[2]} correspondendo a $N={int(np.prod(self.h_dim))}$ neurônios virtuais), de realizar:
+1.  **Pattern Completion**: Recuperar com precisão um engrama estável original a partir de um gatilho de evocação corrompido com ruído severo.
+2.  **Rejeição e Spurious States**: Avaliar o comportamento dinâmico da rede quando exposta a um estímulo inédito (conceito alienígena não aprendido).
+
+---
+
+## 2. Configurações e Massa de Dados
+*   **Grid de Resolução**: Volume 3D de {self.h_dim[0]}x{self.h_dim[1]}x{self.h_dim[2]} ({int(np.prod(self.h_dim))} neurônios).
+*   **Projeção Esparsa**: `SparseEncoder` com densidade {self.encoder.density:.2f} (ativação de {int(np.prod(self.h_dim)*self.encoder.density)} neurônios).
+*   **Nome do Experimento**: {experiment_name}
+*   **Descrição**: {description}
+
+---
+
+## 3. Resultados Obtidos (Teste: '{test_fact}')
+*   **Ruído Injetado**: {noise_level * 100:.1f}%
+*   **É Conceito Alienígena (Inédito)?**: {'SIM' if test_fact not in self.facts else 'NÃO'}
+*   **Similaridade de Saída com a Própria Entrada Inédita**: {self_sim * 100:.2f}%
+
+### Similaridades Finais por Fato Consolidador:
+{target_results}
+"""
+        with open(report_md_filepath, 'w', encoding='utf-8') as f:
+            f.write(report_md_content)
             
         return filepath
 
