@@ -1,0 +1,201 @@
+{
+    "sentence": "Heisenberg's uncertainty principle prevents determining both position and momentum precisely.",
+    "dimensions": 768,
+    "statistics": {
+        "mean": -0.000781,
+        "std_dev": 0.036076,
+        "min": -0.238002,
+        "max": 0.084836
+    },
+    "normality_check": {
+        "one_sigma": {
+            "empirical_count": 530,
+            "empirical_percentage": 0.6901,
+            "theoretical_percentage": 0.6827,
+            "deviation": 0.0074
+        },
+        "two_sigma": {
+            "empirical_count": 735,
+            "empirical_percentage": 0.957,
+            "theoretical_percentage": 0.9545,
+            "deviation": 0.0025
+        },
+        "three_sigma": {
+            "empirical_count": 767,
+            "empirical_percentage": 0.9987,
+            "theoretical_percentage": 0.9973,
+            "deviation": 0.0014
+        }
+    },
+    "high_signal_components": {
+        "extreme_tails_above_3sigma": [
+            {
+                "dimension_index": 308,
+                "value": -0.23800185322761536,
+                "deviation_sigmas": 6.575596332550049
+            }
+        ],
+        "transition_zone_2sigma_to_3sigma": [
+            {
+                "dimension_index": 336,
+                "value": -0.10577186197042465,
+                "deviation_sigmas": 2.9102725982666016
+            },
+            {
+                "dimension_index": 723,
+                "value": -0.09976416081190109,
+                "deviation_sigmas": 2.743743419647217
+            },
+            {
+                "dimension_index": 265,
+                "value": -0.09399919956922531,
+                "deviation_sigmas": 2.5839426517486572
+            },
+            {
+                "dimension_index": 716,
+                "value": -0.09151116758584976,
+                "deviation_sigmas": 2.5149760246276855
+            },
+            {
+                "dimension_index": 587,
+                "value": -0.09023680537939072,
+                "deviation_sigmas": 2.479651689529419
+            },
+            {
+                "dimension_index": 518,
+                "value": -0.08768808841705322,
+                "deviation_sigmas": 2.4090030193328857
+            },
+            {
+                "dimension_index": 608,
+                "value": -0.08683851361274719,
+                "deviation_sigmas": 2.385453462600708
+            },
+            {
+                "dimension_index": 391,
+                "value": 0.084835946559906,
+                "deviation_sigmas": 2.373243570327759
+            },
+            {
+                "dimension_index": 50,
+                "value": -0.0860496237874031,
+                "deviation_sigmas": 2.363585948944092
+            },
+            {
+                "dimension_index": 459,
+                "value": -0.08598893880844116,
+                "deviation_sigmas": 2.361903667449951
+            },
+            {
+                "dimension_index": 264,
+                "value": -0.08513936400413513,
+                "deviation_sigmas": 2.3383541107177734
+            },
+            {
+                "dimension_index": 225,
+                "value": 0.08331885188817978,
+                "deviation_sigmas": 2.331190824508667
+            },
+            {
+                "dimension_index": 488,
+                "value": 0.08301543444395065,
+                "deviation_sigmas": 2.3227803707122803
+            },
+            {
+                "dimension_index": 546,
+                "value": -0.08453252911567688,
+                "deviation_sigmas": 2.321533203125
+            },
+            {
+                "dimension_index": 757,
+                "value": 0.08265133202075958,
+                "deviation_sigmas": 2.312687635421753
+            },
+            {
+                "dimension_index": 722,
+                "value": -0.08380432426929474,
+                "deviation_sigmas": 2.3013477325439453
+            },
+            {
+                "dimension_index": 536,
+                "value": 0.08168039470911026,
+                "deviation_sigmas": 2.285773992538452
+            },
+            {
+                "dimension_index": 637,
+                "value": 0.08046671748161316,
+                "deviation_sigmas": 2.252131700515747
+            },
+            {
+                "dimension_index": 728,
+                "value": -0.0818624421954155,
+                "deviation_sigmas": 2.2475202083587646
+            },
+            {
+                "dimension_index": 89,
+                "value": 0.08004193007946014,
+                "deviation_sigmas": 2.240356922149658
+            },
+            {
+                "dimension_index": 450,
+                "value": 0.07985987514257431,
+                "deviation_sigmas": 2.2353103160858154
+            },
+            {
+                "dimension_index": 194,
+                "value": 0.07676500082015991,
+                "deviation_sigmas": 2.149522542953491
+            },
+            {
+                "dimension_index": 535,
+                "value": 0.07646158337593079,
+                "deviation_sigmas": 2.1411120891571045
+            },
+            {
+                "dimension_index": 136,
+                "value": 0.07609748095273972,
+                "deviation_sigmas": 2.131019353866577
+            },
+            {
+                "dimension_index": 388,
+                "value": -0.07761457562446594,
+                "deviation_sigmas": 2.129772186279297
+            },
+            {
+                "dimension_index": 720,
+                "value": -0.07731115818023682,
+                "deviation_sigmas": 2.12136173248291
+            },
+            {
+                "dimension_index": 684,
+                "value": 0.07354876399040222,
+                "deviation_sigmas": 2.060370683670044
+            },
+            {
+                "dimension_index": 743,
+                "value": -0.07421628385782242,
+                "deviation_sigmas": 2.035573959350586
+            },
+            {
+                "dimension_index": 670,
+                "value": 0.07263850420713425,
+                "deviation_sigmas": 2.0351390838623047
+            },
+            {
+                "dimension_index": 641,
+                "value": 0.07215303182601929,
+                "deviation_sigmas": 2.021682024002075
+            },
+            {
+                "dimension_index": 596,
+                "value": -0.07348807901144028,
+                "deviation_sigmas": 2.0153884887695312
+            },
+            {
+                "dimension_index": 141,
+                "value": -0.07342739403247833,
+                "deviation_sigmas": 2.0137064456939697
+            }
+        ]
+    }
+}

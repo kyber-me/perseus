@@ -27,6 +27,11 @@
     - Implementação de **Centramento Semântico (Contrastive Centering)** no pipeline experimental para eliminar o "efeito cone" de similaridade típico de transformers de linguagem.
     - Alcance de **$11.17\%$** de SDR Overlap inter-tema (abaixo do piso estatístico de $15.00\%$) e uma razão de contraste físico de **$2.70\times$** (prevenindo vazamentos cruzados em CA3).
     - Criação da **Skill Agêntica local (`semantic-granularity-experiment`)** e do **Livro de Registro Histórico Central (ledger dinâmico em `results/report.md`)** para conduzir e documentar as execuções de forma puramente qualitativa e dinâmica.
+- **Laboratório de Distribuição de Embeddings e Componentes de Alto Sinal**:
+    - Criação do laboratório `labs/embedding_distribution/` para analisar matematicamente a distribuição de probabilidade Gaussiana de embeddings BGE de 768 dimensões.
+    - Implementação da extração parametrizável por CLI de outliers de alto sinal (extremas caudas $>3\sigma$ e zona de transição $2\sigma$-$3\sigma$).
+    - Renderização de histograma científico de alta fidelidade com Matplotlib (Neon Dark Mode) para visualizar a aderência à curva de densidade de probabilidade (PDF) de Gauss.
+    - Criação de skill agêntica local (`embedding-distribution-analysis`) para conduzir e mapear spikes semânticos em novas frases de forma automatizada.
 
 ---
 

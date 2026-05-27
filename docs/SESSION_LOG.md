@@ -359,5 +359,19 @@ Point → Event → EventSchema → Neocortex ──[SparseEncoder (3D)]──> 
 
 ---
 
+## Sessão 5 — 27 de maio de 2026
+
+### Estudo de Distribuição Gaussiana e Outliers em Alta Dimensionalidade
+
+**Tiago:** Propôs a criação de um laboratório específico de preservação métrica para entender a distribuição da probabilidade de coordenadas em vetores semânticos densos (embeddings BGE de 768 dimensões) de forma individualizada (frase a frase). Solicitou a parametrização do script por CLI, a extração explícita de componentes de alto sinal em caudas de Gauss (extremas caudas $>3\sigma$ e zona de transição $2\sigma$ a $3\sigma$), plotagem de gráficos científicos em alta fidelidade e estruturação de uma nova skill local.
+
+**AI:** Implementou toda a infraestrutura matemática e de visualização do laboratório:
+1. **Modelagem Matemática**: Calculou a média e desvio padrão reais das 768 dimensões do embedding BGE-1.5, validando empiricamente que a distribuição de energia obedece à curva Gaussiana com desvios infinitesimais (ex: 69.01% real vs 68.27% teórico em $1\sigma$, 95.70% real vs 95.45% teórico em $2\sigma$ e 99.87% real vs 99.73% teórico em $3\sigma$).
+2. **Extração de Marcadores de Alto Sinal**: Codificou o motor de mapeamento ordenado que extrai outliers das duas caudas gaussianas extremas ($>3\sigma$), capturando exatamente o spike correspondente à predição (1 dimensão na cauda extrema em $6.58\sigma$ na dimensão 308, e exatamente 32 dimensões secundárias na zona de transição $2\sigma$-$3\sigma$ para a frase 12 do benchmark).
+3. **Módulo de Plotagem Premium**: Gerou gráficos científicos com Matplotlib usando paleta Neon/Dark Mode, sobrepondo o histograma de frequência empírica das 768 dimensões com a curva teórica PDF de Gauss e as demarcações verticais dos desvios padrão.
+4. **Skill Parametrizada e Organização de Resultados**: Construiu a skill agêntica local `skills/embedding-distribution-analysis/SKILL.md` permitindo a qualquer IA invocar o script de forma autônoma. Moveu toda a gravação de resultados para pastas específicas e isoladas por timestamp (ex: `labs/embedding_distribution/results/Experimento_Distribuicao_.../`), garantindo que nenhuma gravação colida ou seja sobrescrita.
+
+---
+
 *Projeto: Perseus / BeeBrain — kyber57*
-*Período: 13–26 maio de 2026*
+*Período: 13–27 maio de 2026*
